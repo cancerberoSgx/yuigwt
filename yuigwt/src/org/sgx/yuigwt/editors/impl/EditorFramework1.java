@@ -33,7 +33,7 @@ public class EditorFramework1
 		start(y);
 	}
 
-	// @Override
+	// 
 	public void start(final YuiContext y) {
 
 		if (started)
@@ -45,35 +45,35 @@ public class EditorFramework1
 		Types types = Types.getInstance();
 
 		types.registerEditor("BooleanEditor1", TYPE_BOOLEAN, Boolean.class, new EditorCreator<Boolean>() {
-			@Override
+			
 			public Editor<Boolean> create() {
 				return new BooleanEditor1(y);
 			}
 		});
 
 		types.registerEditor("StringEditor1", TYPE_STRING, String.class, new EditorCreator<String>() {
-			@Override
+			
 			public Editor<String> create() {
 				return new StringEditor1(y);
 			}
 		});
 
 		types.registerEditor("IntegerEditor1", TYPE_INTEGER, Integer.class, new EditorCreator<Integer>() {
-			@Override
+			
 			public Editor<Integer> create() {
 				return new IntegerEditor1(y);
 			}
 		});
 
 		types.registerEditor("IntegerEditor1", TYPE_COLOR, Color.class, new EditorCreator<Color>() {
-			@Override
+			
 			public Editor<Color> create() {
 				return new ColorEditor(y);
 			}
 		});
 
 		types.registerEditor("IntegerEditor1", TYPE_PROPERTYHAVER, PropertyHaver.class, new EditorCreator<PropertyHaver>() {
-			@Override
+			
 			public Editor<PropertyHaver> create() {
 				return new PropertyHaverEditor2<PropertyHaver>(y);
 			}

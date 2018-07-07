@@ -35,10 +35,10 @@ public DataSourceTest1() {
 		TestResources.instance.DataSourceTest1()); 
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"datasource", "console", "dump", "json"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {	
 		final Console console1 = Y.newConsole(ConsoleConfig.create().collapsed(true)).render().cast();
 		
@@ -46,12 +46,12 @@ YUI.Use(new String[]{"datasource", "console", "dump", "json"}, new YUICallback()
 		JavaScriptObject data1 = data1(); 
 		DataSource ds1 = Y.newDataSourceLocal(DataSourceConfig.create().source(data1)); 
 		ds1.sendRequest(DataSourceRequest.create().callback(new DataSourceCallbackAdapter() {
-			@Override
+			
 			public void success(DataSourceEvent e) {
 				console1.log("success1: "+JsUtil.dumpObj(e.response().meta())+
 					" - "+JsUtil.dumpObj(e.response().results(), true)); 
 			}
-			@Override
+			
 			public void failure(DataSourceEvent e) {
 				Window.alert("failure1: "+JsUtil.dumpObj(e));
 			}
@@ -64,7 +64,7 @@ YUI.Use(new String[]{"datasource", "console", "dump", "json"}, new YUICallback()
 		ds2.sendRequest(DataSourceRequest.create()
 			.request("q="+yqlQuery)
 			.callback(new DataSourceCallbackAdapter() {
-			@Override
+			
 			public void success(DataSourceEvent e) {
 //				JsArray<Result> results = e.response().results().cast(); 
 //				Result result = results.get(0);
@@ -81,7 +81,7 @@ YUI.Use(new String[]{"datasource", "console", "dump", "json"}, new YUICallback()
 				
 				console1.log("success2: "+Y.JSON().stringify(e.response().results()));
 			}
-			@Override
+			
 			public void failure(DataSourceEvent e) {
 				Window.alert("failure2: "+JsUtil.dumpObj(e));
 			}

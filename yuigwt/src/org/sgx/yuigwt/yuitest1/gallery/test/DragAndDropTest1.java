@@ -21,11 +21,11 @@ public DragAndDropTest1() {
 		TestResources.instance.DragAndDropTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"dd-drag", "console", "dd-plugin"}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		Node node1 = parent.appendChild("<p>dragme1</p>"); 
 		Drag dd = Y.newDDDrag(DragConfig.create().node(node1)); 

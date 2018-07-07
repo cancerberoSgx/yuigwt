@@ -40,14 +40,14 @@ public class AccordionTest1 extends AbstractTest {
 		super("accordion1", "accordion tests", new String[] { TAG_ACCORDION, TAG_WIDGET, TAG_GALLERY, TAG_GET }, TestResources.instance.gal_AccordionTest1());
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.YUI(YuiConfig.create().gallery(GalleryConstants.LATEST_BUILD)).use(
 
 		new String[] { "dd-constrain", "dd-proxy", "dd-drop", "gallery-accordion"
 //				, "gallery-accordion-missing-css"
 				}, new YUICallback() {
-			@Override
+			
 			public void ready(YuiContext Y_) {
 
 				// cast to YuiGalleryContext for using the yui gallery java api.

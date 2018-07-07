@@ -37,11 +37,11 @@ public YQLDescTableTest1() {
 }
 
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI(YuiConfig.create().gallery("gallery-2011.10.20-23-28"))
 .use(new String[]{"yql", "gallery-geo", "handlebars"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 
 		final Console console = Y.newConsole().collapsed(true).render().cast();		
@@ -53,7 +53,7 @@ YUI.YUI(YuiConfig.create().gallery("gallery-2011.10.20-23-28"))
 		
 		//yql desc answers.getquestion
 		YQL yql1 = Y.newYQL("desc answers.getquestion", new YQLCallback() {			
-			@Override
+			
 			public void call(YQLResult r) {		
 				
 				if(r.error()!=null) {

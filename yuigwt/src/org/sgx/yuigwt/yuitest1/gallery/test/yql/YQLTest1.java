@@ -33,10 +33,10 @@ public YQLTest1() {
 		TestResources.instance.YQLTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"yql", "console", "dump", "json"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 
 		final Console console = Y.newConsole()
@@ -47,7 +47,7 @@ YUI.Use(new String[]{"yql", "console", "dump", "json"}, new YUICallback() {
 		YQLParams params1 = YQLParams.create()
 			.format("json").diagnostics("true"); 
 		YQL yql1 = Y.newYQL("select * from weather.forecast where location=90210", new YQLCallback() {			
-			@Override
+			
 			public void call(YQLResult r) {
 //				console.log(Y.JSON().stringify(r)); 
 				WheatherForecastResult fresult = r.query().results().cast(); 
@@ -72,7 +72,7 @@ YUI.Use(new String[]{"yql", "console", "dump", "json"}, new YUICallback() {
 		
 		String query2 = "select * from yui.gallery.all";
 		YQLCallback yqlCallback2 = new YQLCallback() {			
-			@Override
+			
 			public void call(YQLResult r) {
 				JsObject o = r.query().results().objGetObj("json"); //type, count, modules, } 
 				JsArray<JsObject> modules = o.objGetObj("modules").cast(); 
@@ -87,7 +87,7 @@ YUI.Use(new String[]{"yql", "console", "dump", "json"}, new YUICallback() {
 		
 		/* handle an yql request that gives error */		
 		YQL yql3 = Y.newYQL("select * from weather.nonexist123 where nonexists=90210", new YQLCallback() {			
-			@Override
+			
 			public void call(YQLResult r) {
 				if(r.error()!=null) 
 					console.log("ERROR (it is ok..):"+r.error().description()); 

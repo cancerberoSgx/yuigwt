@@ -36,13 +36,13 @@ public class UIBinderAloneButtonTest1 extends AbstractTest {
 						new GalleryResource(TestResources.instance.UIBinderAloneButtonUI(), "UIBinderAloneButton.ui.xml"), });
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] {				
 				"button",
 				}, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				// create a GWT Widget Panel that wrapps our yui widget parent.

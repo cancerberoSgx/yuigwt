@@ -35,12 +35,12 @@ public class UsingCompositeDirectlyTest extends AbstractTest {
 						new GalleryResource(TestResources.instance.UsingCompositeDirectlyUI(), "UsingCompositeDirectly.ui.xml") });
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "button", "button-plugin", "tabview", "autocomplete", "autocomplete-filters",
 				"autocomplete-highlighters" }, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				// create a GWT Widget Panel that wrapps our yui widget parent.

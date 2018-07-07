@@ -55,7 +55,7 @@ public class UIBinderAloneButton extends YUIBinded {
 		super(y); 
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		/*
 		 * all YUI stuff is ready and rendered, we obtain the YUI widgets and
@@ -64,7 +64,7 @@ public class UIBinderAloneButton extends YUIBinded {
 		yuiButton1 = yuiBinder.getWidget(yuiButtonEl1).cast();
 
 		yuiButton1.on("click", new EventCallback<ButtonEvent>() {
-			@Override
+			
 			public void call(ButtonEvent e) {
 				Window.alert("yui button clicked!"); 
 			}
@@ -73,7 +73,7 @@ public class UIBinderAloneButton extends YUIBinded {
 		yuiButton2 = yuiBinder.getWidget(yuiButtonEl2).cast();
 
 		yuiButton2.on("pressedChange", new EventCallback<ButtonEvent>() {
-			@Override
+			
 			public void call(ButtonEvent e) {
 				boolean pressed = yuiButton2.getBoolean("pressed");
 				yuiButton2.set("label", pressed ? "pressed button" : "not pressed button"); 
@@ -81,14 +81,14 @@ public class UIBinderAloneButton extends YUIBinded {
 		}); 
 	}
 
-	@Override
+	
 	public UiBinder<YUIBinded, Widget> getUIBinder() {
 		return uiBinder;
 	}	
 	/**
 	 * tell the YUIBinder which are the fields corresponding to YUI widgets. 
 	 */
-	@Override
+	
 	public Element[] getYUIBindedEls() {
 		return  new Element[] { yuiButtonEl1, yuiButtonEl2}; 
 	}

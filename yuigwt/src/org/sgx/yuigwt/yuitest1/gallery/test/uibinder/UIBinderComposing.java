@@ -37,7 +37,7 @@ public class UIBinderComposing extends YUIBinded {
 		Node n = y.one(mainMenu.getElement());
 		n.delegate("click", new NodeEventDelegateCallback() {
 			
-			@Override
+			
 			public void call(Node n, YuiEvent evt, Object arg) {
 				Window.alert("anchor clicked"); 
 			}
@@ -57,14 +57,14 @@ public class UIBinderComposing extends YUIBinded {
 	
 	//following all the "YUI binding" stuff - in this case we do not nothing.
 
-	@Override
+	
 	public void yuiBinded() {		
 	}
-	@Override
+	
 	public UiBinder<YUIBinded, Widget> getUIBinder() {
 		return uiBinder;
 	}	
-	@Override
+	
 	public Element[] getYUIBindedEls() {
 		//not yui binding required 
 		return  new Element[] {}; 

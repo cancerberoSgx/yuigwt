@@ -22,7 +22,7 @@ public class GridPanel extends YWidget {
 		setWrapped(y.newWidget());
 	}
 
-	@Override
+	
 	public void afterRender() {
 		gridRow.render(getContext(), srcNode());
 		int i = 0;

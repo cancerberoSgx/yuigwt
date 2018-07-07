@@ -32,10 +32,10 @@ public AnimTest1() {
 		TestResources.instance.AnimTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button", "anim"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		final Node p = parent.appendChild("<p>This is a para graph.. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..</p>");
 		p.setStyle("backgroundColor", "red"); 		
@@ -45,7 +45,7 @@ YUI.Use(new String[]{"button", "anim"}, new YUICallback() {
 				to(Style.create().width("10px")));
 		
 		anim1.on("end", new EventCallback<AnimEvent>() {			
-			@Override
+			
 			public void call(AnimEvent e) {
 				Window.alert("anim ended "); 
 			}
@@ -54,7 +54,7 @@ YUI.Use(new String[]{"button", "anim"}, new YUICallback() {
 			ButtonConfig.create().label("start")
 		).render(parent);	
 		button1.on("click", new EventCallback<ButtonEvent>() {			
-			@Override
+			
 			public void call(ButtonEvent e) {
 				anim1.run();				
 			}

@@ -22,12 +22,12 @@ public class BooleanEditor1 extends AbstractEditor<Boolean> {
 		
 	}
 
-	@Override
+	
 	public void render(Node parent) {
 		super.render(parent);
 		srcNode = parent.appendChild("<input type=\"checkbox\"></input>"); 
 		this.getSrcNode().on("click", new Callback() {			
-			@Override
+			
 			public void call(JsArrayMixed args) {
 				EditorEventManager.<Boolean>getInstance().fireValueChangeEvent(BooleanEditor1.this); 
 //				EditorValueChangeEvent<Boolean> evt = 
@@ -37,36 +37,36 @@ public class BooleanEditor1 extends AbstractEditor<Boolean> {
 		}); 
 	}
 
-	@Override
+	
 	public Boolean flush() {
 		boolean s = this.getSrcNode().getBoolean("checked");
 //		Window.alert(s); 
 		return s; 
 	}
 
-	@Override
+	
 	public void load(Boolean t) {
 		super.load(t); 
 //		this.model = t;
 //		setValue(t);
 	}
 	
-//	@Override
+//	
 //	public Node getWidget() {
 //		return this.node;
 //	}
 	
-//	@Override
+//	
 //	public List<EditorError<Boolean>> getErrors() {
 //		return EditorErrorManager.<Boolean>getInstance().getErrors(this);
 //	}
 
-//	@Override
+//	
 //	public String getEditorId() {
 //		return EditorManager1.getInstance().getEditorName(this);		
 //	}
 
-//	@Override
+//	
 //	public String[] getEditorTypesSupported() {
 //		return new String[]{EditorFramework1.TYPE_BOOLEAN}; 
 //	}

@@ -51,7 +51,7 @@ public class YUIBinder1 implements YUIBinder {
 	/* (non-Javadoc)
 	 * @see org.sgx.yuigwt.ui.YUIBinder#bindYUI(org.sgx.yuigwt.yui.YuiContext, com.google.gwt.user.client.ui.Widget, com.google.gwt.dom.client.Element[], org.sgx.yuigwt.ui.YUIBinderListener)
 	 */
-	@Override
+	
 	public void bindYUI(final YuiContext y, final Widget w, final Element[] els, YUIBinderListener listener) {
 		this.listener = listener;
 		
@@ -62,7 +62,7 @@ public class YUIBinder1 implements YUIBinder {
 			bindYUI(y, els);
 		else {
 			w.addAttachHandler(new Handler() {
-				@Override
+				
 				public void onAttachOrDetach(AttachEvent event) {
 //					System.out.println("bindYUI addAttachHandler "+w.getClass()+" "+event.isAttached());
 					if (event.isAttached())
@@ -83,7 +83,7 @@ public class YUIBinder1 implements YUIBinder {
 
 		// sort the list for getting the correct yui widget rendering order
 		Arrays.sort(els, new Comparator<Element>() {
-			@Override
+			
 			public int compare(Element o1, Element o2) {
 				int ret = -1;
 				if (o1.getId() != null && o2.getId() != null && o1.getId().equals(o2.getId()))
@@ -247,7 +247,7 @@ public class YUIBinder1 implements YUIBinder {
 	/* (non-Javadoc)
 	 * @see org.sgx.yuigwt.ui.YUIBinder#registerWidget(java.lang.String, org.sgx.yuigwt.yui.widget.Widget)
 	 */
-	@Override
+	
 	public void registerWidget(String elId, org.sgx.yuigwt.yui.widget.Widget w) {
 		widgets.put(elId, w);
 	}
@@ -255,7 +255,7 @@ public class YUIBinder1 implements YUIBinder {
 	/* (non-Javadoc)
 	 * @see org.sgx.yuigwt.ui.YUIBinder#getWidget(com.google.gwt.dom.client.Element)
 	 */
-	@Override
+	
 	public org.sgx.yuigwt.yui.widget.Widget getWidget(Element e) {
 		String id = e.getId();
 		return widgets.get(id);
@@ -264,7 +264,7 @@ public class YUIBinder1 implements YUIBinder {
 	/* (non-Javadoc)
 	 * @see org.sgx.yuigwt.ui.YUIBinder#getWidget(org.sgx.yuigwt.yui.node.Node)
 	 */
-	@Override
+	
 	public org.sgx.yuigwt.yui.widget.Widget getWidget(Node n) {
 		return widgets.get(n.get("id"));
 	}

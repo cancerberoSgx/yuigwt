@@ -55,14 +55,14 @@ public TreeViewTest2() {
 		TestResources.instance.gal_TreeViewTest2());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI(
 //	YuiConfig.create().gallery("gallery-2012.07.18-13-22")
 	YuiConfig.create().gallery(GalleryConstants.LATEST_BUILD)
 ).use(	
 new String[]{"gallery-yui-treeview", "io", "json"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y_) {		
 		Y = Y_.cast(); 		
 		TreeViewTest2.this.parent = parent; 
@@ -72,7 +72,7 @@ new String[]{"gallery-yui-treeview", "io", "json"}, new YUICallback() {
 		String uri1 = GWT.getModuleBaseURL()+"testfiles/yuimodulesMeta.json"; 
 		IOConfig ioConfig = IOConfig.create().
 				on(IO.EVENT_SUCCESS, new EventCallback<IOEvent>() {		
-			@Override
+			
 			public void call(IOEvent e) {
 				//data arrived, use json for parsing it and draw the tree
 				String json = e.data().responseText(); 
@@ -81,7 +81,7 @@ new String[]{"gallery-yui-treeview", "io", "json"}, new YUICallback() {
 				renderUi(); 
 			}			
 		}).on(IO.EVENT_FAILURE, new EventCallback<IOEvent>() {
-			@Override
+			
 			public void call(IOEvent e) {
 				Window.alert("FAIL to load data. Status: "+e.data().status()+
 					" - "+e.data().statusText()); 

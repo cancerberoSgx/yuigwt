@@ -8,15 +8,15 @@ import com.google.gwt.core.client.JavaScriptObject;
  *
  */
 public abstract class DataSourceCallbackAdapter implements DataSourceCallback {
-	@Override
+	
 	public void success(DataSourceEvent e) {		
 	}
 
-	@Override
+	
 	public void failure(DataSourceEvent e) {		
 	}
 
-	@Override
+	
 	public JavaScriptObject argument() {		
 		return null;
 	}

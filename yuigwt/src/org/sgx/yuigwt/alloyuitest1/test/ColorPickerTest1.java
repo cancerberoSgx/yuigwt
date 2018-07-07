@@ -32,12 +32,12 @@ public ColorPickerTest1() {
 		TestResources.instance.ColorPickerTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 //	this.parent = parent; 
 	AUI.Use(new String[]{"aui-color-picker", "console"}, new AUICallback() {
 		
-		@Override
+		
 		public void ready(AuiContext Y) {
 			
 			final Console console = Y.newConsole().render().cast(); 
@@ -49,7 +49,7 @@ public void test(final Node parent) {
 			
 			colorPiker1 = Y.newColorPicker(ColorPickerConfig.create().after(ColorPicker.EVENT_COLORCHANGE, new EventCallback<EventFacade>() {
 
-				@Override
+				
 				public void call(EventFacade e) {
 					console.log(colorPiker1.get("hex")); 
 				}
@@ -60,7 +60,7 @@ public void test(final Node parent) {
 	}); 
 }
 
-//@Override
+//
 //public void ready(final AuiContext A) {
 //	
 //}

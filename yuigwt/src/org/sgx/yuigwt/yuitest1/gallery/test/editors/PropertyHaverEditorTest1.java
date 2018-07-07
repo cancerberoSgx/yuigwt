@@ -65,7 +65,7 @@ public static class Person implements PropertyHaver {
 		this.male = male;
 	}		
 	
-	@Override
+	
 	public String toString() {
 		return "Person "+name; 
 	}
@@ -84,7 +84,7 @@ public static class Person implements PropertyHaver {
 	}		
 	
 	//property accessors
-	@Override
+	
 	public Object getProperty(String prop) {			
 		if(prop.equals("age"))
 			return age;
@@ -96,7 +96,7 @@ public static class Person implements PropertyHaver {
 		else return null;
 	}
 	
-	@Override
+	
 	public void setProperty(String prop, Object val) {
 		if(prop.equals("age"))
 			setAge((Integer) val);
@@ -109,11 +109,11 @@ public static class Person implements PropertyHaver {
 }
 
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"node", "button", "console"}, new YUICallback() {
 	
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		EditorFramework1 edf = new EditorFramework1();
 		edf.start(Y); 
@@ -130,7 +130,7 @@ YUI.Use(new String[]{"node", "button", "console"}, new YUICallback() {
 		
 		ed1.addValueChangeListener(new ValueChangeListener<PropertyHaverEditorTest1.Person>() {
 
-			@Override
+			
 			public void notifyValueChange(EditorValueChangeEvent<Person> evt) {
 				Window.alert("changed:_ "+evt.getValue()); 
 			}

@@ -9,7 +9,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  *
  */
 public abstract class  EventTargetJsClass implements JsClass {
-	@Override
+	
 	public JavaScriptObject toJSO() {
 		// TODO Auto-generated method stub
 		return null;

@@ -40,10 +40,10 @@ public ConsoleTest1() {
 		TestResources.instance.ConsoleTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"console", "dd-plugin", "resize", "resize-plugin"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		//Y.log will output on firebug's console
@@ -55,7 +55,7 @@ YUI.Use(new String[]{"console", "dd-plugin", "resize", "resize-plugin"}, new YUI
 		
 		//be a nasty console catching each log entry and asking for confirmation. 
 		console1.before(Console.EVENT_ENTRY, new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				if(!Window.confirm("Do you really want to add the msg: "+((ConsoleEvent)e).message().message()+" ? "))  {
 					Window.alert("preventing"); 

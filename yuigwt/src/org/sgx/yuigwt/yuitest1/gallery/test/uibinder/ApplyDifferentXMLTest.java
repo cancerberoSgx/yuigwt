@@ -39,11 +39,11 @@ public class ApplyDifferentXMLTest extends AbstractTest {
 		);
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "button", "node-menunav" }, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				// create a GWT Widget Panel that wrapps our yui widget parent.

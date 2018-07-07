@@ -32,11 +32,11 @@ public FunctionsInJavaTest() {
 		TestResources.instance.FunctionsInJavaTest());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button", "console"}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 final Console console = Y.newConsole().render().cast();
 
@@ -46,7 +46,7 @@ Widget button1 = Y.newButton(
 
 //using "normal" yuigwt infrastructure
 button1.on(new String[]{"click", "mouseover"}, new EventCallback<ButtonEvent>() {
-	@Override
+	
 	public void call(ButtonEvent e) {
 		console.log("1 "+e.type()+" at X="+e.domEvent().clientX()); 
 	}
@@ -57,7 +57,7 @@ Widget button2 = Y.newButton(
 ).render(parent);
 //using util.Callback generic callback definition
 button2.on("click", new Callback() {			
-	@Override
+	
 	public void call(JsArrayMixed args) {
 		ButtonEvent e = args.getObject(0).cast();
 		console.log("2 clicked at X="+e.domEvent().clientX()); 
@@ -69,7 +69,7 @@ Widget button3 = Y.newButton(
 ).render(parent);
 //creating a native javascript function
 JsFunction fn = new JsFunctionBuilder() {			
-	@Override
+	
 	public native final JsFunction buildFunction()/*-{
 		return function(e) {
 			$wnd.alert("3 "+e.type+" at: "+e.domEvent.clientX); 

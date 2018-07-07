@@ -31,7 +31,7 @@ public class PropertyHaverEditorError<T extends PropertyHaver> extends AbstractE
 		setMessage(toString());
 		return fieldErrors;
 	}
-	@Override
+	
 	public String toString() {
 		String s = this.getClass()+" nested errors: ";
 		for(String fn : fieldErrors.keySet()) {

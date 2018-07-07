@@ -60,7 +60,7 @@ public class NestedWidget1 extends YUIBinded {
 		super(y); 
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		/*
 		 * all YUI stuff is ready and rendered, we obtain the YUI widgets and
@@ -69,21 +69,21 @@ public class NestedWidget1 extends YUIBinded {
 		yuiButton1 = yuiBinder.getWidget(yuiButtonEl1).cast();
 
 		yuiButton1.on("click", new EventCallback<ButtonEvent>() {
-			@Override
+			
 			public void call(ButtonEvent e) {
 				Window.alert("yui button clicked!"); 
 			}
 		}); 
 	}
 
-	@Override
+	
 	public UiBinder<YUIBinded, Widget> getUIBinder() {
 		return uiBinder;
 	}	
 	/**
 	 * tell the YUIBinder which are the fields corresponding to YUI widgets. 
 	 */
-	@Override
+	
 	public Element[] getYUIBindedEls() {
 		return  new Element[] { yuiButtonEl1
 //				, yuiButtonEl2

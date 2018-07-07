@@ -35,11 +35,11 @@ public ImageCropperTest1() {
 		TestResources.instance.gal_ImageCropperTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI(YuiConfig.create().gallery("gallery-2012.08.15-20-00")).use(
 new String[]{"console", "gallery-imagecropper"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y_) {
 		//cast to YuiGalleryContext for using the yui gallery java api.
 		final YuiGalleryContext Y = Y_.cast();
@@ -53,7 +53,7 @@ ImageCropper ic1 = Y.newImageCropper(ImageCropperConfig.create().source(src1).
 ic1.render(parent); 
 
 ic1.on(ImageCropper.EVENT_CROPEND, new EventCallback<ImageCropperEvent>() {
-	@Override
+	
 	public void call(ImageCropperEvent e) {
 		console.log(e.left()+", "+e.top()+", "+e.width()+", "+e.height()); 
 	}

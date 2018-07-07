@@ -54,10 +54,10 @@ public ChartsTest4() {
 		TestResources.instance.ChartsTest2());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"charts-legend"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		//the data javascript array created using Java JsUtil class. 		
 		 JsArray<JsObject> data1 = JsUtil.<JsObject>jsArray (

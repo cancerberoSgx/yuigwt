@@ -22,10 +22,10 @@ public TransitionTest1() {
 		TestResources.instance.TransitionTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"transition"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		//rebuilding parent node with Y.one(parent.getDOMNode()) so poblate is available in this yui sandbox

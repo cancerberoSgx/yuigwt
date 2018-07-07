@@ -31,10 +31,10 @@ public NodeFocusManagerTest1() {
 		TestResources.instance.NodeFocusManagerTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button", "node-focusmanager", "console"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 
 		final Console console1 = Y.newConsole(ConsoleConfig.create());
@@ -58,7 +58,7 @@ YUI.Use(new String[]{"button", "node-focusmanager", "console"}, new YUICallback(
 		fm.set("activeDescendant", 1); 
 		fm.on(NodeFocusManager.EVENT_FOCUSEDCHANGE, new EventCallback<AttributeEvent>() {
 
-			@Override
+			
 			public void call(AttributeEvent e) {
 				if(!e.newValBoolean()) {
 					console1.log("parent has lost focus"); 

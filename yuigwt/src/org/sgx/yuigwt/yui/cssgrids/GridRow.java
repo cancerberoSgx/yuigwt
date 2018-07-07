@@ -18,7 +18,7 @@ public class GridRow extends LinkedList<GridEntry> implements YuiNodeRenderable 
 	private Node srcNode;
 //	private List<GridEntry> entries; 
 
-	@Override
+	
 	public void render(YuiContext Y, Node parent) {
 		srcNode = parent.appendChild("<div class=\"yui3-g\"></div>");
 		for(GridEntry entry : this) {
@@ -26,7 +26,7 @@ public class GridRow extends LinkedList<GridEntry> implements YuiNodeRenderable 
 		}
 	}
 
-	@Override
+	
 	public Node getSource() {
 		return srcNode; 
 	}

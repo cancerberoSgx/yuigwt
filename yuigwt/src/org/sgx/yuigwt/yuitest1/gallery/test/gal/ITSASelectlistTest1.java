@@ -45,11 +45,11 @@ public ITSASelectlistTest1() {
 		TestResources.instance.gal_ITSASelectlistTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI().use(
 new String[]{"gallery-itsaselectlist", "console", "stylesheet"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y_) {
 		
 		//cast to YuiGalleryContext for using the yui gallery java api.
@@ -64,7 +64,7 @@ new String[]{"gallery-itsaselectlist", "console", "stylesheet"}, new YUICallback
 		
 		ITSASelectlist selectlist = Y.newITSASelectlist(ITSASelectlistConfig.create().items(months));
 		selectlist.on(ITSASelectlist.EVENT_SELECTCHANGE, new EventCallback<ITSASelectlistEvent>() {
-			@Override
+			
 			public void call(ITSASelectlistEvent e) {
 				console.log("selected item index "+e.index()+" - value: "+e.value()); 
 			}
@@ -95,7 +95,7 @@ new String[]{"gallery-itsaselectlist", "console", "stylesheet"}, new YUICallback
 			.defaultButtonText("")
 		); 
 		selList2.on(ITSASelectlist.EVENT_SELECTCHANGE, new EventCallback<ITSASelectlistEvent>() {
-			@Override
+			
 			public void call(ITSASelectlistEvent e) {
 				console.log("selected color: "+e.value()); 
 			}

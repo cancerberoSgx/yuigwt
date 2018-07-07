@@ -22,24 +22,24 @@ public ButtonItemTest1() {
 		TestResources.instance.ButtonItemTest1());
 }
 
-@Override
+
 public void test(Node parent) {
 	AUI.Ready(new String[]{"aui-button-item"}, this); 
 	this.parent = parent; 
 }
 
-@Override
+
 public void ready(final AuiContext A) {
 	ButtonItem button1 = A.newButtonItem(ButtonItemConfig.create().
 		icon("home").label("home")); 
 	button1.on("click", new EventCallback<EventFacade>() {
-		@Override
+		
 		public void call(EventFacade e) {
 			final ButtonItem clickedButton = e.getTarget().cast();
 			clickedButton.hide(); 
 			JsUtil.setTimeout(new SimpleCallback() {
 				
-				@Override
+				
 				public void call() {
 					clickedButton.show(); 
 				}

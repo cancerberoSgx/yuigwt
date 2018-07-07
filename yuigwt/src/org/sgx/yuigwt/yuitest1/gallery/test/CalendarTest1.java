@@ -23,11 +23,11 @@ public CalendarTest1() {
 		TestResources.instance.CalendarTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"calendar"}, new YUICallback() {	
 		
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		Widget calendar = Y.newCalendar(CalendarConfig.create().
 			showNextMonth(true).

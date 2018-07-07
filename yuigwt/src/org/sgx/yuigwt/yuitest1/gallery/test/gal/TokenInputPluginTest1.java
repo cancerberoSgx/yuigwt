@@ -37,14 +37,14 @@ public TokenInputPluginTest1() {
 	);
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI(YuiConfig.create().
 		gallery("gallery-2011.08.24-23-44")		
 	).use(
 new String[]{"gallery-node-tokeninput", "button", "autocomplete", 
 	"autocomplete-filters", "autocomplete-highlighters"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y_) {		
 		//cast to YuiGalleryContext for using the yui gallery java api.
 		final YuiGalleryContext Y = Y_.cast(); 
@@ -55,7 +55,7 @@ new String[]{"gallery-node-tokeninput", "button", "autocomplete",
 		input1.plug(Y.GalleryPlugin().TokenInput(), TokenInputPluginConfig.create().removeButton(true)); 
 		final TokenInputPlugin tiPlugin = input1.getPlugin("tokenInput").cast(); 
 		Y.newButton(ButtonConfig.create().label("Accept").render(parent).on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				String[] selection = JsUtil.toJavaStringArray(tiPlugin.tokens()); 
 				String s = "selection is : "; 
@@ -79,7 +79,7 @@ new String[]{"gallery-node-tokeninput", "button", "autocomplete",
 				resultFilters("charMatch").resultHighlighter("charMatch").source(tags));
 		final TokenInputPlugin tiPlugin2 = input2.getPlugin("tokenInput").cast();
 		Y.newButton(ButtonConfig.create().label("Set defaults").render(parent).on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				tiPlugin2.tokens("adan", "eve", "nietzsche"); 
 			}			

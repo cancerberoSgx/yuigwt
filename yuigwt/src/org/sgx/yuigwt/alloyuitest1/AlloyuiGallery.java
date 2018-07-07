@@ -30,7 +30,7 @@ public void render(Element parent) {
 
 
 
-@Override
+
 public void ready(AuiContext A) {
 	this.A = A; 
 //	Node parent = A.one(parentEl); 
@@ -55,7 +55,7 @@ private void drawTestLaunchers() {
 			render(testLauncherContainer).
 			on("click", new EventCallback<EventFacade>() {
 
-			@Override
+			
 			public void call(EventFacade e) {
 				setCurrentTest(t); 
 			}

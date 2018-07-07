@@ -96,7 +96,7 @@ public static class Item {
 
 public static JSProducer<Item> ItemJSProducer = new JSProducer<Item>() {
 
-	@Override
+	
 	public JavaScriptObject jsonize(Item item) {
 		JsObject o = JsObject.one("id", item.getId()).
 			_("name", item.getName()).
@@ -112,10 +112,10 @@ public static <T> JsArray<JavaScriptObject> javaArrayToJs(T[]javaArray, JSProduc
 	}
 	return arr; 
 }
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"datatable"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y) {
 		//creates a simple html table for putting datatables inside. 
 		parent.append(NODE(Y, "tag: 'table'", "", new Node[]{
@@ -174,7 +174,7 @@ YUI.Use(new String[]{"datatable"}, new YUICallback() {
 		dt3.render("#ssimple3"); 
 		
 		JsUtil.setTimeout(new SimpleCallback() {			
-			@Override
+			
 			public void call() {
 				dt3.data((JsArray<JavaScriptObject>) JsonUtils.unsafeEval("["+
 					"{ username: \"root123\", read: true, write: true },\n"+
@@ -193,7 +193,7 @@ YUI.Use(new String[]{"datatable"}, new YUICallback() {
 		 */
 		
 		Formatter urlColumnFormatter = new Formatter() {
-			@Override
+			
 			public String format(FormatterContext o) {
 				return "<a href=\""+o.value()+"\">"+o.value()+"</a>";
 			}			
@@ -219,7 +219,7 @@ YUI.Use(new String[]{"datatable"}, new YUICallback() {
 		dt4.render("#ssimple4");
 		//use Datatable.delegate() for preventing link default behavoir
 		dt4.delegate("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				e.preventDefault(); 
 			}

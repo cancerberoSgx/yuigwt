@@ -44,10 +44,10 @@ public DataSchemaArrayTest1() {
 		TestResources.instance.DataSchemaTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"dataschema-array"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		//create some json data using JsArr and JSObject - this data is commonly returned by the server in json

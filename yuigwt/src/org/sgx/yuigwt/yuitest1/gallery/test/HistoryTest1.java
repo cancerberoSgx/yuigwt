@@ -30,10 +30,10 @@ public HistoryTest1() {
 		TestResources.instance.HistoryTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"history", "tabview", "console"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		final Console console = Y.newConsole(ConsoleConfig.create() );
@@ -50,7 +50,7 @@ YUI.Use(new String[]{"history", "tabview", "console"}, new YUICallback() {
 		
 		tb.after("selectionChange", new EventCallback<TabViewEvent>() {
 
-			@Override
+			
 			public void call(TabViewEvent e) {
 				
 				/* note e.newVal is the selected child widget - we cast directly. 
@@ -68,7 +68,7 @@ YUI.Use(new String[]{"history", "tabview", "console"}, new YUICallback() {
 		
 		tb.selectChild(parseInt(history.get("tab"), 0));
 		Y.on("history:change", new EventCallback<HistoryEvent>() {
-			@Override
+			
 			public void call(HistoryEvent e) {
 				// Ignore changes we make ourselves, since we don't need
 			    // to update the selection state for those. We're only

@@ -83,7 +83,7 @@
 //		String thisClassName = objectType.getName(); 
 //		writer.println("interface MyUiBinder extends UiBinder<Widget, "+thisClassName+"> {}");
 //		writer.println("private static UiBinder<YUIBinded, Widget> uiBinder = GWT.create(MyUiBinder.class);");
-//		writer.println("@Override public UiBinder<YUIBinded, Widget> getUIBinder() {");
+//		writer.println(" public UiBinder<YUIBinded, Widget> getUIBinder() {");
 //		writer.println("	return uiBinder;}");
 //		
 //		writer.print("private static final String[] _yuiFields = {");
@@ -96,7 +96,7 @@
 //		}
 //		writer.print("};");
 //		writer.println("/** tell the YUIBinder which are the fields corresponding to YUI widgets. */");
-//		writer.println("@Override public Element[] getYUIBindedEls() { return _yuiFields; }");
+//		writer.println(" public Element[] getYUIBindedEls() { return _yuiFields; }");
 //		
 //
 //	}

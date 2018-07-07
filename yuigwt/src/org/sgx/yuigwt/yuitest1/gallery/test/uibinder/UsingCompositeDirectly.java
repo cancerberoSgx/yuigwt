@@ -72,7 +72,7 @@ public class UsingCompositeDirectly extends Composite implements YUIBinderListen
 		 * need to wait until binding is finished, see method yuiBindede() below
 		 */
 		gwtButton2.addClickHandler(new ClickHandler() {
-			@Override
+			
 			public void onClick(ClickEvent event) {
 				Window.alert("gwtbutton1clicked");
 				tabView.selectChild(2);
@@ -80,7 +80,7 @@ public class UsingCompositeDirectly extends Composite implements YUIBinderListen
 		});
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		/*
 		 * all YUI stuff is ready and rendered, we obtain the YUI widgets and
@@ -90,7 +90,7 @@ public class UsingCompositeDirectly extends Composite implements YUIBinderListen
 		tabView = binderUtil.getWidget(tabViewEl1).cast();
 
 		yuiButton1.on("click", new EventCallback<ButtonEvent>() {
-			@Override
+			
 			public void call(ButtonEvent e) {
 				tabView.selectChild(1);
 			}

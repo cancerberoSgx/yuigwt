@@ -29,11 +29,11 @@ public FormTest1() {
 		TestResources.instance.gal_FormTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI(YuiConfig.create().gallery("gallery-2011.11.10-16-24")).use(
 new String[]{"gallery-form"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y_) {		
 		
 		//cast to YuiGalleryContext for using the yui gallery java api.

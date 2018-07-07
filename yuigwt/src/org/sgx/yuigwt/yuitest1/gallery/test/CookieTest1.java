@@ -22,10 +22,10 @@ public CookieTest1() {
 		TestResources.instance.CookieTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button", "cookie"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		final String cookieKey1 = "cookietestkey1", cookieKey2 = "cookietestkey2";	
 		parent.append("<p>The online cookie tester: </p>");
@@ -35,13 +35,13 @@ YUI.Use(new String[]{"button", "cookie"}, new YUICallback() {
 		
 		
 		Y.newButton(ButtonConfig.create().label("Save").render(parent).on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				Y.Cookie().set(cookieKey1, p.get("value")); 
 			}
 		})); 
 		Y.newButton(ButtonConfig.create().label("Load").render(parent).on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				p.set("value", Y.Cookie().getString(cookieKey1)); 
 			}

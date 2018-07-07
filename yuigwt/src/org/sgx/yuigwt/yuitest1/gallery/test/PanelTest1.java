@@ -25,19 +25,19 @@ public PanelTest1() {
 			TAG_PANEL, TAG_WIDGET }, TestResources.instance.PanelTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 
 YUI.YUI().use(new String[] { "panel", "button", "dd-plugin", "resize", "resize-plugin" }, new YUICallback() {
 
-	@Override
+	
 	public void ready(YuiContext Y) {
 		// a panel with a button which content is taken from markup
 		Node parentBody = parent.appendChild("<p>This is the content of the <b>panel</b><i>jhalllll</i>. Well good day...</p>");
 		final Panel panel1 = Y.newPanel((PanelConfig) PanelConfig.create().centered(true).srcNode(parentBody).width("400px").render(true));
 
 		Button acceptButton = Y.newButton((WidgetButtonsConfig) WidgetButtonsConfig.create().label("Accept").on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				Window.alert("clicked");
 				panel1.hide();

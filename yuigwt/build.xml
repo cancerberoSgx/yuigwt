@@ -25,16 +25,16 @@ For creating javadocs, you do ant javadocs, will need gwt sources (edit gwt.src 
 		<!--<antcall target="gwtc">
 			<param name="moduleName" value="org.sgx.yuigwt.YuiGwt"/>
 		</antcall>
+		-->
+		<!-- <antcall target="gwtc">
+			<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestLocal"/>
+		</antcall> -->
 		<antcall target="gwtc">
 			<param name="moduleName" value="org.sgx.yuigwt.YuiGwtYuiGallery"/>
 		</antcall>
-		<antcall target="gwtc">
-			<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestLocal"/>
-		</antcall>
-		-->
-		<antcall target="gwtc">
+		<!-- <antcall target="gwtc">
 			<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestOnline"/>
-		</antcall>
+		</antcall> -->
 	</target>	
 	
 	
@@ -51,7 +51,7 @@ For creating javadocs, you do ant javadocs, will need gwt sources (edit gwt.src 
 				<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestLocal"/>
 			</antcall>
 			-->
-			<antcall target="gwtc">
+			<antcall target="gwtc" >
 				<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestOnline"/>
 			</antcall>
 		</target>	
@@ -113,7 +113,22 @@ For creating javadocs, you do ant javadocs, will need gwt sources (edit gwt.src 
 		</javac>
 	</target>
 	
-	
+
+  <target name="devmode" depends="javac" description="Run development mode (pass -Dgwt.args=-nosuperDevMode to fallback to classic DevMode)">
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.DevMode" maxmemory="1g">
+      <classpath>
+        <pathelement location="src"/>
+        <path refid="gwtc.class.path"/>
+        <pathelement location="${gwt.sdk}/gwt-codeserver.jar"/>
+      </classpath>
+      <arg value="-startupUrl"/>
+      <arg value="alloyuiGalleryOnline.html"/>
+      <arg line="-war"/>
+      <arg value="war"/>
+			<arg value="org.sgx.yuigwt.YuiGwtYuiGallery" />		
+    </java>
+  </target> 
+
 
 	
 	<path id="gwtc.class.path">
@@ -125,7 +140,7 @@ For creating javadocs, you do ant javadocs, will need gwt sources (edit gwt.src 
 	</path>
 
 	<target name="gwtc" description="individual GWT compile to JavaScript">
-		<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+		<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler" maxmemory="1g">
 			<classpath>
 				<pathelement location="src" />
 				<path refid="gwtc.class.path" />				

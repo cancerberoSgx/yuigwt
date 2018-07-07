@@ -30,11 +30,11 @@ public ConfigObjectsTest1() {
 			new String[]{TAG_WIDGET, TAG_SLIDER, TAG_EXT, TAG_YUI}, TestResources.instance.ConfigObjectsTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 	YUI.YUI().use(new String[]{"slider"}, new YUICallback() {
 	
-		@Override
+		
 		public void ready(YuiContext Y) {
 			parent.append("<p><b>These are sliders with the same configuration values, but the configuration objects are created using different technics for showing that after configuration objects are only javascript objects. </b></p>");
 			

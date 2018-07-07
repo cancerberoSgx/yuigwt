@@ -48,7 +48,7 @@
 //}
 //public static final String MISSING_CSS = "https://raw.github.com/benediktarnold/yui3-gallery/master/src/gallery-datatable-col-resize/assets/gallery-datatable-col-resize-core.css";
 //
-//@Override
+//
 //public void test(final Node parent) {
 //YUI.YUI(
 ////		YuiConfig.create().gallery("gallery-2012.10.17-20-00")
@@ -60,7 +60,7 @@
 //new String[]{"gallery-datatable-col-resize", 
 //		"gallery-datatable-col-resize-missing-css", 
 //		"datatable", "datatable-sort", "datatable-scroll"}, new YUICallback() {
-//	@Override
+//	
 //	public void ready(YuiContext Y_) {
 //		final YuiGalleryContext Y = Y_.cast(); 		
 //		JsArray<JavaScriptObject> data = DataTableTest3.getData();

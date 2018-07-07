@@ -21,11 +21,11 @@ public MenuNavTest1() {
 			TestResources.instance.EventDelegateTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 	YUI.YUI().use(new String[]{"node-menunav"}, new YUICallback() {
 	
-		@Override
+		
 		public void ready(YuiContext Y) {
 			
 			parent.append("<p>these are two menus, the markup created using YUIUtil.makeMenu* and using YUI NodeMenuNav plugin for the menues. The first is a horizontal menu and the last is a vertical menu</p>"); 
@@ -77,7 +77,7 @@ public void test(final Node parent) {
 			
 			for(Node n : new Node[]{menu1, menu2}) {
 				n. delegate("click", new NodeEventDelegateCallback() {					
-					@Override
+					
 					public void call(Node n, YuiEvent evt, Object arg) {
 						Window.alert("clicked node: "+n); 
 						evt.preventDefault(); 

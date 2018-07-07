@@ -18,7 +18,7 @@ public abstract class AbstractUi implements Ui {
 		this.y = y;
 	}
 
-	@Override
+	
 	public void render(Node parent) {
 		this.parent = parent;
 		this.rendered = true;

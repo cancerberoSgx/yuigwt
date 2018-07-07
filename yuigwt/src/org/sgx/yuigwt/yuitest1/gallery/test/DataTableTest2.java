@@ -49,13 +49,13 @@ public class DataTableTest2 extends AbstractTest {
 				TestResources.instance.DataTableTest2());
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 
 		String[] modules = { "datatable", "autocomplete", "autocomplete-filters", "autocomplete-highlighters", "button", "selector-css3" };
 		YUI.Use(modules, new YUICallback() {
 
-			@Override
+			
 			public void ready(YuiContext Y) {
 				DataTableTest2.this.Y = Y;
 				/* first recreate neccesary data */
@@ -78,7 +78,7 @@ public class DataTableTest2 extends AbstractTest {
 						.render(parent).cast();
 
 				Y.newButton(ButtonConfig.create().label("search").render(parent).on("click", new EventCallback<ButtonEvent>() {
-					@Override
+					
 					public void call(ButtonEvent e) {
 						String keywords = byNameInput.get("value");
 						JsArray<JsObject> results = JsArray.createArray().cast();
@@ -113,7 +113,7 @@ public class DataTableTest2 extends AbstractTest {
 
 		resultTable.srcNode().all(sel).setStyles(Style.create().cursor("pointer").textDecoration("underline"));
 		resultTable.srcNode().delegate("click", new NodeEventDelegateCallback() {
-			@Override
+			
 			public void call(Node n, YuiEvent evt, Object arg) {
 				showTest(parent, util.getTestByName(n.text()));
 			}

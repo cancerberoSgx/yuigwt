@@ -324,7 +324,7 @@ public class GalleryUtil {
 //			Callback fn = ; 
 			timer = Y.later(2000, new Callback() {
 				
-				@Override
+				
 				public void call(JsArrayMixed args) {
 					Node n = Y.one(anchor);
 //					System.out.println("later: "+anchor+" - "+n);
@@ -346,7 +346,7 @@ public class GalleryUtil {
 		// base(GalleryConstants.YUI_BUILD_PATH).
 		// gallery(GalleryConstants.LATEST_BUILD)
 		).use(GalleryConstants.GALLERY_MODULES, new YUICallback() {
-			@Override
+			
 			public void ready(YuiContext Y) {
 				GalleryUtil.this.Y = Y;
 				c.ready(Y);

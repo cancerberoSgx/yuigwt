@@ -33,7 +33,7 @@ public ColorPickerTest1() {
 
 public static final String MISSING_CSS="http://yui.yahooapis.com/combo?gallery-2011.09.14-20-40/build/gallery-colorpicker/assets/gallery-colorpicker-core.css";
 
-@Override
+
 public void test(final Node parent) {
 	
 YUI.YUI(
@@ -47,7 +47,7 @@ YUI.YUI(
 		)	
 	).use(new String[]{"gallery-colorpicker",  "gallery-colorpicker-missing-css", "console", "button"}, new YUICallback() {
 		
-	@Override
+	
 	public void ready(YuiContext Y_) {
 		
 		//cast to YuiGalleryContext for using the yui gallery java api.
@@ -62,7 +62,7 @@ YUI.YUI(
 		Y.newButton(ButtonConfig.create().
 			label("get color").
 			on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				console.log("color hex: "+cp1.hex()); 
 			}

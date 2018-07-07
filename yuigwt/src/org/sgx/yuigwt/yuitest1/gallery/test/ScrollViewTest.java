@@ -32,10 +32,10 @@ public ScrollViewTest() {
 		TestResources.instance.ScrollViewTest());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"scrollview-base", "button", "console"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 
 		final Console console1 = Y.newConsole(ConsoleConfig.create());
@@ -54,7 +54,7 @@ YUI.Use(new String[]{"scrollview-base", "button", "console"}, new YUICallback() 
 			srcNode(sv1Node).height("100px")); 
 		sv1.render(); 
 		sv1.on(ScrollView.EVENT_SCROLLYCHANGE, new EventCallback<AttributeEvent>() {
-			@Override
+			
 			public void call(AttributeEvent e) {
 				console1.log("scrollX changed: "+e.newValDouble()); 
 			}
@@ -63,7 +63,7 @@ YUI.Use(new String[]{"scrollview-base", "button", "console"}, new YUICallback() 
 		Y.newButton(
 			ButtonConfig.create().label("up").
 			on("click", new EventCallback<EventFacade>() {
-				@Override
+				
 				public void call(EventFacade e) {
 					currentScrollY-=20;  
 					sv1.scrollTo(0, currentScrollY); 
@@ -74,7 +74,7 @@ YUI.Use(new String[]{"scrollview-base", "button", "console"}, new YUICallback() 
 		Y.newButton(
 			ButtonConfig.create().label("down").
 			on("click", new EventCallback<EventFacade>() {
-				@Override
+				
 				public void call(EventFacade e) {
 					currentScrollY+=20;  
 					sv1.scrollTo(0, currentScrollY); 

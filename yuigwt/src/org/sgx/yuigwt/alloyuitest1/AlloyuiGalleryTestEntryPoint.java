@@ -5,7 +5,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 public class AlloyuiGalleryTestEntryPoint implements EntryPoint {
 
-	@Override
+	
 	public void onModuleLoad() {
 		AlloyuiGallery gal = new AlloyuiGallery();
 		gal.render(RootPanel.get().getElement()); 

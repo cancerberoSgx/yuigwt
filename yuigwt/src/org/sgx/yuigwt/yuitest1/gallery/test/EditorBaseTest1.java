@@ -26,10 +26,10 @@ public EditorBaseTest1() {
 		TestResources.instance.ConsoleTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"console", "editor"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		final Console console1 = Y.newConsole(ConsoleConfig.create().width("50%"));
 		console1.render(); 
@@ -42,14 +42,14 @@ YUI.Use(new String[]{"console", "editor"}, new YUICallback() {
 	    editor.plug(Y.Plugin().EditorBidi());
 	    	    
 	    editor.on(EditorBase.EVENT_NODECHANGE, new EventCallback<EditorBaseEvent>() {
-			@Override
+			
 			public void call(EditorBaseEvent e) {
 				console1.log("node changed: "+e.changedType()); 
 			}			
 		}); 	    
 	    
 	    editor.on("dom:keydown", new EventCallback<EditorBaseEvent>() {
-			@Override
+			
 			public void call(EditorBaseEvent e) {
 				console1.log("dom:keydown: target: "+e.frameTarget().get("id")+
 					" - keycode: "+e.frameEvent().keyCode()); 

@@ -34,13 +34,13 @@ public class UIBinderComposingTest extends AbstractTest {
 					new GalleryResource(TestResources.instance.UIBinderComposingUI(), "UIBinderComposingUI.ui.xml"), });
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] {				
 				"cssgrids", "node-menunav", "node"
 				}, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				// create a GWT Widget Panel that wrapps our yui widget parent.

@@ -48,7 +48,7 @@ public DeferredTest1() {
 		TestResources.instance.gal_DeferredTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 	
 	YUI.YUI(
@@ -63,21 +63,21 @@ public void test(final Node parent) {
 	).use(new String[]{"node", "node-load", "transition", "plugin", "get","io",
 			"gallery-deferred", "io", "console", "button", "json", "io-base"}, new YUICallback() {
 		
-	@Override
+	
 	public void ready(YuiContext Y_) {
 		
 		final YuiGalleryContext Y = Y_.cast(); 		
 		console = Y.newConsole().render().cast(); 
 		
 		Y.newButton(ButtonConfig.create().label("do deferred 1").on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				doDeferred1(parent, Y); 
 			}
 		})).render(parent); 
 		
 		Y.newButton(ButtonConfig.create().label("do deferred 2").on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				doDeferred2(parent, Y); 
 			}
@@ -115,7 +115,7 @@ protected void doDeferred2(Node parent, YuiGalleryContext Y) {
 		Y.ioDeferred().get(GWT.getModuleBaseURL()+"testfiles/json1.json"),
 		Y.ioDeferred().getJSON(GWT.getModuleBaseURL()+"testfiles/json1.json") //do not work
 	).then(new Callback() {		
-		@Override
+		
 		public void call(JsArrayMixed args) {
 
 			JsArrayMixed a = args.getObject(0);
@@ -129,7 +129,7 @@ protected void doDeferred2(Node parent, YuiGalleryContext Y) {
 			console.log("resp1 : "+resp1.responseText()+" - resp2 : "+resp2.responseText()); 
 		}
 	}, new Callback() {		
-		@Override
+		
 		public void call(JsArrayMixed args) {
 			console.log("Some resources cannot be loaded."); 
 		}

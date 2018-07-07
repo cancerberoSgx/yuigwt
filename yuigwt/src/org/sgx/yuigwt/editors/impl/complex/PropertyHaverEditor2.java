@@ -56,19 +56,19 @@ public class PropertyHaverEditor2<T extends PropertyHaver> extends AbstractEdito
 
 	static Logger logger = Logger.getLogger(PropertyHaverEditor2.class + "");
 
-	@Override
+	
 	public void render(Node parent) {
 		super.render(parent);
 		srcNode = htmlutil.newTable(parent);
 		// htmlutil.appendRow(srcNode, )
 	}
 
-	@Override
+	
 	public boolean isSimple() {
 		return false;
 	}
 
-	@Override
+	
 	public T flush() {
 		if (model == null) {
 			logger.log(Level.WARNING, "first load() must be called and then flush()");
@@ -98,7 +98,7 @@ public class PropertyHaverEditor2<T extends PropertyHaver> extends AbstractEdito
 		}
 	}
 
-	@Override
+	
 	public void load(final T model) {
 		super.load(model);
 		srcNode.empty();
@@ -149,7 +149,7 @@ public class PropertyHaverEditor2<T extends PropertyHaver> extends AbstractEdito
 
 				tb.on("click", new EventCallback<EventFacade>() {
 
-					@Override
+					
 					public void call(EventFacade e) {
 
 						final Panel panel = y.newPanel((PanelConfig) PanelConfig.create().centered(true).width("400px"));
@@ -158,7 +158,7 @@ public class PropertyHaverEditor2<T extends PropertyHaver> extends AbstractEdito
 						panel.footerContent("<i>small</i>");
 
 						Button acceptButton = getContext().newButton(ButtonConfig.create().label("Accept").on("click", new EventCallback<ButtonEvent>() {
-							@Override
+							
 							public void call(ButtonEvent e) {
 								panel.hide();
 							}
@@ -184,13 +184,13 @@ public class PropertyHaverEditor2<T extends PropertyHaver> extends AbstractEdito
 		return model;
 	}
 
-	@Override
+	
 	public List<EditorError<T>> getErrors() {
 		// TODO Auto-generated method stub
 		return new LinkedList<EditorError<T>>();
 	}
 
-	@Override
+	
 	public void notifyValueChange(EditorValueChangeEvent<Object> evt) {
 		// TODO: here we do not flush the value to the event. Pass null, the
 		// user must explicitly flush this editor.

@@ -37,12 +37,12 @@ public ScrollViewTest2() {
 		TestResources.instance.ScrollViewTest2());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"scrollview", "button", "console", "scrollview-paginator"}, new YUICallback() {
 	private ScrollViewPaginator pages;
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 
 		final Console console1 = Y.newConsole(ConsoleConfig.create());
@@ -68,7 +68,7 @@ YUI.Use(new String[]{"scrollview", "button", "console", "scrollview-paginator"},
 			ScrollViewPaginatorConfig.create().selector("li")); 
 		
 		sv1.on(ScrollViewPaginator.EVENT_INDEXCHANGE, new EventCallback<AttributeEvent>() {
-			@Override
+			
 			public void call(AttributeEvent e) {
 				console1.log("index changed changed: "+e.newValInt()); 
 			}
@@ -78,7 +78,7 @@ YUI.Use(new String[]{"scrollview", "button", "console", "scrollview-paginator"},
 		Y.newButton(
 			ButtonConfig.create().label("prev").
 			on("click", new EventCallback<EventFacade>() {
-				@Override
+				
 				public void call(EventFacade e) {
 					currentIndex--; 
 					pages.scrollTo(currentIndex, 400, "easy"); 
@@ -91,7 +91,7 @@ YUI.Use(new String[]{"scrollview", "button", "console", "scrollview-paginator"},
 			on("click", new EventCallback<EventFacade>() {
 				
 
-				@Override
+				
 				public void call(EventFacade e) {
 					currentIndex++; 
 					pages.scrollTo(currentIndex, 400, "easy");  

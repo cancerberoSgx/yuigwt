@@ -20,17 +20,17 @@ public class StringEditor1 extends AbstractEditor<String> {
 		 
 	}
 
-//	@Override
+//	
 //	public boolean isSimple() {
 //		return true;
 //	}
 	
-	@Override
+	
 	public void render(Node parent) {		
 		super.render(parent);
 		srcNode = parent.appendChild("<input type=\"text\"></input>"); 
 		srcNode.on("click", new Callback() {			
-			@Override
+			
 			public void call(JsArrayMixed args) {
 				EditorEventManager.<String>getInstance().fireValueChangeEvent(StringEditor1.this); 
 			}
@@ -38,24 +38,24 @@ public class StringEditor1 extends AbstractEditor<String> {
 	}
 	
 
-	@Override
+	
 	public String flush() {
 		String s = srcNode.getString("value");
 		return s; 
 	}
 
-	@Override
+	
 	public void load(String t) {
 		super.load(t);
 		srcNode.set("value", t); 
 	}
 	
-//	@Override
+//	
 //	public Node getWidget() {
 //		return this.node;
 //	}
 //	
-//	@Override
+//	
 //	public List<EditorError<String>> getErrors() {
 //		return EditorErrorManager.<String>getInstance().getErrors(this);
 //	}

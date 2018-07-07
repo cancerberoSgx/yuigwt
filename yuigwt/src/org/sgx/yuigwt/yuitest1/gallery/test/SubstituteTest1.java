@@ -22,10 +22,10 @@ public SubstituteTest1() {
 			TestResources.instance.SubstituteTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"substitute"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		//Y.substitute test simple		
@@ -38,7 +38,7 @@ YUI.Use(new String[]{"substitute"}, new YUICallback() {
 		final JsObject person2 = JsObject.one("name", "Laura Gurin")._("age", 25);
 		person1._("sister", person2); 
 		SubstituteCallback<String> substituter1 = new SubstituteCallback<String>() {
-			@Override
+			
 			public String call(String key, String value, String param1) {
 				if(value==null && key != null && key.startsWith("sister.")) {
 					String kn = key.substring("sister.".length(), key.length()); 

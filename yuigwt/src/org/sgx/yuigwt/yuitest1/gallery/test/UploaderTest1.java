@@ -27,11 +27,11 @@ public UploaderTest1() {
 			TestResources.instance.UploaderTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"uploader", "console"}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		final Uploader uploader1 = Y.newUploader(UploaderConfig.create()
 			.multipleFiles(true)
@@ -57,14 +57,14 @@ YUI.Use(new String[]{"uploader", "console"}, new YUICallback() {
 			console.log("html5 uploader"); 
 			
 			uploader1.on(new String[]{UploaderHTML5.EVENT_DRAGENTER, UploaderHTML5.EVENT_DRAGOVER}, new EventCallback<UploaderEvent>() {
-				@Override
+				
 				public void call(UploaderEvent e) {
 					uploaderMessage.text("Files detected, drop them here!"); 
 				}
 			});
 			
 			uploader1.on(new String[]{UploaderHTML5.EVENT_DRAGLEAVE, UploaderHTML5.EVENT_DROP}, new EventCallback<UploaderEvent>() {
-				@Override
+				
 				public void call(UploaderEvent e) {
 					uploaderMessage.text("Drag and drop files here"); 
 				}
@@ -83,7 +83,7 @@ YUI.Use(new String[]{"uploader", "console"}, new YUICallback() {
 		uploader1.render(selectFilesButtonContainer);
 		
 		uploader1.after("fileselect", new EventCallback<UploaderEvent>() {
-			@Override
+			
 			public void call(UploaderEvent e) {
 				JsArray<File> fl = e.fileList(); //uploader1.fileList()	
 				console.log("fileselect: "+fl.length()); 

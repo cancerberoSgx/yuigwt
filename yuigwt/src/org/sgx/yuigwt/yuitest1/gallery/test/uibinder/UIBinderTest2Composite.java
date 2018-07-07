@@ -80,12 +80,12 @@ public class UIBinderTest2Composite extends Composite implements YUIBinderListen
 		binderUtil.bindYUI(y, this, new Element[] { menunav1, calendar1, panel1El, yuiButtonEl1 }, this);
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		Calendar calendarWidget = binderUtil.getWidget(calendar1).cast();
 		System.out.println(calendarWidget+"");
 		calendarWidget.on(Calendar.EVENT_DATECLICK, new EventCallback<CalendarEvent>() {
-			@Override
+			
 			public void call(CalendarEvent e) {
 				Window.alert("clicked " + e.date());
 			}

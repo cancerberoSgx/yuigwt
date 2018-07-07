@@ -31,10 +31,10 @@ public GraphicTest1() {
 			TestResources.instance.graphic_GraphicTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"graphics", "dd-drag"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		Graphic g1 = Y.newGraphic(GraphicConfig.create().render(parent)); 
@@ -80,7 +80,7 @@ YUI.Use(new String[]{"graphics", "dd-drag"}, new YUICallback() {
 		
 		//register a clicl listener
 		Y.one(diamond1.node()).on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				Window.alert("clicked"); 
 			}

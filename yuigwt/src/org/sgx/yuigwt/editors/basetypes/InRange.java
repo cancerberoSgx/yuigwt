@@ -52,7 +52,7 @@ public abstract class InRange<T> {
 		this.value = value;
 	}
 
-	@Override
+	
 	public String toString() {
 		return this.getClass() + "(" + getMin() + ", " + getMax() + ", value: " + getValue();
 	}

@@ -32,11 +32,11 @@ public TreeViewTest3_yui3treeviewng() {
 		TestResources.instance.gal_TreeViewTest3_yui3treeviewng());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI().use(	
 new String[]{"gallery-yui3treeview-ng", "css3-selectors"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y_) {		
 		Y = Y_.cast(); 		
 		
@@ -77,7 +77,7 @@ new String[]{"gallery-yui3treeview-ng", "css3-selectors"}, new YUICallback() {
 ////	JsArray<TreeNodeConfig> treeNodeChildren = 
 //	
 //	nl.each(new NodeListIterator() {		
-//		@Override
+//		
 //		public void next(Node n, int index, NodeList instance) {
 //			headers.add(n.get("tagName")); 
 //		}

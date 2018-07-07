@@ -55,11 +55,11 @@ public class TestTest1 extends AbstractTest {
 		}
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "test", "dump", "console" }, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 				console = Y.newConsole();
 				console.render();
@@ -77,7 +77,7 @@ public class TestTest1 extends AbstractTest {
 				testSuite1.add(testCase2);
 
 				Y.TestRunner().on(TestRunner.EVENT_TESTCASECOMPLETE, new EventCallback<TestEvent>() {
-					@Override
+					
 					public void call(TestEvent e) {
 						console.log("AAAAAAA JAJAJAJA: "+"name: "+e.resultsTestSuite().name()+", failed: "+e.resultsTestSuite().failed());
 					}

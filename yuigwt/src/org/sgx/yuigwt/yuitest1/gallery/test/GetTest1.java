@@ -44,18 +44,18 @@ public GetTest1() {
 		TestResources.instance.GetTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"get", "button", "console"}, new YUICallback() {	
 		
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		final Console console1 = Y.newConsole(ConsoleConfig.create());
 		console1.render(); 
 		
 		Button b1 = Y.newButton(ButtonConfig.create().label("loadScript1")).render(parent).cast(); 
 		b1.on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				Y.Get().js(GWT.getModuleBaseURL()+"testfiles/script1.js");
 			}
@@ -63,7 +63,7 @@ YUI.Use(new String[]{"get", "button", "console"}, new YUICallback() {
 		
 		Button b2 = Y.newButton(ButtonConfig.create().label("loadcss1")).render(parent).cast(); 
 		b2.on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				Y.Get().css(GWT.getModuleBaseURL()+"testfiles/css1.css"); 
 			}
@@ -72,10 +72,10 @@ YUI.Use(new String[]{"get", "button", "console"}, new YUICallback() {
 		//now try to load a non existing file - catch the error using the normal callback for accessing the error 
 		Button b3 = Y.newButton(ButtonConfig.create().label("nonExisting1")).render(parent).cast(); 
 		b3.on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				Y.Get().css(GWT.getModuleBaseURL()+"testfiles/jsNotExists123.css", GetConfig.create(), new GetCallback() {					
-					@Override
+					
 					public void call(JsArray err_, Transaction tx) {
 						JsArray<GetError> err = (JsArray<GetError>)err_; 
 						Window.alert("error count: "+err.length()+" - first error: "+
@@ -88,11 +88,11 @@ YUI.Use(new String[]{"get", "button", "console"}, new YUICallback() {
 		//or, the same as as above but using the Get's options object for registering an onFailure listener:  
 		Button b4 = Y.newButton(ButtonConfig.create().label("nonExisting2")).render(parent).cast(); 
 		b4.on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				Y.Get().css(GWT.getModuleBaseURL()+"testfiles/jsNotExists123.css", GetConfig.create().onFailure(new GetOptionsCallback() {
 					
-					@Override
+					
 					public void call(Transaction tx) {						
 						Window.alert("error count: "+tx.errors().length()+". first error: "+
 								tx.errors().get(0).error()); 
@@ -105,11 +105,11 @@ YUI.Use(new String[]{"get", "button", "console"}, new YUICallback() {
 		
 //		Button b5 = Y.newButton(ButtonConfig.create().label("loadJsonData")).render(parent).cast(); 
 //		b5.on("click", new EventCallback() {			
-//			@Override
+//			
 //			public void call(EventFacade e) {
 //				Y.Get().js(GWT.getModuleBaseURL()+"testfiles/data1.json", GetConfig.create().onEnd(new GetOptionsCallback() {
 //					
-//					@Override
+//					
 //					public void call(Transaction tx) {
 //						Node n = Y.one(tx.requests().get(0).node()); 
 //						console1.log(" "+
@@ -120,7 +120,7 @@ YUI.Use(new String[]{"get", "button", "console"}, new YUICallback() {
 //					}
 //				}).onFailure(new GetOptionsCallback() {
 //					
-//					@Override
+//					
 //					public void call(Transaction tx) {						
 //						Window.alert("error count: "+tx.errors().length()+". first error: "+
 //								tx.errors().get(0).error()); 

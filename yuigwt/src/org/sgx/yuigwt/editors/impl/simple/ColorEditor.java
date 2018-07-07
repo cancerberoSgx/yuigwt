@@ -23,19 +23,19 @@ public class ColorEditor extends AbstractEditor<Color> {
 	public ColorEditor(YuiContext y) {
 		super(y, true);
 	}
-	@Override
+	
 	public void render(Node parent) {
 		super.render(parent);
 		srcNode = parent.appendChild("<span></span>"); 
 	}
-	@Override
+	
 	public void load(Color model) {
 		super.load(model);
 		String htmlColor = "#"+model.getHex(); 
 		srcNode.text(htmlColor); 
 		srcNode.setStyle("background-color", htmlColor);
 		srcNode.on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				ColorPicker cp1 = getColorPicker(); 
 				cp1.show(); 
@@ -48,7 +48,7 @@ public class ColorEditor extends AbstractEditor<Color> {
 		cp.hide(); 
 		return cp; 
 	}
-	@Override
+	
 	public Color flush() {
 		// TODO Auto-generated method stub
 		return null;

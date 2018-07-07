@@ -54,10 +54,10 @@ public ChartsTest1() {
 		TestResources.instance.ChartTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"charts", "button", "io", "tabview", "stylesheet", "console"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		mainParent=parent; 
 		ss1 = Y.newStyleSheet(); 
@@ -101,7 +101,7 @@ protected void installChartFromJsonIO(final YuiContext Y, final Node p) {
 	//create an io object for working that will notify us for some io events...
 	IOConfig ioConfig = IOConfig.create().
 			on(IO.EVENT_SUCCESS, new EventCallback<IOEvent>() {					
-		@Override
+		
 		public void call(final IOEvent e) {
 			JsArray data = JsonUtils.unsafeEval(e.data().responseText()); 
 			ChartBase chart1 = Y.newChart(ChartBaseConfig.create().dataProvider(data).render(p)); 
@@ -111,7 +111,7 @@ protected void installChartFromJsonIO(final YuiContext Y, final Node p) {
 		}
 		
 	}).on(IO.EVENT_FAILURE, new EventCallback<IOEvent>() {
-		@Override
+		
 		public void call(IOEvent e) {
 			Window.alert("FAILURE. Status: "+e.data().status()+" - "+e.data().statusText()); 
 		}

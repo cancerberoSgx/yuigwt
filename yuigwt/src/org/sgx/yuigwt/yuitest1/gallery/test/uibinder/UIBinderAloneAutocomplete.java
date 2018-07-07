@@ -34,7 +34,7 @@ public class UIBinderAloneAutocomplete extends YUIBinded {
 		super(y); 
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		AutoComplete ac1 = getYUIBinder().getWidget(acEl1).cast();
 		String[] source = new String[30]; 
@@ -45,14 +45,14 @@ public class UIBinderAloneAutocomplete extends YUIBinded {
 //		ac1.render(); 
 	}
 
-	@Override
+	
 	public UiBinder<YUIBinded, Widget> getUIBinder() {
 		return uiBinder;
 	}	
 	/**
 	 * tell the YUIBinder which are the fields corresponding to YUI widgets. 
 	 */
-	@Override
+	
 	public Element[] getYUIBindedEls() {
 		return  new Element[] { acEl1, acEl2}; 
 	}

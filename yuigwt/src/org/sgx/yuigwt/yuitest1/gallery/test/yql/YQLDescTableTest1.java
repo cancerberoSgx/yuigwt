@@ -57,14 +57,14 @@ public YQLDescTableTest1() {
 }
 
 
-@Override
+
 public void test(Node parent) {
 	this.parent=parent; 
 	//load yui usng this as the YUI callback, see ready() method
 	YUI.Use(new String[]{"yql", "console", "button","dump", "json", "io", "panel",
 		"autocomplete", "autocomplete-filters", "autocomplete-highlighters"}, this); 
 }
-@Override
+
 public void ready(YuiContext Y) {
 	this.console = Y.newConsole().collapsed(true).render().cast();
 	console.contentBox().setX(200); 
@@ -74,7 +74,7 @@ public void ready(YuiContext Y) {
 	input.set("value", "answers.getquestion"); 
 	Y.newButton(ButtonConfig.create().label("describe table!").render(parent).
 		on("click", new EventCallback<ButtonEvent>() {				
-			@Override
+			
 			public void call(ButtonEvent e) {
 				describeDatatable(input.get("value")); 
 			}				
@@ -82,7 +82,7 @@ public void ready(YuiContext Y) {
 	); 
 	Y.newButton(ButtonConfig.create().label("list all tables").render(parent).
 		on("click", new EventCallback<ButtonEvent>() {				
-			@Override
+			
 			public void call(ButtonEvent e) {
 				doListAllTables(); 
 			}				
@@ -128,7 +128,7 @@ protected void doShowTablesThenRenderAutocomplete() {
 		.env("http://datatables.org/alltables.env")
 		.format("json").diagnostics("true"); 
 	YQL yql1 = Y.newYQL(query, new YQLCallback() {			
-		@Override
+		
 		public void call(YQLResult r) {				
 			if(r.error()!=null) {
 				console.log("YQL ERROR while requesting show tables"+r.error().description()); 
@@ -148,7 +148,7 @@ private void describeDatatable(String datatableName) {
 		.env("http://datatables.org/alltables.env")
 		.format("json").diagnostics("true"); 
 	YQL yql1 = Y.newYQL(query, new YQLCallback() {			
-		@Override
+		
 		public void call(YQLResult r) {				
 			if(r.error()!=null) {
 				console.log("YQL ERROR while requesting: "+query+" : "+r.error().description()); 

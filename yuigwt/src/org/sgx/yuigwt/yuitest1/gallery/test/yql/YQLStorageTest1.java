@@ -36,14 +36,14 @@ public YQLStorageTest1() {
 }
 
 
-@Override
+
 public void test(Node parent) {
 	this.parent=parent; 
 	//load yui usng this as the YUI callback, see ready() method
 	YUI.Use(new String[]{"yql", "console", "button","dump", "json", "io", "panel",
 		"autocomplete", "autocomplete-filters", "autocomplete-highlighters"}, this); 
 }
-@Override
+
 public void ready(YuiContext Y_) {
 	this.console = Y_.newConsole().collapsed(true).render().cast();
 	console.contentBox().setX(200); 
@@ -96,7 +96,7 @@ static class Apple {
 }
 private void createRecord1() {
 //YQL yql1 = Y.newYQL("insert into yql.storage.admin (value) values (\"example text content\") ", new YQLCallback() {			
-//	@Override
+//	
 //	public void call(YQLResult r) {
 //		 
 //		StorageAdminResult result = r.query().results().cast();
@@ -125,7 +125,7 @@ private void createRecord1() {
 
 private void selectRecord1() {
 	YQL yql1 = Y.newYQL("select * from yql.storage where name=\""+selectUrl+"\"", new YQLCallback() {			
-	@Override
+	
 	public void call(YQLResult r) {
 		 
 		StorageAdminResult result = r.query().results().cast();

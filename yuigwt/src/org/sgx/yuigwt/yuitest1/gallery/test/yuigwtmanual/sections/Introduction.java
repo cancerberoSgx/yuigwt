@@ -23,17 +23,17 @@ public class Introduction extends YUIBinded {
 		super(y); 
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		
 	}
 
-	@Override
+	
 	public UiBinder getUIBinder() {
 		return uiBinder;
 	}
 
-	@Override
+	
 	public Element[] getYUIBindedEls() {
 		return new Element[]{};
 	}

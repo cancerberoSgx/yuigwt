@@ -67,13 +67,13 @@ public class CrudExample1 extends AbstractTest {
 				TestResources.instance.editors_CrudExample1());
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "node", "button", "console", "panel", 
 				"datatable", 
 				"autocomplete", "autocomplete-filters", "autocomplete-highlighters" }, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 				EditorFramework1 edf = new EditorFramework1();
 				edf.start(Y);
@@ -83,13 +83,13 @@ public class CrudExample1 extends AbstractTest {
 					all.add(Person1.random());
 				}
 				TextExtractor<Person1> person1NameExtractor = new TextExtractor<Person1>() {
-					@Override
+					
 					public String extractText(Person1 t) {
 						return t.getName();
 					}
 				};
 				JSOnizer<Person1> jsonizer = new JSOnizer<Person1>() {
-					@Override
+					
 					public JavaScriptObject jsonize(Person1 t) {
 						JsObject jso = JsObject.one("name", t.getName()).objPut("age", t.getAge()).objPut("female", t.getFemale());
 						return jso;
@@ -97,7 +97,7 @@ public class CrudExample1 extends AbstractTest {
 				};
 				CrudTestUtil<Person1> crudUtil = new CrudTestUtil<Person1>(Y, all, "Person", Person1.random());
 //				crudUtil.addChangeListener(new ChangeListener<CrudExample1.Person1>() {					
-//					@Override
+//					
 //					public void notifyChange(CrudTestUtil<Person1> src) {
 //						// TODO Auto-generated method stub
 //						
@@ -214,7 +214,7 @@ public class CrudExample1 extends AbstractTest {
 			this.sampleEntity = sampleEntity;
 			this.jsonizer = jsonizer;
 			this.searchTextExtractor = (TextExtractor<T>) (searchTextExtractor == null ? new TextExtractor<PropertyHaver>() {
-				@Override
+				
 				public String extractText(PropertyHaver t) {
 					String s = "";
 					for (String k : t.getProperties().keys()) {
@@ -224,7 +224,7 @@ public class CrudExample1 extends AbstractTest {
 				}
 			} : searchTextExtractor);
 			this.namesExtractor = (TextExtractor<T>) (acNamesExtractor == null ? new TextExtractor<PropertyHaver>() {
-				@Override
+				
 				public String extractText(PropertyHaver t) {
 					String s = "";
 					for (String k : t.getProperties().keys()) {
@@ -255,13 +255,13 @@ public class CrudExample1 extends AbstractTest {
 			editorPanel = rightPanel.appendChild("<div></div>");
 
 			y.newButton(ButtonConfig.create().label("Add new " + entityName).render(leftPanel).on("click", new EventCallback<ButtonEvent>() {
-				@Override
+				
 				public void call(ButtonEvent e) {
 					doAddNewEntity();
 				}
 			}));
 			y.newButton(ButtonConfig.create().label("Show All " + entityName +"s").render(leftPanel).on("click", new EventCallback<ButtonEvent>() {
-				@Override
+				
 				public void call(ButtonEvent e) {
 					JsArray<JavaScriptObject> data = getDataTableData(all);
 					resultTable.data(data);
@@ -270,7 +270,7 @@ public class CrudExample1 extends AbstractTest {
 			}));
 			parent.append("<p></p>"); //separator
 			y.newButton(ButtonConfig.create().label("Search " + entityName +"s").render(leftPanel).on("click", new EventCallback<ButtonEvent>() {
-				@Override
+				
 				public void call(ButtonEvent e) {
 					String keywords = ac.value(); 
 					List<T> results = search(keywords);
@@ -289,7 +289,7 @@ public class CrudExample1 extends AbstractTest {
 //			y.Widget().getByNode(n); 
 			ac.render(parent);
 			ac.on(AutoComplete.EVENT_SELECT, new EventCallback<AutoCompleteEvent>() {
-				@Override
+				
 				public void call(AutoCompleteEvent e) {
 //					doEdit()
 				}
@@ -333,7 +333,7 @@ public class CrudExample1 extends AbstractTest {
 
 
 			Button cancelButton = y.newButton(ButtonConfig.create().label("Cancel").on("click", new EventCallback<ButtonEvent>() {
-				@Override
+				
 				public void call(ButtonEvent e) {
 					panel.hide();
 					panel.contentBox().remove();
@@ -342,7 +342,7 @@ public class CrudExample1 extends AbstractTest {
 			panel.addButton(cancelButton);
 			
 			Button acceptButton = y.newButton(ButtonConfig.create().label("Accept").on("click", new EventCallback<ButtonEvent>() {
-				@Override
+				
 				public void call(ButtonEvent e) {
 					T edited = entityEditor.flush();
 					all.add(edited);
@@ -390,12 +390,12 @@ public class CrudExample1 extends AbstractTest {
 			return a;
 		}
 
-		@Override
+		
 		public void delete(PropertyHaver t) {
 			all.remove(t);
 		}
 
-		@Override
+		
 		public void add(PropertyHaver t) {
 			all.add((T) t);
 		}
@@ -459,7 +459,7 @@ public class CrudExample1 extends AbstractTest {
 		}
 
 
-		@Override
+		
 		public void notifyChange(CrudTestUtil<T> src) {
 			
 			//!!!!data changed notification

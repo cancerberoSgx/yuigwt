@@ -34,10 +34,10 @@ public TabViewTest1() {
 		TestResources.instance.TabViewTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"tabview", "button"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		parent.append("<p id=\"sometabcontent\">I will be a tab content some day</p>"); 
@@ -55,7 +55,7 @@ YUI.Use(new String[]{"tabview", "button"}, new YUICallback() {
 		
 //		Y.newButton(ButtonConfig.create().label("add new tab").render(parent).
 //			on("click", new EventCallback<ButtonEvent>() {				
-//				@Override
+//				
 //				public void call(ButtonEvent e) {
 //					String tabName = Window.prompt("Tab name: ", "tab123234");  
 //					String contentHTML = Window.prompt("Content HTML: ", "<p>some content <b>for the tab</b></p>");

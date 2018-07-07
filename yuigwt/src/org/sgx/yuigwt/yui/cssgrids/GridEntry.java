@@ -69,7 +69,7 @@ public class GridEntry implements YuiNodeRenderable {
 		this.unitSize = unitSize;
 	}
 
-	@Override
+	
 	public void render(YuiContext Y, Node parent) {		
 		srcNode = parent.appendChild("<"+tagName+"></"+tagName+">");		
 		if(unitSize.startsWith("u")) {
@@ -84,7 +84,7 @@ public class GridEntry implements YuiNodeRenderable {
 		}
 	}
 
-	@Override
+	
 	public Node getSource() {
 		return srcNode; 
 	}

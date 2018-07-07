@@ -28,11 +28,11 @@ super("YUIUtil.NODE", "Creating markup from java code - YUIUtil.NODE - a java " 
 		TestResources.instance.YUIUtilTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI().use(new String[]{"node"}, new YUICallback() {
 
-@Override
+
 public void ready(YuiContext Y) {
 
 

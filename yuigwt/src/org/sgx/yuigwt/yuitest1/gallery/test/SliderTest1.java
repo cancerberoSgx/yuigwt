@@ -24,11 +24,11 @@ public SliderTest1() {
 	super("slider1", "slider widget tests", new String[]{TAG_SLIDER, TAG_WIDGET}, TestResources.instance.SliderTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 	YUI.YUI().use(new String[]{"slider"}, new YUICallback() {
 	
-		@Override
+		
 		public void ready(YuiContext Y) {
 			parent.append("<p>First a horizontal default slider...");
 			Node n1 = parent.appendChild("<span></span>").cast();
@@ -40,7 +40,7 @@ public void test(final Node parent) {
 			final Slider sl2 = Y.newSlider(SliderConfig.create().axis("y").min(1).max(5).value(3).length(200)).render(n2).cast();
 			sl2.on(Slider.EVENT_SLIDEEND, new EventCallback<SliderEvent>() {
 
-				@Override
+				
 				public void call(SliderEvent e) {
 					Window.alert("slider value change detected: "+sl2.getInt("value")); 
 				}

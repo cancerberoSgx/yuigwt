@@ -33,11 +33,11 @@ public BeanEditorTest1() {
 		TestResources.instance.editors_BeanEditorTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"node", "button", "console", "panel"}, new YUICallback() {
 	
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		EditorFramework1 edf = new EditorFramework1();
 		edf.start(Y); 
@@ -62,7 +62,7 @@ YUI.Use(new String[]{"node", "button", "console", "panel"}, new YUICallback() {
 		ed1.load(p1); 
 		
 		ed1.addValueChangeListener(new ValueChangeListener<Person1>() {
-			@Override
+			
 			public void notifyValueChange(EditorValueChangeEvent<Person1> evt) {
 				Window.alert("changed:_ "+evt.getValue()); 
 			}
@@ -134,7 +134,7 @@ public static abstract class Car  implements EditableBean{
 		this.motorcycle = motorcycle;
 	}	
 	
-//	@Override
+//	
 //	public String toString() {
 //		String s = "PropertyHaver("; 
 //		props = getProperties()

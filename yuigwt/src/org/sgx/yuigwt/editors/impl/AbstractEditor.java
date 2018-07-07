@@ -33,7 +33,7 @@ public abstract class AbstractEditor<T> extends AbstractUi implements Editor<T> 
 		}
 	}
 
-	@Override
+	
 	public boolean isSimple() {
 		return isSimple;
 	}
@@ -55,17 +55,17 @@ public abstract class AbstractEditor<T> extends AbstractUi implements Editor<T> 
 	// public void setNode(Node node) {
 	// this.node = node;
 	// }
-	@Override
+	
 	public void addValueChangeListener(ValueChangeListener<T> l) {
 		EditorEventManager.<T> getInstance().addValueChangeListener(this, l);
 	}
 
-	@Override
+	
 	public void removeValueChangeListener(ValueChangeListener<T> l) {
 		EditorEventManager.<T> getInstance().removeValueChangeListener(this, l);
 	}
 
-	@Override
+	
 	public List<EditorError<T>> getErrors() {
 		return errors;
 	}

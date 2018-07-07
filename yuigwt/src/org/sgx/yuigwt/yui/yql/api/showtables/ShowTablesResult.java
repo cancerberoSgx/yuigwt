@@ -15,7 +15,7 @@ import com.google.gwt.core.client.JsArray;
 public class ShowTablesResult extends JsObject /*implements YQLQueryResult */{
 protected ShowTablesResult(){}
 	
-//	@Override
+//	
 	/**
 	 * Pleas, always use this method to normalize the data before using this Java API
 	 * @param Y

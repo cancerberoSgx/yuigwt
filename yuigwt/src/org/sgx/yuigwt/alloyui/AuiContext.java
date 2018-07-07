@@ -12,7 +12,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 <pre>
 AUI.Ready(new String[]{"aui-button-item"}, new AUICallback() {		
-	@Override
+	
 	public void ready(AuiContext A) {
 		Node n = A.one("foo"); 
 		ButtonItem button1 = A.newButtonItem(ButtonItemConfig.create().

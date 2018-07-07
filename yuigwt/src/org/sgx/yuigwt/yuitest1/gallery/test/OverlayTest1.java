@@ -35,11 +35,11 @@ public OverlayTest1() {
 		new String[]{TAG_OVERLAY, TAG_WIDGET, TAG_PLUGIN, TAG_DD}, TestResources.instance.OverlayTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 	YUI.YUI(YuiConfig.create().fetchCSS("force")).use(
 new String[]{"overlay", "dd-plugin"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y) {
 		
 		/**
@@ -122,7 +122,7 @@ new String[]{"overlay", "dd-plugin"}, new YUICallback() {
 	    yInput.set("value", overlay.getInt("y"));
 	    
 	    Y.on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				double x = Double.parseDouble(xInput.getString("value")), 
 					y = Double.parseDouble(yInput.getString("value")); 
@@ -131,14 +131,14 @@ new String[]{"overlay", "dd-plugin"}, new YUICallback() {
 		}, "#move"); 
 	    
 	    Y.one("#hide").on("click", new NodeEventCallback() {			
-			@Override
+			
 			public void call(YuiEvent e) {
 				overlay.hide(); 
 			}
 		}); 
 	    
 	    Y.one("#show").on("click", new NodeEventCallback() {			
-			@Override
+			
 			public void call(YuiEvent e) {
 				overlay.show(); 
 			}

@@ -29,7 +29,7 @@
 //		initUIWidget(acConfig); 
 ////		super( AutoCompleteConfig.create().in);
 //	}
-////	@Override
+////	
 ////	protected Widget newYuiWidget(YuiContext y, JavaScriptObject config) {
 ////		System.out.println(((AutoCompleteConfig)config).inputNode());
 ////		return y.newAutoComplete(config);

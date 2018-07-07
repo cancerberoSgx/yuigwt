@@ -33,15 +33,15 @@ public class RouterTest1 extends AbstractTest {
 				new String[] { GalleryConstants.TAG_ROUTER }, TestResources.instance.RouterTest1());
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.YUI().use(new String[] { "router", "button" }, new YUICallback() {
 
-			@Override
+			
 			public void ready(YuiContext Y) {
 				Button b1 = Y.newButton(ButtonConfig.create().label("request /mysite/foo").render(parent)
 						.on("click", new EventCallback<ButtonEvent>() {
-							@Override
+							
 							public void call(ButtonEvent e) {
 								router.save("/mysite/foo");
 							}
@@ -49,7 +49,7 @@ public class RouterTest1 extends AbstractTest {
 
 				Button b2 = Y.newButton(ButtonConfig.create().label("request /mysite/user/sgurin/edit").render(parent)
 						.on("click", new EventCallback<ButtonEvent>() {
-							@Override
+							
 							public void call(ButtonEvent e) {
 								router.save("/mysite/user/sgurin/edit");
 							}
@@ -59,7 +59,7 @@ public class RouterTest1 extends AbstractTest {
 				content = parent.appendChild("<div>initial content</div>");
 
 				RouteCallback callback1 = new RouteCallback() {
-					@Override
+					
 					public void call(RouteRequest req, RouteResponse res, SimpleCallback next) {
 						content.empty();
 						content.append("<div>route 1 sais hello. Path: " + req.path() + "</div>");
@@ -67,7 +67,7 @@ public class RouterTest1 extends AbstractTest {
 				};
 
 				RouteCallback callback2 = new RouteCallback() {
-					@Override
+					
 					public void call(RouteRequest req, RouteResponse res, SimpleCallback next) {
 						content.empty();
 						content.append("<div " + "style='background-color: red; color: white; font-weight: bold'>"

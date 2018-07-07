@@ -36,7 +36,7 @@ public GwtWidgetsTest2() {
 		TestResources.instance.AnimTest1());
 }
 
-@Override
+
 public void test(final Node parent) {	
 	parent.asHTMLPanel().add(new TestWidget1()); 
 }

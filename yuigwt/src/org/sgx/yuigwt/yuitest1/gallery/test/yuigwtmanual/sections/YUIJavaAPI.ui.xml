@@ -47,13 +47,13 @@ The YUI global namespace object"
  
  <pre class="{style.code} prettyprint">
 YUI.Use(new String[]{"button"}, new YUICallback() {
-	@Override
+	
 	public void ready(YuiContext Y) {
 		Widget button1 = Y.newButton(
 			ButtonConfig.create().label("a simple button")
 		).render(parent);       
 		button1.on("click", new NodeEventCallback() {                   
-			@Override
+			
 			public void call(YuiEvent e) {
 			        Window.alert("button pressed at x  ="+e.clientX()); 
 			}

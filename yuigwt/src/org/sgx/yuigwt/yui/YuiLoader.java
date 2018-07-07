@@ -18,12 +18,12 @@ public static void load(final String yuiJsUrl, final String [] modules, final YU
 	}
 	else {
 		ScriptInjector.fromUrl(yuiJsUrl).setCallback(new Callback<Void, Exception>() {			
-			@Override
+			
 			public void onSuccess(Void result) {
 				yuiJsLoaded=true;
 				YUI.YUI().use(modules, callback); 
 			}			
-			@Override
+			
 			public void onFailure(Exception reason) {
 	//			Window.alert("Error YUI javascript's couldn't be loaded from  +"+yuiJsUrl);
 			}

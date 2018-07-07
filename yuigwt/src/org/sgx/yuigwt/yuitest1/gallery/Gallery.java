@@ -79,7 +79,7 @@ public class Gallery implements YUICallback {
 		util.loadYui(this);
 	}
 
-	@Override
+	
 	public void ready(final YuiContext Y_) {
 		this.Y = Y_.cast();
 
@@ -104,7 +104,7 @@ public class Gallery implements YUICallback {
 
 		// //java source button
 		Button showJavaButton = Y.newButton(Button.config().label(constants.showJava()).render(extraContent).on("click", new EventCallback() {
-			@Override
+			
 			public void call(EventFacade e) {
 				doShowCurrentTestSources2();
 			}
@@ -113,7 +113,7 @@ public class Gallery implements YUICallback {
 
 		// test description button
 		Button descrButton = Y.newButton(Button.config().label("Test description")).render(extraContent).on("click", new EventCallback() {
-			@Override
+			
 			public void call(EventFacade e) {
 				showCurrentTestDescription(Y);
 			}
@@ -122,7 +122,7 @@ public class Gallery implements YUICallback {
 
 		// this gallery sources button
 		Button showSurceButton = Y.newButton(Button.config().label(constants.thisExampleGallerySources())).render(extraContent).on("click", new EventCallback() {
-			@Override
+			
 			public void call(EventFacade e) {
 				Map<String, ResourcePrototype> r = new HashMap<String, ResourcePrototype>();
 				r.put(constants.thisExampleGallerySources(), TestResources.instance.Gallery());
@@ -134,7 +134,7 @@ public class Gallery implements YUICallback {
 		// showSurceButton.contentBox().setStyle("width", "100%");
 
 		Button aboutButton = Y.newButton(Button.config().label("About")).render(extraContent).on("click", new EventCallback() {
-			@Override
+			
 			public void call(EventFacade e) {
 				showAboutThisApplication(Y);
 			}
@@ -176,7 +176,7 @@ public class Gallery implements YUICallback {
 		AutoComplete ac = Y.newAutoComplete(AutoCompleteConfig.create().resultHighlighter("phraseMatch").resultFilters("phraseMatch").inputNode(inputEl).source(allTestNames)
 				.render(true));
 		ac.after(AutoComplete.EVENT_SELECT, new EventCallback<AutoCompleteEvent>() {
-			@Override
+			
 			public void call(AutoCompleteEvent e) {
 				Test test = util.getTestByName(inputEl.get("value"));
 				setCurrentTest(test);
@@ -202,7 +202,7 @@ public class Gallery implements YUICallback {
 
 		for (final Test test : util.getTests()) {
 			Y.newButton(Button.config().label(test.getName()).render(parent).on("click", new EventCallback() {
-				@Override
+				
 				public void call(EventFacade e) {
 					setCurrentTest(test);
 				}
@@ -230,7 +230,7 @@ public class Gallery implements YUICallback {
 			Node testParent = Y.one("#" + parentId);
 			for (final Test test : tests) {
 				Y.newButton(Button.config().label(test.getName()).render(testParent).on("click", new EventCallback() {
-					@Override
+					
 					public void call(EventFacade e) {
 						setCurrentTest(test);
 					}
@@ -255,12 +255,12 @@ public class Gallery implements YUICallback {
 	// public void showJavaSource(final YuiContext Y, ResourcePrototype res,
 	// final String resName, final int index) {
 	// util.getText(res, new ResourceCallback<TextResource>() {
-	// @Override
+	// 
 	// public void onError(ResourceException e) {
 	// e.printStackTrace(); //TODO
 	// Window.alert("show java source error: "+e);
 	// }
-	// @Override
+	// 
 	// public void onSuccess(TextResource resource) {
 	// String scapedContent = Y.Escape().html(resource.getText().replace("\t",
 	// "  "));
@@ -303,14 +303,14 @@ public class Gallery implements YUICallback {
 			ResourcePrototype res = resource.getResource();
 
 			util.getText(res, new ResourceCallback<TextResource>() {
-				@Override
+				
 				public void onError(ResourceException e) {
 					// showJavaSourceError=true;
 					e.printStackTrace(); // TODO
 					Window.alert("show java source error: " + e);
 				}
 
-				@Override
+				
 				public void onSuccess(TextResource resource) {
 					String scapedContent = Y.Escape().html(resource.getText().replace("\t", "  "));
 					String header = resName; // + "&nbsp;<b>Source Code File</b>";
@@ -364,7 +364,7 @@ public class Gallery implements YUICallback {
 	public void showAboutThisApplication(final YuiContext Y) {
 		String aboutUri = GWT.getModuleBaseURL() + "galleryfiles/about.fragment.html";
 		Y.newIO().send(aboutUri, IOConfig.create().on(IO.EVENT_SUCCESS, new EventCallback<IOEvent>() {
-			@Override
+			
 			public void call(IOEvent e) {
 				showPanel(Y, "About This Application " + constants.hello(), e.data().responseText());
 			}
@@ -429,7 +429,7 @@ public class Gallery implements YUICallback {
 
 	private void installHeightHack(final YuiContext Y) {
 		Y.on("windowresize", new EventCallback() {
-			@Override
+			
 			public void call(EventFacade e) {
 				ssheet1.set(sel, Style.create().height((getMainContent().winHeight() - vdiff) + "px"));
 			}

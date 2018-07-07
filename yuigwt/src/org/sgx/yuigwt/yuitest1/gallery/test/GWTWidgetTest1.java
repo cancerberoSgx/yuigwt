@@ -8,6 +8,7 @@ import org.sgx.yuigwt.yui.node.Node;
 import org.sgx.yuigwt.yui.widget.button.ButtonConfig;
 import org.sgx.yuigwt.yuitest1.gallery.GalleryConstants;
 
+import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DisclosurePanel;
 import com.google.gwt.user.client.ui.FlexTable;
@@ -40,11 +41,11 @@ public GWTWidgetTest1() {
 		TestResources.instance.GWTWidgetTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button"}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		/* using GWT widgets and YUI widgets together.
@@ -112,21 +113,21 @@ public class GwtWidgetSnippet1 extends FlexTable {
 		Tree tree = new Tree();
 		flexTable_1.setWidget(1, 0, tree);
 		
-		TreeItem trtmNewItem = new TreeItem("New item");
+		TreeItem trtmNewItem = new TreeItem( new SafeHtmlBuilder().appendEscaped("new item").toSafeHtml());
 		tree.addItem(trtmNewItem);
 		
-		TreeItem trtmNewItem_1 = new TreeItem("New item");
+		TreeItem trtmNewItem_1 = new TreeItem( new SafeHtmlBuilder().appendEscaped("new item").toSafeHtml());
 		trtmNewItem.addItem(trtmNewItem_1);
 		trtmNewItem.setState(true);
 		
-		TreeItem trtmNewItem_2 = new TreeItem("New item");
+		TreeItem trtmNewItem_2 = new TreeItem( new SafeHtmlBuilder().appendEscaped("new item").toSafeHtml());
 		tree.addItem(trtmNewItem_2);
 		
-		TreeItem trtmNewItem_4 = new TreeItem("New item");
+		TreeItem trtmNewItem_4 = new TreeItem( new SafeHtmlBuilder().appendEscaped("new item").toSafeHtml());
 		trtmNewItem_2.addItem(trtmNewItem_4);
 		trtmNewItem_2.setState(true);
 		
-		TreeItem trtmNewItem_3 = new TreeItem("New item");
+		TreeItem trtmNewItem_3 = new TreeItem( new SafeHtmlBuilder().appendEscaped("new item").toSafeHtml());
 		tree.addItem(trtmNewItem_3);
 		
 		FlexTable flexTable = new FlexTable();

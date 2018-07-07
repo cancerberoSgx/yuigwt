@@ -29,7 +29,7 @@ tableutil.appendRow(arrowsTable, "", "&lt;div class=\"south\">&lt;/div>", "");
 
 y.newButton(ButtonConfig.create().label("north").render(arrowsTable.one(".north")).
 	on("click", new EventCallback&lt;ButtonEvent>() {				
-		@Override
+		
 		public void call(ButtonEvent e) {
 			mapCenterCoords = LatLng.newInstance(mapCenterCoords.getLatitude(), mapCenterCoords.getLatitude()+1.0);
 			gmap1.getMapImpl().setCenter(mapCenterCoords); 

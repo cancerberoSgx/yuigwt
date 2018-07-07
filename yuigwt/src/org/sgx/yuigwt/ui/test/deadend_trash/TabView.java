@@ -36,21 +36,21 @@
 //	public void addTab(Widget t) {
 //		add(t); 
 //	}
-//	@Override
+//	
 //	public void add(Widget w) {		
 //		tabs.add(w);
 //		//TODO: UI
 //	}
-//	@Override
+//	
 //	public void clear() {
 //		tabs.clear(); 
 //		//TODO: UI
 //	}
-//	@Override
+//	
 //	public Iterator<Widget> iterator() {
 //		return tabs.iterator(); 
 //	}
-//	@Override
+//	
 //	public boolean remove(Widget w) {
 //		return tabs.remove(w); 
 //		//TODO: UI

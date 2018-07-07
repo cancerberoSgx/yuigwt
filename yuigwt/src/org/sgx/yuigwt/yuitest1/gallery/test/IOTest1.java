@@ -36,11 +36,11 @@ public IOTest1() {
 		TestResources.instance.IOTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"io-base", "io-queue", "console"}, new YUICallback() {	
 		
-@Override
+
 public void ready(final YuiContext Y) {
 	
 	final Console console1 = Y.newConsole(ConsoleConfig.create());
@@ -53,12 +53,12 @@ public void ready(final YuiContext Y) {
 	//create an io object for working that will notify us for some io events...
 	IOConfig ioConfig = IOConfig.create().
 			on(IO.EVENT_SUCCESS, new EventCallback<IOEvent>() {					
-		@Override
+		
 		public void call(IOEvent e) {
 			console1.log("SUCCESS, responseText: "+e.data().responseText()); 
 		}
 	}).on(IO.EVENT_FAILURE, new EventCallback<IOEvent>() {
-		@Override
+		
 		public void call(IOEvent e) {
 			console1.log("FAILURE. Status: "+e.data().status()+" - "+e.data().statusText(), "", ""); 
 		}

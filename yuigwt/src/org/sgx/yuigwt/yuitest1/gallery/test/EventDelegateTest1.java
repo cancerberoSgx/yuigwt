@@ -22,11 +22,11 @@ public EventDelegateTest1() {
 		TestResources.instance.EventDelegateTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 	YUI.YUI().use(new String[]{"node", "node-event-delegate", "event-key"}, new YUICallback() {
 
-		@Override
+		
 		public void ready(YuiContext Y) { 
 			Node newNode = parent.appendChild(
 				"<fieldset id=\"todo-example\">\n"+
@@ -45,7 +45,7 @@ public void test(final Node parent) {
 			
 			todoList.delegate("click", new NodeEventDelegateCallback() {
 				
-				@Override
+				
 				public void call(Node n, YuiEvent evt, Object arg) {
 					n.ancestor("li").remove(); 
 				}
@@ -53,7 +53,7 @@ public void test(final Node parent) {
 			
 			NodeEventCallback addTodo = new NodeEventCallback() {
 				
-				@Override
+				
 				public void call(YuiEvent e) {
 					todoList.append(
 			            "<li><button class=\"delete-todo\">remove</button>" +

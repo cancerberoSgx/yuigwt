@@ -35,7 +35,7 @@ public void draw() {
 //	new YUICallback() {
 //		private EventHandle handle1;
 //
-//		@Override
+//		
 //		public void ready(final YuiContext Y) {
 //			
 //			Node p = Y.one("body");
@@ -45,7 +45,7 @@ public void draw() {
 //			//another way of register an event listener, this time passing it to the config object
 //			Y.newButton(ButtonConfig.create().label("Show Sources").render(parent).
 //				on("click", new EventCallback<ButtonEvent>() {				
-//					@Override
+//					
 //					public void call(ButtonEvent e) {
 //						console.log("button pressed at x  ="+e.domEvent().getClientX()); 
 //					}
@@ -60,7 +60,6 @@ public void draw() {
 //		}
 //	}); 
 }
-@Override
 public void ready(YuiContext Y) {
 	parent = Y.one("body");
 	parent.addClass("yui3-skin-sam"); 
@@ -74,8 +73,7 @@ public void ready(YuiContext Y) {
 	Y.newButton(ButtonConfig.create()
 		.label("Show Sources")
 		.render(toolbar).
-		on("click", new EventCallback<ButtonEvent>() {				
-			@Override
+		on("click", new EventCallback<ButtonEvent>() {
 			public void call(ButtonEvent e) {
 				Window.alert("todo"); 
 			}

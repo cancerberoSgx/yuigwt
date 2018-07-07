@@ -28,7 +28,7 @@ public class Slider extends Composite implements YUICallback {
 		YUI.Use(MODULES, this); 
 	}
 
-	@Override
+	
 	public void ready(YuiContext Y) {
 		yuiSlider = Y.newSlider(SliderConfig.create().srcNode(el)); 
 		yuiSlider.render(); 

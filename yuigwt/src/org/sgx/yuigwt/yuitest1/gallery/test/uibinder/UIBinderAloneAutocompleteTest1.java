@@ -33,13 +33,13 @@ public class UIBinderAloneAutocompleteTest1 extends AbstractTest {
 					new GalleryResource(TestResources.instance.UIBinderAloneAutocompleteUI(), "UIBinderAloneAutocomplete.ui.xml"), });
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] {				
 				"autocomplete", "autocomplete-filters", "autocomplete-highlighters"
 				}, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				// create a GWT Widget Panel that wraps our yui widget parent.

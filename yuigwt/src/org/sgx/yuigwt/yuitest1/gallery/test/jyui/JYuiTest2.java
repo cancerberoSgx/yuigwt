@@ -35,10 +35,10 @@ public class JYuiTest2 extends AbstractTest {
 				TestResources.instance.jyui_JYuiTest2());
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "button", "cssgrids", "slider" }, new YUICallback() {
-			@Override
+			
 			public void ready(final YuiContext Y) {
 				Button button1 = Y.newButton(ButtonConfig.create().label("Button1"));
 				YButton button2 = new YButton(Y, "button2");
@@ -70,7 +70,7 @@ public class JYuiTest2 extends AbstractTest {
 			setWrapped(y.newWidget());
 		}
 
-		@Override
+		
 		public void afterRender() {
 			gridRow.render(getContext(), srcNode());
 			int i = 0;

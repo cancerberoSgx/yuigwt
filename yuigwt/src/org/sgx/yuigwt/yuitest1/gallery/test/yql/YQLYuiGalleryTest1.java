@@ -62,14 +62,14 @@ public YQLYuiGalleryTest1() {
 }
 
 
-@Override
+
 public void test(Node parent) {
 	this.parent=parent; 
 	//load yui usng this as the YUI callback, see ready() method
 	YUI.Use(new String[]{"yql", "console", "button","dump", "json", "io", "panel",
 		"autocomplete", "autocomplete-filters", "autocomplete-highlighters"}, this); 
 }
-@Override
+
 public void ready(YuiContext Y_) {
 	this.Y=Y_;
 	this.console = Y.newConsole().collapsed(true).render().cast();
@@ -88,7 +88,7 @@ public void ready(YuiContext Y_) {
 	
 	final String query1 = "select * from yui.gallery.all";
 	YQL yql1 = Y.newYQL(query1, new YQLCallback() {			
-		@Override
+		
 		public void call(YQLResult r) {				
 			if(r.error()!=null) {
 				console.log("YQL ERROR while requesting show tables"+r.error().description()); 
@@ -133,7 +133,7 @@ protected void doOwnerList() {
 //	console.log("AC: "+owners.length()+" - "+Y.dump(owners.get(0))); 
 	Y.newButton(ButtonConfig.create().label("describe table!").render(ownerlist).
 		on("click", new EventCallback<ButtonEvent>() {				
-			@Override
+			
 			public void call(ButtonEvent e) {
 				doShowOwnerDescription(ownerInput.get("value")); 
 			}				
@@ -147,7 +147,7 @@ protected void doShowOwnerDescription(String owner) {
 	final String query2 = "select * from yui.gallery.user where username='"+owner+"'";
 //final String query2 = "select * from yui.gallery.user";// where username='davglass'"; 
 YQL yql2 = Y.newYQL(query2, new YQLCallback() {			
-	@Override
+	
 	public void call(YQLResult r) {				
 		if(r.error()!=null) {
 			console.log("YQL ERROR while requesting show tables"+r.error().description()); 

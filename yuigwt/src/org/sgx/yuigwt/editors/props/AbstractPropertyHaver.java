@@ -16,17 +16,17 @@ public abstract class AbstractPropertyHaver implements PropertyHaver {
 		values = new LWOMap<String, Object>();
 	}
 
-	@Override
+	
 	public LWOMap<String, PropertyInfo> getProperties() {
 		return props;
 	}
 
-	@Override
+	
 	public Object getProperty(String propertyName) {
 		return values.get(propertyName);
 	}
 
-	@Override
+	
 	public void setProperty(String propertyName, Object val) {
 		values.put(propertyName, val);
 	}

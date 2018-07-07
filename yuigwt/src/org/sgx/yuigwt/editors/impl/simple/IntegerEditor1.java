@@ -21,12 +21,12 @@ public class IntegerEditor1 extends AbstractEditor<Integer> {
 		
 	}
 	
-	@Override
+	
 	public void render(Node parent) {		
 		super.render(parent);
 		Node src = parent.appendChild("<input type=\"text\"></input>"); 
 		src.on("click", new Callback() {			
-			@Override
+			
 			public void call(JsArrayMixed args) {
 				EditorEventManager.<Integer>getInstance().fireValueChangeEvent(IntegerEditor1.this); 
 			}
@@ -34,12 +34,12 @@ public class IntegerEditor1 extends AbstractEditor<Integer> {
 		this.setSrcNode(src); 
 	}
 
-//	@Override
+//	
 //	public boolean isSimple() {
 //		return true;
 //	}
 
-	@Override
+	
 	public Integer flush() {
 		String s = getSrcNode().getString("value");
 		try {
@@ -49,18 +49,18 @@ public class IntegerEditor1 extends AbstractEditor<Integer> {
 		} 
 	}
 
-	@Override
+	
 	public void load(Integer t) {
 		super.load(t);
 		getSrcNode().set("value", t+""); 
 	}
 	
-//	@Override
+//	
 //	public Node getWidget() {
 //		return this.node;
 //	}
 //	
-//	@Override
+//	
 //	public List<EditorError<Integer>> getErrors() {
 //		return EditorErrorManager.<Integer>getInstance().getErrors(this);
 //	}

@@ -25,10 +25,10 @@ public CacheTest1() {
 		TestResources.instance.CacheTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button", "cache", "cache-offline"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		final String cacheKey1 = "cachetestkey1", cacheKey2 = "cachetestkey2";	
 		parent.append("<p>The online cache tester: </p>");
@@ -36,13 +36,13 @@ YUI.Use(new String[]{"button", "cache", "cache-offline"}, new YUICallback() {
 			"<input type=\"text\" value=\"value to store\"></input>");
 		final Cache cache1 = Y.newCache(CacheConfig.create().max(5).expires(3600000)); 
 		Y.newButton(ButtonConfig.create().label("Save").render(parent).on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				cache1.add(cacheKey1, p.get("value")); 
 			}
 		})); 
 		Y.newButton(ButtonConfig.create().label("Load").render(parent).on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				p.set("value", cache1.retrieve(cacheKey1).responseString()); 
 			}
@@ -54,13 +54,13 @@ YUI.Use(new String[]{"button", "cache", "cache-offline"}, new YUICallback() {
 		CacheOfflineConfig occ = (CacheOfflineConfig)CacheOfflineConfig.create(); 
 		final Cache cache2 = Y.newCacheOffline(occ.sandbox("foobar4455z").max(5).expires(3600000)); 
 		Y.newButton(ButtonConfig.create().label("Save").render(parent).on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				cache2.add(cacheKey2, p2.get("value")); 
 			}
 		})); 
 		Y.newButton(ButtonConfig.create().label("Load").render(parent).on("click", new EventCallback() {			
-			@Override
+			
 			public void call(EventFacade e) {
 				p2.set("value", cache2.retrieve(cacheKey2).responseString()); 
 			}

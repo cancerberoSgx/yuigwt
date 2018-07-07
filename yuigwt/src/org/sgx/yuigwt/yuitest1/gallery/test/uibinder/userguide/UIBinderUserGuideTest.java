@@ -45,12 +45,12 @@ public class UIBinderUserGuideTest extends AbstractTest {
 		});
 	}
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI().use(new String[] { "escape", "tabview","node-menunav", "button", "panel", "cssgrids"
 		}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 
 		// create a GWT Widget Panel that wrapps our yui widget parent.

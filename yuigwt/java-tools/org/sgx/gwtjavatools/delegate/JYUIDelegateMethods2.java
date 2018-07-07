@@ -94,7 +94,7 @@ public class JYUIDelegateMethods2 {
 			this.config = config;
 		}
 
-		@Override
+		
 		public void visit(MethodDeclaration m, Object arg) {
 
 //			if(m.getName().equals("voidMethod1")) {

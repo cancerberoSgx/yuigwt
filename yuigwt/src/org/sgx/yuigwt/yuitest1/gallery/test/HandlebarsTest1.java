@@ -36,11 +36,11 @@ public HandlebarsTest1() {
 		TestResources.instance.HandlebarsTest1()); 
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"handlebars", "button", "json", "stylesheet"}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {		
 		String template1Code = 
 			"<p>YUI is brought to you by:</p>\n"+
@@ -67,7 +67,7 @@ YUI.Use(new String[]{"handlebars", "button", "json", "stylesheet"}, new YUICallb
 		
 		Y.newButton(ButtonConfig.create().label("render").render(parent).
 			on("click", new EventCallback<ButtonEvent>() {				
-				@Override
+				
 				public void call(ButtonEvent e) {
 					renderTemplate(); 
 				}				

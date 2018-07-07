@@ -37,7 +37,7 @@ public abstract class TestSuiteJsClass implements JsClass {
 		
 	}
 	
-	@Override
+	
 	public JavaScriptObject toJSO() {
 		// TODO Auto-generated method stub
 		return null;

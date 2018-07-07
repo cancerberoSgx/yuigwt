@@ -55,7 +55,7 @@ public class MainPanel extends YUIBinded {
 
 	@UiField MainMenu mainMenu; 
 	
-	@Override
+	
 	public void yuiBinded() {
 		prettyPrint(); 
 //		y.one(".main-header").setStyles(Style.create().position("fixed")); 
@@ -66,7 +66,7 @@ public class MainPanel extends YUIBinded {
 			Node nav = y.one("#nav-"+sectionNames[i]);
 			if(target!=null && nav!=null) {
 				nav.on("click", new EventCallback<EventFacade>() {
-					@Override
+					
 					public void call(EventFacade e) {
 						target.scrollIntoView(); 
 					}
@@ -75,12 +75,12 @@ public class MainPanel extends YUIBinded {
 		}
 	}
 
-	@Override
+	
 	public UiBinder getUIBinder() {
 		return uiBinder;
 	}
 
-	@Override
+	
 	public Element[] getYUIBindedEls() {
 		return new Element[]{};
 	}

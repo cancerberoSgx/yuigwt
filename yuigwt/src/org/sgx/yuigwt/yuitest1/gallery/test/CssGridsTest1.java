@@ -33,11 +33,11 @@ public CssGridsTest1() {
 			TestResources.instance.CssGridsTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"cssgrids", "node"}, new YUICallback() {
 	
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		//first showing markup
@@ -77,7 +77,7 @@ YUI.Use(new String[]{"cssgrids", "node"}, new YUICallback() {
 		
 		parent.all("div").each(new NodeListIterator() {
 			
-			@Override
+			
 			public void next(Node n, int index, NodeList instance) {
 				n.setStyles(Style.create()
 						.backgroundColor(TestUtil.getInstance().randomColor().toString())

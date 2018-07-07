@@ -32,10 +32,10 @@ public DataSchemaXMLTable1() {
 		TestResources.instance.DataSchemaXMLTable1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"datatype-xml", "dataschema-xml", "node", "dump", "datatable"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		parent.append(
 			" <table id=\"simple\">\n"+

@@ -81,7 +81,7 @@ public class ApplyDifferentXML extends Composite implements YUIBinderListener {
 		binderUtil.bindYUI(y, this, new Element[] {menunav1 }, this);
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		if(userName!=null) {
 			NodeList names = y.all(".userName123"); 

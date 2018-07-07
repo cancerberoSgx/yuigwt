@@ -27,17 +27,17 @@ public class JYuiTest1 extends AbstractTest {
 		super("jyui1", "jyui1", new String[] { GalleryConstants.TAG_EXT, GalleryConstants.TAG_GWT }, TestResources.instance.jyui_JYuiTest1());
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "button" }, new YUICallback() {
 			private EventHandle handle1;
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				YButton ybutton1 = new YButton(Y, "button1");
 				ybutton1.on("click", new EventCallback<ButtonEvent>() {
-					@Override
+					
 					public void call(ButtonEvent e) {
 						Window.alert("clicked");
 					}
@@ -46,7 +46,7 @@ public class JYuiTest1 extends AbstractTest {
 
 				// now extending a button
 				MyButton button2 = new MyButton(Y, "myButton", new EventCallback<ButtonEvent>() {
-					@Override
+					
 					public void call(ButtonEvent e) {
 						Window.alert("clicked 2");
 					}
@@ -70,7 +70,7 @@ public class JYuiTest1 extends AbstractTest {
 			super(y, label);
 			this.on("click", onclick);
 			this.on("render", new EventCallback<EventFacade>() {
-				@Override
+				
 				public void call(EventFacade e) {
 					MyButton.this.srcNode().setStyle("border", "2px solid green");
 				}
@@ -87,7 +87,7 @@ public class JYuiTest1 extends AbstractTest {
 		public MyOtherButton(YuiContext y) {
 			super(y);
 		}
-		@Override
+		
 		public void afterRender() {
 			srcNode().setStyles(Style.create()
 				.backgroundColor("pink")

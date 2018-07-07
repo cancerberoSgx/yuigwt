@@ -340,7 +340,7 @@ public class UIBinderAloneButton extends YUIBinded {
   }
   private static UiBinder&lt;YUIBinded, Widget> uiBinder = GWT.create(MyUiBinder.class);
   
-  @Override
+  
   public UiBinder&lt;YUIBinded, Widget> getUIBinder() {
     return uiBinder;
   }  
@@ -358,7 +358,7 @@ public class UIBinderAloneButton extends YUIBinded {
    * tell the YUIBinder which are the fields corresponding to YUI widgets. If you don't declare the 
    * UiFields Elements corresponding to YUI Widgets, they will be ignored by the framework. 
    */
-  @Override
+  
   public Element[] getYUIBindedEls() {
     return  new Element[] { yuiButtonEl1}; 
   }
@@ -374,12 +374,12 @@ public class UIBinderAloneButton extends YUIBinded {
    * declared in getYUIBindedEls() return value are rendered. Also the YUI widgets are binded so the user 
    * can obtain the actual YUI Widgets from the binded HTML Elements, in this case using 
    * "yuiBinder.getWidget(yuiButtonEl1)". That will return a YUI Button instance we can work with in Java. */
-  @Override
+  
   public void yuiBinded() {
     yuiButton1 = yuiBinder.getWidget(yuiButtonEl1).cast();
 
     yuiButton1.on("click", new EventCallback&lt;ButtonEvent>() {
-      @Override
+      
       public void call(ButtonEvent e) {
         Window.alert("yui button clicked!"); 
       }
@@ -451,7 +451,7 @@ YUI.Use(new String[] {
 	
 	}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 
 		/** we will add our widget into body Node */

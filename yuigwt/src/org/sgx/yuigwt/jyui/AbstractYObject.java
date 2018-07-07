@@ -12,7 +12,7 @@ public abstract class AbstractYObject implements YObject {
 	}
 	protected JavaScriptObject _wrapped; 
 	
-	@Override
+	
 	public JavaScriptObject getWrapped() {
 		return _wrapped; 
 	}

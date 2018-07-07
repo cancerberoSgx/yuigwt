@@ -21,10 +21,10 @@ public EventSimulateTest1() {
 		TestResources.instance.EventSimulateTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"node-event-simulate"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		/* ahaha - we need to work with a new parent node instance so we use Y.one(parent.getDOMNode()). 
 		 * This is because we are loading the module "node-event-simulate" in this new / inner YUI sandbox - 
@@ -35,14 +35,14 @@ YUI.Use(new String[]{"node-event-simulate"}, new YUICallback() {
 		//now we are sure that el2 Node has the "node-event-simulate" plugin loaded 
 		
 		el1.on("click", new NodeEventCallback() {			
-			@Override
+			
 			public void call(YuiEvent e) {
 				Window.alert("simulated click. AltKey is "+e.altlKey()+" - clientX is "+e.clientX()); 
 			}
 		}); 
 		el1.on("keydown", new NodeEventCallback() {
 			
-			@Override
+			
 			public void call(YuiEvent e) {
 				Window.alert("keydown simulate keycode is "+e.keyCode()); 
 			}

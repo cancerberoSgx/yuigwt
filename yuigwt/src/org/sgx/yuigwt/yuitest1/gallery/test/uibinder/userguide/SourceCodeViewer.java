@@ -47,7 +47,7 @@ public class SourceCodeViewer extends YUIBinded {
 		super(y); 
 	}
 
-	@Override
+	
 	public void yuiBinded() {
 		final String testName = getTestName(); 
 		if(testName==null)
@@ -63,7 +63,7 @@ public class SourceCodeViewer extends YUIBinded {
 		final Panel panel1 = getYUIBinder().getWidget(panel1El).cast();
 		
 		button1.on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				//cannot work directly in panel1.getStdModNode("body") because we cannot call asHTMLPanel() if the node is already inside a GWT Widget. 
 //				test.test(panel1.getStdModNode("body")); 	
@@ -77,7 +77,7 @@ public class SourceCodeViewer extends YUIBinded {
 			}
 		}); 
 		acceptButton.on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 				panel1.hide(); 
 			}
@@ -94,7 +94,7 @@ public class SourceCodeViewer extends YUIBinded {
 			ResourcePrototype res = test.getTestResources().get(resName);
 			galleryUtil.getText(res, new ResourceCallback<TextResource>() {
 				
-				@Override
+				
 				public void onSuccess(TextResource resource) {
 					String scapedContent = y.Escape().html(resource.getText().replace("\t", "  "));
 					String header = resName; 
@@ -104,7 +104,7 @@ public class SourceCodeViewer extends YUIBinded {
 					bodies.add(body);
 				}
 				
-				@Override
+				
 				public void onError(ResourceException e) {
 					// TODO Auto-generated method stub					
 				}
@@ -123,12 +123,12 @@ public class SourceCodeViewer extends YUIBinded {
 		UIBinderUserGuide.prettyPrint(); 
 	}
 
-	@Override
+	
 	public UiBinder getUIBinder() {
 		return uiBinder;
 	}
 
-	@Override
+	
 	public Element[] getYUIBindedEls() {
 		return new Element[]{buttonEl, panel1El, acceptButtonEl};
 	}

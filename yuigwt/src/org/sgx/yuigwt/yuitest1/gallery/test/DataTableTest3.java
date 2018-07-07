@@ -38,13 +38,13 @@ public DataTableTest3() {
 			TestResources.instance.DataTableTest3());
 }
 
-@Override
+
 public void test(final Node parent) {
 
 	String[] modules = { "datatable", "datatable-sort", "datatable-scroll", "button" };
 	YUI.Use(modules, new YUICallback() {
 
-		@Override
+		
 		public void ready(final YuiContext Y) {
 			DataTableTest3.this.Y=Y; 
 			Column[] table1Columns = new Column[]{
@@ -70,7 +70,7 @@ public void test(final Node parent) {
 			table1.render(parent); 
 			
 			table1.delegate("click", new EventCallback<DataTableEvent>() {
-				@Override
+				
 				public void call(DataTableEvent e) {
 					// undefined to trigger the emptyCellValue
 					boolean checked = e.targetNode().getBoolean("checked");
@@ -86,7 +86,7 @@ public void test(final Node parent) {
 			//a button to process the checked records and another to clear the selection. 
 			Y.newButton(ButtonConfig.create().label("Proccess selection").render(parent).
 				on("click", new EventCallback<ButtonEvent>() {				
-					@Override
+					
 					public void call(ButtonEvent e) {
 						process(); 
 					}
@@ -94,7 +94,7 @@ public void test(final Node parent) {
 			); 
 			Y.newButton(ButtonConfig.create().label("Delete selected").render(parent).
 				on("click", new EventCallback<ButtonEvent>() {				
-					@Override
+					
 					public void call(ButtonEvent e) {
 						deleteSelected(); 
 					}
@@ -102,7 +102,7 @@ public void test(final Node parent) {
 			); 
 			Y.newButton(ButtonConfig.create().label("Clear Selection").render(parent).
 				on("click", new EventCallback<ButtonEvent>() {				
-					@Override
+					
 					public void call(ButtonEvent e) {
 						table1.dataModelList().invoke("set", "select", null);
 
@@ -116,7 +116,7 @@ public void test(final Node parent) {
 			); 
 			Y.newButton(ButtonConfig.create().label("Select All").render(parent).
 				on("click", new EventCallback<ButtonEvent>() {				
-					@Override
+					
 					public void call(ButtonEvent e) {
 						boolean checked = e.targetNode().getBoolean("checked");
 						
@@ -148,7 +148,7 @@ protected void process() {
 	final String template = "<li>Record index = {index} Data = {port} : {pname}</li>";
 	final StringBuffer sb = new StringBuffer(); 
 	ml.each(new ArrayListCallback<JavaScriptObject>() {
-		@Override
+		
 		public boolean call(JavaScriptObject item_, int index) {
 			Attribute item = item_.cast();  
 			JsObject data = item.getAttrs(new String[]{"select", "port", "pname"});
@@ -168,7 +168,7 @@ protected void process() {
 protected void deleteSelected() {
 	ModelList ml = table1.dataModelList();
 	ml.each(new ArrayListCallback<JavaScriptObject>() {
-		@Override
+		
 		public boolean call(JavaScriptObject item_, int index) {//			
 			Attribute item = item_.cast();  
 			JsObject data = item.getAttrs(new String[]{"select", "port", "pname"});

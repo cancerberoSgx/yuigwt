@@ -1,0 +1,8 @@
+node_modules
+classes
+target
+*.class
+war/WEB-INF
+/dist
+/gwt-unitCache
+/war/org.sgx.*

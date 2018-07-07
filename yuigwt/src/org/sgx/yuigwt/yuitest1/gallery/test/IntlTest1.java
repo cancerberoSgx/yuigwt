@@ -29,11 +29,11 @@ public IntlTest1() {
 		TestResources.instance.IntlTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.YUI(YuiConfig.create()
 	).use(new String[]{"intl", "button"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		Y.Intl().add("greetings", "zh-Hans", 
 			JsObject.one("HELLO", "你好！")
@@ -51,7 +51,7 @@ YUI.YUI(YuiConfig.create()
 		
 		//add a intl language change event listener, and update the node text to selected language
 		Y.Intl().on(Intl.EVENT_LANGCHANGE, new EventCallback<IntlEvent>() {
-			@Override
+			
 			public void call(IntlEvent e) {
 				setIntlContent(Y); 
 			}
@@ -59,7 +59,7 @@ YUI.YUI(YuiConfig.create()
 		
 		Y.newButton(ButtonConfig.create().label("es").render(parent).
 			on("click", new EventCallback<ButtonEvent>() {				
-				@Override
+				
 				public void call(ButtonEvent e) {
 					Y.Intl().setLang("greetings", "es"); 
 				}
@@ -67,7 +67,7 @@ YUI.YUI(YuiConfig.create()
 		); 	
 		Y.newButton(ButtonConfig.create().label("zh-Hans").render(parent).
 			on("click", new EventCallback<ButtonEvent>() {				
-				@Override
+				
 				public void call(ButtonEvent e) {
 					Y.Intl().setLang("greetings", "zh-Hans"); 
 				}

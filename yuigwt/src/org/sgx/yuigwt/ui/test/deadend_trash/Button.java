@@ -33,7 +33,7 @@
 ////		yuiWidget.render(panel.getElement()); 
 //	}
 //	
-////	@Override
+////	
 ////	protected org.sgx.yuigwt.yui.widget.Widget newYuiWidget(YuiContext y, JavaScriptObject config) {
 ////		return y.newButton(config); 
 ////	}

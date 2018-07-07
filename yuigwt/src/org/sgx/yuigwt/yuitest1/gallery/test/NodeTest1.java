@@ -25,11 +25,11 @@ public NodeTest1() {
 		TestResources.instance.PJaxTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"node"}, new YUICallback() {	
 		
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		//create a node from another node (parent) - only simple types
 		Node child1 = parent.appendChild("<div></div>");
@@ -46,7 +46,7 @@ YUI.Use(new String[]{"node"}, new YUICallback() {
 		//test ancestor
 		Node parentb = child1.ancestor(new Node.AncestorCallback() {
 			
-			@Override
+			
 			public boolean call(Node n) {
 				return n == parent; 
 			}

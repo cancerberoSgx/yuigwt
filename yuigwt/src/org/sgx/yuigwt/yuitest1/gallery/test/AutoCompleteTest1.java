@@ -26,10 +26,10 @@ public AutoCompleteTest1() {
 		TestResources.instance.AutoCompleteTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"autocomplete", "autocomplete-filters", "autocomplete-highlighters"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		
 		/* Note we say Y.one(parent.getDOMNode()) and not only parent because we need the parent 
@@ -59,14 +59,14 @@ YUI.Use(new String[]{"autocomplete", "autocomplete-filters", "autocomplete-highl
 		); 		
 		
 		ac.on(AutoComplete.EVENT_SELECT, new EventCallback<AutoCompleteEvent>() {
-			@Override
+			
 			public void call(AutoCompleteEvent e) {
 				Window.alert("selected "+e.itemNode().get("innerHTML")); 
 			}
 		}); 
 		
 		ac.on(AutoComplete.EVENT_RESULTS, new EventCallback<AutoCompleteEvent>() {
-			@Override
+			
 			public void call(AutoCompleteEvent e) {				
 				Window.alert("results: "+e.results().length()); 
 			}

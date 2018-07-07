@@ -8,7 +8,7 @@ import org.sgx.yuigwt.yuitest1.gallery.Gallery;
 import com.google.gwt.core.client.EntryPoint;
 
 public class Yui4GwtGalleryEntryPoint implements EntryPoint {
-	@Override
+	
 	public void onModuleLoad() {
 		Map<String, String> urlParams = Util.parseUrlParams(Util.getCurrentAddressUrl());
 		if(urlParams.containsKey("singleTest") && urlParams.containsKey("test")) {

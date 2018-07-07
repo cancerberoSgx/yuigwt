@@ -36,7 +36,7 @@ public class UIBinderTest2 extends AbstractTest {
 					new GalleryResource(TestResources.instance.UIBinderTest2UI(), "UIBinderTest2Composite.ui.xml"), });
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "node",
 				
@@ -46,7 +46,7 @@ public class UIBinderTest2 extends AbstractTest {
 			},
 			new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				// create a GWT Widget Panel that wrapps our yui widget parent.

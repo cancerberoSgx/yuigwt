@@ -23,10 +23,10 @@ public DataTypeTest1() {
 			TestResources.instance.DataTypeTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 	YUI.YUI(YuiConfig.create().lang("ko-KR")).use(new String[]{"datatype"}, new YUICallback() {	
-		@Override
+		
 		public void ready(YuiContext Y) {
 			
 			//parse and format some dates

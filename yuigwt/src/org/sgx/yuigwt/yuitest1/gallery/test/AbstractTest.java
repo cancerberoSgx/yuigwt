@@ -48,7 +48,7 @@ public String[] getTags() {
 public void setTags(String[] tags) {
 	this.tags = tags;
 } 
-@Override
+
 public Map<String, ResourcePrototype> getTestResources() {
 	return testResources;
 }

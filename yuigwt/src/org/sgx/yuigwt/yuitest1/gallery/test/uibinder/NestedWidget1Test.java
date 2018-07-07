@@ -34,13 +34,13 @@ public class NestedWidget1Test extends AbstractTest {
 					new GalleryResource(TestResources.instance.NestedWidget1UI(), "NestedWidget1.ui.xml"), });
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] {				
 				"button", "tabview", "panel"
 				}, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				// create a GWT Widget Panel that wrapps our yui widget parent.

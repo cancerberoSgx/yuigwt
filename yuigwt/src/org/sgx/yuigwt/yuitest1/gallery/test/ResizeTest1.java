@@ -27,10 +27,10 @@ public ResizeTest1() {
 		TestResources.instance.ResizeTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"resize", "resize-plugin", "button"}, new YUICallback() {	
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		Node n = parent.appendChild("<div id=\"resizable1\">hello</div>"); 
 		n.setStyles(Style.create().height("100px").position("relative").
@@ -39,7 +39,7 @@ YUI.Use(new String[]{"resize", "resize-plugin", "button"}, new YUICallback() {
 		
 		//and now a resizable button using Resize plugin
 		Widget button = Y.newButton(ButtonConfig.create().label("resizable button").on("click", new EventCallback<EventFacade>() {
-			@Override
+			
 			public void call(EventFacade e) {
 			}
 		})).render(parent); 

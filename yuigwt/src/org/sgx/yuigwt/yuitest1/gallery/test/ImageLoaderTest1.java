@@ -30,10 +30,10 @@ public ImageLoaderTest1() {
 			TestResources.instance.ImageLoaderTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button", "imageloader"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		Node trigger = parent.appendChild("<p id=\"trigger1\">clickme will trigger or wait 5s</p>");
 		Node img = parent.appendChild("<p id=\"delayedImg\">this is a<br/>delayed img</p>");

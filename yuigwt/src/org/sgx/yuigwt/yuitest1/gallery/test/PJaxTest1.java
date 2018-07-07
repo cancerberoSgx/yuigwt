@@ -29,11 +29,11 @@ public PJaxTest1() {
 		TestResources.instance.PJaxTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"pjax"}, new YUICallback() {	
 		
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		String base = GWT.getModuleBaseURL()+"testfiles/"; 
 		parent.appendChild(
@@ -48,7 +48,7 @@ YUI.Use(new String[]{"pjax"}, new YUICallback() {
 		
 //note for not casting EventFacade to subclass PjaxEvent 
 pj1.on("error", new EventCallback<PjaxEvent>() {			
-	@Override
+	
 	public void call(PjaxEvent e) {
 		Window.alert("PJAX ERROR: node: "+e.content().node()); 
 	}

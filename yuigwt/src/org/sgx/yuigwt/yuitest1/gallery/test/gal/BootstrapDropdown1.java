@@ -36,14 +36,14 @@
 //			TestResources.instance.gal_AccordionTest1());
 //	}
 //
-//	@Override
+//	
 //	public void test(final Node parent) {
 //		YUI.YUI(
 ////				YuiConfig.create().gallery(GalleryConstants.LATEST_BUILD)
 //			).use(
 //
 //		new String[] { "gallery-bootstrap-dropdown" }, new YUICallback() {
-//			@Override
+//			
 //			public void ready(YuiContext Y_) {
 //
 //				// cast to YuiGalleryContext for using the yui gallery java api.

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.sgx</groupId>
 	<artifactId>yuigwt</artifactId>
-	<packaging>jar</packaging>
+	<!-- <packaging>jar</packaging> -->
 	<version>0.3</version>
 	<name>YUI 3 wrapper library for GWT</name>
 	<url>http://code.google.com/p/yuigwt/</url>

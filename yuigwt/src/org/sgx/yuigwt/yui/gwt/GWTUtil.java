@@ -30,7 +30,7 @@ public class GWTUtil {
 		Document.get().getBody().appendChild(yn1);
 		final HTMLPanel gwtWidget = HTMLPanel.wrap(yn1);
 		gwtWidget.addAttachHandler(new AttachEvent.Handler() {
-			@Override
+			
 			public void onAttachOrDetach(AttachEvent event) {
 				// System.out.println(event.isAttached()+": "+);
 				if (event.isAttached())

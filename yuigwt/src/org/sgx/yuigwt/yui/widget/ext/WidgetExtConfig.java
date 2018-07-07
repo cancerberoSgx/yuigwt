@@ -16,7 +16,7 @@ import com.google.gwt.core.client.JsArrayString;
  * @author sg
  *
  */
-public class WidgetExtConfig extends WidgetConfig {
+public abstract class WidgetExtConfig extends WidgetConfig {
 protected WidgetExtConfig(){}
 
 
@@ -728,7 +728,7 @@ return this;
  * @param val
  * @return
  */
-public native final WidgetExtConfig children(JsArray<WidgetExtConfig> val) /*-{
+public final native WidgetExtConfig children(JsArray<WidgetExtConfig> val) /*-{
 this.children = val;  
 return this; 
 }-*/;

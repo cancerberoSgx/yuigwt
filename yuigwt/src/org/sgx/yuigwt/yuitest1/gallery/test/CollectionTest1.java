@@ -26,10 +26,10 @@ public CollectionTest1() {
 		TestResources.instance.CollectionTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"yui-base"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		Queue<String> q1 = Y.newQueue().cast();
 		q1.add("hello");

@@ -298,7 +298,7 @@ public class Color {
 		return rgbToHex(red, green, blue);
 	}
 
-	@Override
+	
 	public String toString() {
 		return "rgb(" + red + "," + green + "," + blue + ")";
 	}

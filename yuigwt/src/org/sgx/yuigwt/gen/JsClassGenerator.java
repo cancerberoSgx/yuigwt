@@ -76,7 +76,7 @@
 //	buildMethodInfo(objectType, logger);
 //	
 //	StringBuffer sb = new StringBuffer(); 
-//	sb.append("@Override \n"); 
+//	sb.append(" \n"); 
 //	sb.append("public native final JavaScriptObject toJSO() /*-{ \n");
 ////	sb.append("var ret = {}; \n");
 //	sb.append("var ret = function(){arguments.callee.superclass.constructor.apply(this, arguments);}; \n");

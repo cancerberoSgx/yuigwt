@@ -23,11 +23,11 @@ public DialTest1() {
 			TestResources.instance.ButtonTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"dial", "console"}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		Dial dial = Y.newDial(DialConfig.create()
 			.centerButtonDiameter(2)
@@ -37,7 +37,7 @@ YUI.Use(new String[]{"dial", "console"}, new YUICallback() {
 		);
 		final Console console = Y.newConsole().render().cast(); 
 		dial.on("valueChange", new EventCallback<WidgetEvent>() {
-			@Override
+			
 			public void call(WidgetEvent e) {
 				console.log("valuechange : "+e.newValInt()); 
 			}

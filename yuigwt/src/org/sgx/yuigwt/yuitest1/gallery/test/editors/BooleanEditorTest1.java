@@ -29,12 +29,12 @@ public BooleanEditorTest1() {
 		TestResources.instance.editors_BooleanEditorTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"node", "button", "console"}, new YUICallback() {
 	private BooleanEditor1 ed1;
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		ed1 = new BooleanEditor1(Y);
 		ed1.render(parent); 
@@ -45,7 +45,7 @@ YUI.Use(new String[]{"node", "button", "console"}, new YUICallback() {
 		
 		Y.newButton(ButtonConfig.create().label("flush").render(parent).
 			on("click", new EventCallback<ButtonEvent>() {				
-				@Override
+				
 				public void call(ButtonEvent e) {
 					ed1.flush(); 
 					if(ed1.flush()) {
@@ -59,7 +59,7 @@ YUI.Use(new String[]{"node", "button", "console"}, new YUICallback() {
 		); 	
 		
 		ed1.addValueChangeListener(new ValueChangeListener<Boolean>() {			
-			@Override
+			
 			public void notifyValueChange(EditorValueChangeEvent<Boolean> evt) {
 				console.log("event "+evt.getSrc().flush());
 			}

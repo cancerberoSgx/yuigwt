@@ -34,12 +34,12 @@ public ButtonTest1() {
 			TestResources.instance.ButtonTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"button", "button-plugin", "node-screen", "dump", "console"}, new YUICallback() {
 	private EventHandle handle1;
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		final Console console = Y.newConsole(); 
 		console.render(); 
@@ -48,7 +48,7 @@ YUI.Use(new String[]{"button", "button-plugin", "node-screen", "dump", "console"
 		).render(parent);	
 		//register a click listener that will unregister itself after the first event
 		handle1 = button1.on("click", new EventCallback<ButtonEvent>() {			
-			@Override
+			
 			public void call(ButtonEvent e) {
 				console.log("button pressed at x  ="+e.domEvent().getClientX()+".\n And this will be THE LAST TIME !!!");
 				handle1.detach(); //unregister this event listener!
@@ -60,7 +60,7 @@ YUI.Use(new String[]{"button", "button-plugin", "node-screen", "dump", "console"
 		//another way of register an event listener, this time passing it to the config object
 		Button b2 = Y.newButton(ButtonConfig.create().label("another button").render(parent).
 			on("click", new EventCallback<ButtonEvent>() {				
-				@Override
+				
 				public void call(ButtonEvent e) {
 					console.log("button pressed at x  ="+e.domEvent().getClientX()); 
 				}

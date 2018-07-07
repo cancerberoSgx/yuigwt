@@ -44,7 +44,7 @@ public Editor<T> getSource() {
 public void setSource(Editor<T> source) {
 	this.source = source;
 }
-@Override
+
 public String toString() {
 	return "Error "+getMessage()+". Source editor: "+getSource();
 }

@@ -28,11 +28,11 @@ public class JSONTest1 extends AbstractTest {
 				TAG_RESIZE, TAG_JSINJAVA }, TestResources.instance.JSONTest1());
 	}
 
-	@Override
+	
 	public void test(final Node parent) {
 		YUI.Use(new String[] { "json", "io", "button" }, new YUICallback() {
 
-			@Override
+			
 			public void ready(final YuiContext Y) {
 
 				String errMsg = null;
@@ -60,7 +60,7 @@ public class JSONTest1 extends AbstractTest {
 				 * Instead se define a js function inline using JsFunctionBuilder.
 				 */
 				JsFunction reviver2 = new JsFunctionBuilder() {
-					@Override
+					
 					public native final JsFunction buildFunction()/*-{
 						return function(k, v) {
 							if (k == "miscellaneous" && v > 500)

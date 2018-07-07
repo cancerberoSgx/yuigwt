@@ -33,10 +33,10 @@ public ChartsTest2() {
 		TestResources.instance.ChartsTest2());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"charts-legend"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		//use a table to position charts. 
 		parent.append(

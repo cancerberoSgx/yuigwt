@@ -26,10 +26,10 @@ public StyleSheetTest1() {
 		TestResources.instance.StyleSheetTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"stylesheet", "slider"}, new YUICallback() {
-	@Override
+	
 	public void ready(final YuiContext Y) {	
 		
 		final StyleSheet ss1 = Y.newStyleSheet(); 
@@ -37,7 +37,7 @@ YUI.Use(new String[]{"stylesheet", "slider"}, new YUICallback() {
 		sl1.render(parent); 
 		sl1.on(Slider.EVENT_THUMBMOVE, new EventCallback() {
 			
-			@Override
+			
 			public void call(EventFacade e_) {
 				SliderEvent e = (SliderEvent)e_;
 				String fsize = (e.offset()+8)+"px";

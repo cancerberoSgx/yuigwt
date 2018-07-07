@@ -31,7 +31,7 @@ import com.google.gwt.dom.client.Document;
 //import com.google.gwt.user.client.Window;
 
 public class Yui4GwtGalleryLocalOld implements EntryPoint {
-	@Override
+	
 	public void onModuleLoad() {
 
 		Document.get().getBody().addClassName("yui3-skin-sam"); 
@@ -52,7 +52,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 //		YUI.YUI(YuiConfig.create().base(AlloyuiGalleryConstants.YUI_BUILD_PATH)).
 //			use(new String[]{"node", "node-event-delegate", "event-key"}, new AUICallback() {
 //			
-//			@Override
+//			
 //			public void ready(YuiContext Y) {
 //				
 //				Node body = Y.one("body"), 
@@ -75,7 +75,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 //				
 //				todoList.delegate("click", new NodeEventDelegateCallback() {
 //					
-//					@Override
+//					
 //					public void call(Node n, YuiEvent evt, Object arg) {
 //						n.ancestor("li").remove(); 
 //					}
@@ -83,7 +83,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 //				
 //				NodeEventCallback addTodo = new NodeEventCallback() {
 //					
-//					@Override
+//					
 //					public void call(YuiEvent e) {
 //						todoList.append(
 //				            "<li><button class=\"delete-todo\">remove</button>" +
@@ -103,7 +103,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 //		YUI.YUI(YuiConfig.create().base(AlloyuiGalleryConstants.YUI_BUILD_PATH)).
 //			use(new String[]{"button"}, new AUICallback() {
 //			
-//			@Override
+//			
 //			public void ready(YuiContext Y) {				
 //				Node buttonEl = Y.one("body").appendChild("<button id=\"foo1\">hello world</button>").cast(); 
 //				
@@ -118,7 +118,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 //		YUI.YUI(YuiConfig.create().base(AlloyuiGalleryConstants.YUI_BUILD_PATH)).
 //			use(new String[]{"slider"}, new AUICallback() {
 //			
-//			@Override
+//			
 //			public void ready(YuiContext Y) {				
 //				Node n1 = Y.one("body").appendChild("<span></span>").cast();
 //				Widget slider1 = Y.newSlider().render(n1); 
@@ -136,7 +136,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 //	YUI.YUI(YuiConfig.create().base(AlloyuiGalleryConstants.YUI_BUILD_PATH)).
 //		use(new String[]{"anim"}, new AUICallback() {
 //		
-//		@Override
+//		
 //		public void ready(YuiContext Y) {
 //			
 //			Node body = Y.one("body"), 
@@ -154,7 +154,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 ////			anim.run();	
 //			NodeEventCallback hover = new NodeEventCallback() {
 //				
-//				@Override
+//				
 //				public void call(YuiEvent e) {
 //					boolean reverse = false; 
 //					if(anim.getBoolean("running")) {
@@ -177,7 +177,7 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 ////	private void graphicTest1() {
 ////		YUI.use(new String[]{"graphics"}, new AUICallback() {
 ////			
-////			@Override
+////			
 ////			public void ready(YuiContext Y) {
 ////				
 ////				Stroke stroke1 = Stroke.create().color("#ededed").dashStyle("none"); 
@@ -191,14 +191,14 @@ public class Yui4GwtGalleryLocalOld implements EntryPoint {
 //		YUI.YUI(YuiConfig.create().base(AlloyuiGalleryConstants.YUI_BUILD_PATH)).use(new String[]{"node"}, new AUICallback() {
 //			private EventHandle handle1;
 //
-//			@Override
+//			
 //			public void ready(YuiContext Y) {
 ////				Window.alert("ready"); 
 //				Node body = Y.one("body"), newNode = body.create("<b>helloooooooooooo</b>"); 
 //				body.append(newNode);
 //				handle1 = newNode.on("click", new NodeEventCallback() {
 //					
-//					@Override
+//					
 //					public void call(YuiEvent e) {
 //						Window.alert("clicked only once!: "+e.getClientX()); 
 //						handle1.detach(); 

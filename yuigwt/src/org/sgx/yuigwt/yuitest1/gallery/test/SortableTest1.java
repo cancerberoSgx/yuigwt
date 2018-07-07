@@ -27,11 +27,11 @@ public SortableTest1() {
 			TestResources.instance.SortableTest1());
 }
 
-@Override
+
 public void test(final Node parent) {
 YUI.Use(new String[]{"sortable", "stylesheet", "button"}, new YUICallback() {
 
-	@Override
+	
 	public void ready(final YuiContext Y) {
 		parent.append(
 		"<p>try to drag and drop items from one select list to another and reorder them</p>" +
@@ -77,7 +77,7 @@ YUI.Use(new String[]{"sortable", "stylesheet", "button"}, new YUICallback() {
 		
 		Y.newButton(ButtonConfig.create().label("check sort lists").render(parent).
 			on("click", new EventCallback<ButtonEvent>() {				
-				@Override
+				
 				public void call(ButtonEvent e) {
 					Window.alert("Now green list has "+Y.one("#demo2").all("li").size()+" items. "); 
 				}

@@ -65,7 +65,7 @@ public class SelectionList<T> {
 		setSelection(Util.toList(t));
 	}
 
-	@Override
+	
 	public String toString() {
 		return "SelectionList(" + Util.print(getSelection()) + ")";
 	}

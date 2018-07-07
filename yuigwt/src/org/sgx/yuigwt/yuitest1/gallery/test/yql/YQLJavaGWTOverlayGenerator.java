@@ -63,14 +63,14 @@ public YQLJavaGWTOverlayGenerator() {
 }
 
 
-@Override
+
 public void test(Node parent) {
 	this.parent=parent; 
 	//load yui usng this as the YUI callback, see ready() method
 	YUI.Use(new String[]{"yql", "console", "button","dump", "json", "io", "panel",
 		"autocomplete", "autocomplete-filters", "autocomplete-highlighters"}, this); 
 }
-@Override
+
 public void ready(YuiContext Y_) {
 	this.Y=Y_;
 	this.console = Y.newConsole().collapsed(true).render().cast();

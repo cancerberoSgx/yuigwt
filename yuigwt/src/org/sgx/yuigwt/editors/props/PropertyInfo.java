@@ -29,7 +29,7 @@ public class PropertyInfo {
 		this.editorParams = editorParams;
 	}
 
-	@Override
+	
 	public String toString() {
 		return "PropertyInfo(" + name + ", type: " + type + ", editorId: " + editorId + ")";
 	}
