@@ -1,0 +1,23 @@
+/*sprites comment. Remember that : 
+
+@sprite .mySpriteClass {gwt-image: "imageAccessor"; other: property;} => generates =>
+
+  .mySpriteClass {
+    background-image: url(gen.png);
+    clip: ...;
+    width: 27px;
+    height: 42px;
+    other: property;
+  }
+ */
+  
+@sprite .buttonIconSave {
+	gwt-image: "saveIcon"; 
+	display: inline-block;	
+    vertical-align: middle;
+}
+@sprite .buttonIconDelete {
+	gwt-image: "deleteIcon"; 
+	display: inline-block;	
+    vertical-align: middle;
+}

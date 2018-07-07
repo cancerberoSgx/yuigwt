@@ -1,0 +1,32 @@
+<!-- test for gallery module http://yuilibrary.com/gallery/show/itsaselectlist -->
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+    
+    
+    
+	<script type="text/javascript" src="http://projects.itsasbreuk.nl/examples/itsaselectlist/yui-add-itsaselectlist.js"></script>
+	<script type="text/javascript" src="http://projects.itsasbreuk.nl/examples/itsaselectlist/yui-add-itsatoolbar.js"></script>
+	
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+  </head>
+  <body class="yui3-skin-sam">
+<script type="text/javascript">
+YUI().use('gallery-itsaselectlist', function(Y) {
+    var handleMonthSwitch = function(e) {
+        alert('listitem ' + e.index + ' is choosen: ' + e.value);
+    }
+    var months = ['Januar', 'Februar', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var selectlist = new Y.ITSASelectList({items: months, defaultButtonText: 'choose a month', buttonWidth: 127});
+    selectlist.on('selectChange', handleMonthSwitch);
+    selectlist.render();
+});
+
+</script>
+  </body>
+</html>

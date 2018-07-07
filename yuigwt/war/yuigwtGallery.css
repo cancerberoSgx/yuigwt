@@ -1,0 +1,48 @@
+html {
+	height: 100%; 
+}
+
+/* everything below is custom styling to demonstrate how to create a page layout using yui grid units */
+
+/* 3 column fluid layout (either side column is optional, just omit the layout padding) */
+#layout {
+    padding-left: 300px; /* "left col" width */ 
+    padding-right: 150px; /* "right col" width */
+}
+
+#nav {
+    margin-left:-300px; /* "left col" width */
+    width:300px;
+}
+
+#extra {
+    width:150px;
+    margin-right:-150px; /* "right col" width */
+}
+
+#main {
+    width:100%;
+}
+
+#hd, #nav .content, #main .content, #extra .content, #ft {
+    border: 5px solid #ccc;
+}
+#nav .content, #main .content, #extra .content {
+    height: 400px; 
+}
+
+#hd {
+    height: 52px;
+}
+#ft {
+	height: 15px; 
+}
+#hd .logo {
+	margin: 0px; 
+	paddgin: 10px; 
+}
+
+#ft .copyrightnotice {
+	float: right; 
+	font-size: 0.9em; 
+}

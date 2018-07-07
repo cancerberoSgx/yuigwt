@@ -1,0 +1,1 @@
+these classes are lated to org.shx.yuigwt.editorsGen

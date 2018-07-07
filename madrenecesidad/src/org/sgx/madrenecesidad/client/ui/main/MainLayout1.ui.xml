@@ -1,0 +1,89 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+xmlns:MNMain="urn:import:org.sgx.madrenecesidad.client.ui.main"
+xmlns:MNMyMaps="urn:import:org.sgx.madrenecesidad.client.ui.mymaps"
+>
+	<ui:style>
+		.layout-header { /*background-color: red;*/
+			position: fixed;
+			width: 100%;
+			top: 0px;
+			left: 0px;
+			height: 40px;
+		}
+		
+		.layout-left { /*background-color: blue;*/
+			margin: 40px 4px 0px 0px;
+		}
+		
+		.layout-right { /*background-color: green;*/
+			margin: 40px 0px 0px 4px;
+		}
+		
+		.mainmenu-container {
+			float: right;
+		}
+	</ui:style>
+
+
+	<g:HTMLPanel>
+
+		<div class="layout.main">
+
+			<!-- <div class="yui3-g"> -->
+			<!-- <div class="yui3-u-1"> -->
+			<div class="{style.layout-header}">
+				MadreNecesidad easily publish and find services in your location.
+				<span class="{style.mainmenu-container}">
+				<MNMain:MainMenu1></MNMain:MainMenu1>
+				</span>
+			</div>
+			<!-- </div> -->
+			<!-- </div> -->
+
+
+			<div class="yui3-g">
+				<div class="yui3-u-5-24">
+					<div class="{style.layout-left}">
+						left left left leftleft left left leftleft left left leftleft left left leftleft left left leftleft left left leftleft left left leftleft left left
+						leftleft left left
+						leftleft left left leftleft left left leftleft left left leftleft left left leftleft left left leftleft left left leftleft left left leftleft left
+						left leftleft left
+						left leftleft left left leftleft left left leftleft left left left
+					</div>
+				</div>
+				<div class="yui3-u-19-24">
+					<div class="{style.layout-right}">
+						right right right right right right right right right right right right right right right right right right right right right right right right right
+						right right right
+						right right right right right right right right right right right right right right right right right right right right right right right right right
+						right right
+						
+						<g:VerticalPanel  ui:field="useCaseContainer"></g:VerticalPanel>
+						
+<!-- 						<div ui:field="useCaseContainerEl">						 -->
+<!-- 						</div> -->
+<!-- 						<MNMyMaps:MyMaps1></MNMyMaps:MyMaps1> -->
+<!-- 						<MNMain:MyMaps></MNMain:MyMaps> -->
+						
+						right right right right right right right right right right right right right right right right right right right right right right right right right right
+						right
+						right right right right
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- 		<p>This simulates an UIBinder componenet with two YUI Buttons: </p> -->
+
+<!-- 		<button ui:field="yuiButtonEl1" data-yui="yuiWidget: 'Button', disabled: true"> -->
+<!-- 			the first YUI Button -->
+<!-- 		</button> -->
+
+<!-- 		<button ui:field="yuiButtonEl2" data-yui="yuiWidget: 'ToggleButton', label: 'a toggle button'"> -->
+<!-- 		</button> -->
+	</g:HTMLPanel>
+
+</ui:UiBinder>

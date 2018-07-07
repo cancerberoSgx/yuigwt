@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- @author: sgurin 
+edit gwt.sdk property in build.properties according to your system and perform ant 
+to compile the project and build dist/raphael4gwt.jar file
+For creating javadocs, you do ant javadocs, will need gwt sources (edit gwt.src property)
+-->
+<project name="yuigwt" default="jar">
+
+	<property file="build.properties"/>
+	<description>
+        ant bild file for project yuigwt
+		@author: sgurin
+    </description>
+
+	
+	
+	<target name="all">
+		<antcall target="clean"/>
+		<antcall target="jar"/>
+	</target>
+	
+	<target name="compile-all" depends="clean">
+		<antcall target="javac">
+		</antcall>
+		<!--<antcall target="gwtc">
+			<param name="moduleName" value="org.sgx.yuigwt.YuiGwt"/>
+		</antcall>
+		<antcall target="gwtc">
+			<param name="moduleName" value="org.sgx.yuigwt.YuiGwtYuiGallery"/>
+		</antcall>
+		<antcall target="gwtc">
+			<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestLocal"/>
+		</antcall>
+		-->
+		<antcall target="gwtc">
+			<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestOnline"/>
+		</antcall>
+	</target>	
+	
+	
+	<target name="compile" depends="clean">
+			<antcall target="javac">
+			</antcall>
+			<!--<antcall target="gwtc">
+				<param name="moduleName" value="org.sgx.yuigwt.YuiGwt"/>
+			</antcall>
+			<antcall target="gwtc">
+				<param name="moduleName" value="org.sgx.yuigwt.YuiGwtYuiGallery"/>
+			</antcall>
+			<antcall target="gwtc">
+				<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestLocal"/>
+			</antcall>
+			-->
+			<antcall target="gwtc">
+				<param name="moduleName" value="org.sgx.yuigwt.YuiGwtTestOnline"/>
+			</antcall>
+		</target>	
+	
+	
+	<target name="compile-core" depends="clean">
+		<antcall target="javac">
+		</antcall>
+		<antcall target="gwtc">
+			<param name="moduleName" value="org.sgx.yuigwt.YuiGwt"/>
+		</antcall>
+	</target>	
+		
+	<target name="clean" depends="">
+		<delete dir="dist"/>
+		<delete dir="javadoc"/>
+		<delete dir="gwt-unitCache"/>
+		<delete dir="war/WEB-INF/deploy"/>
+		<delete dir="war/WEB-INF/classes"/>
+		<delete dir="war/org.sgx.yuigwt.YuiGwt"/>
+		<delete dir="war/org.sgx.yuigwt.YuiGwtTestLocal"/>
+		<delete dir="www-test"/>
+		<delete dir="classes"/>
+		<delete dir="java2html"/>		
+	</target>
+	
+	<!--<property name="core.exclude" value="org/sgx/yuigwt/yuitest1/**"></property>-->
+	
+	<target name="jar" depends="compile-core">
+		<mkdir dir="dist"/>
+		<jar destfile="dist/yuigwt-${yuigwt.version}.jar">
+			<fileset dir="classes" excludes="org/sgx/yuigwt/yuitest1/**,org/sgx/yuigwt/alloyuitest1/**" />
+			<fileset dir="src" excludes="org/sgx/yuigwt/yuitest1/**,org/sgx/yuigwt/alloyuitest1/**" />			
+		</jar>
+	</target>
+		
+		
+	
+				
+	
+	
+	
+	<path id="javac.class.path">
+		<pathelement location="${gwt.sdk}/gwt-user.jar" />
+		<fileset dir="${gwt.sdk}" includes="gwt-dev*.jar" />
+		<fileset dir="war/WEB-INF/lib" includes="**/*.jar" />
+		
+	</path>
+	
+	
+	<target name="javac">
+		<mkdir dir="classes"/>
+		<javac srcdir="src"
+	         destdir="classes"
+	         classpathref="javac.class.path">
+			
+			<compilerarg line="-encoding utf-8"/>
+			
+		</javac>
+	</target>
+	
+	
+
+	
+	<path id="gwtc.class.path">
+<!-- 		<pathelement location="${gwt.sdk}/gwt-user.jar" /> -->
+<!-- 		<fileset dir="${gwt.sdk}" includes="gwt-dev.jar" /> -->
+		<pathelement location="classes" />
+		<fileset dir="${gwt.sdk}" includes="**/*.jar" />
+<!-- 		<fileset dir="war/WEB-INF/lib" includes="**/*.jar" /> -->
+	</path>
+
+	<target name="gwtc" description="individual GWT compile to JavaScript">
+		<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+			<classpath>
+				<pathelement location="src" />
+				<path refid="gwtc.class.path" />				
+			</classpath>
+			
+			<jvmarg value="-Xmx256M" />	
+			
+			<arg value="-strict"></arg>
+			
+			<!-- Additional arguments like -style PRETTY or -logLevel DEBUG 		
+			<arg value="-draftCompile"></arg>			
+			<arg value="-style"></arg>
+			<arg value="DETAILED"></arg>-->
+			
+			<arg value="-war" />
+			<arg value="war" />
+								
+			<arg value="${moduleName}" />			
+		</java>
+	</target>
+	
+	
+	
+	
+
+	<target name="javadocs" depends="" description="generates javadoc and also UML Diagram">
+		<path id="project.src.path">
+			<pathelement location="${reports.dir}/src-all/" />
+			<pathelement location="${gwt.src}/user/src/" />
+		</path>			
+		
+		<!-- first copy all source files from all source folders to a common source folder -->
+		<mkdir dir="${reports.dir}/src-all"/>
+		<copydir dest="${reports.dir}/src-all/org" src="${reports.dir}/src/org">
+		</copydir>
+		
+		<!-- do the javadoc -->
+		<mkdir dir="${reports.dir}/javadoc"/>
+		
+		<javadoc sourcepathref="project.src.path" packagenames="org.sgx.yuigwt.*" 
+			excludepackagenames="org.sgx.raphael4gwt.test.*,org.sgx.raphael4gwt.public.*" useexternalfile="true"
+			destdir="${reports.dir}/javadoc" private="true">
+			
+			<doclet name="org.umlgraph.doclet.UmlGraphDoc" path="UmlGraph.jar">
+				<!-- <param name="-attributes" />
+				<param name="-operations" />
+				<param name="-qualify" />
+				<param name="-types" />
+				<param name="-visibility" />-->
+				
+				
+				<param name="-inferrel"/>
+                <param name="-inferdep"/>
+                <!--<param name="-hide" value="java.*"/>-->
+				<param name="-hide" value="java.*|com.google.*"/>
+				
+                <param name="-collpackages" value="java.util.*"/>
+                <param name="-qualify"/>
+                <param name="-postfixpackage"/>
+                <param name="-nodefontsize" value="9"/>
+                <param name="-nodefontpackagesize" value="7"/>
+                <param name="-link" value="http://java.sun.com/j2se/1.5.0/docs/guide/javadoc/doclet/spec"/>
+                <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
+				
+				
+			</doclet>
+		</javadoc>
+		<apply executable="dot" dest="${reports.dir}" parallel="false">
+			<arg value="-Tpng"/>
+			<arg value="-o"/>
+			<targetfile/>
+			<srcfile/>
+			<fileset dir="${reports.dir}" includes="*.dot"/>
+			<mapper type="glob" from="*.dot" to="*.png"/>
+		</apply>
+		
+		<delete dir="src-all"/>
+
+	</target>
+	
+	
+	
+	<target name="java2html">
+		<mkdir dir="java2html"/>
+		<java failonerror="true" fork="true"  classname="j2h">
+			<classpath>
+				<pathelement location="j2h.jar" />			
+			</classpath>
+			
+			<arg value="-d" />
+			<arg value="java2html" />
+			
+			<arg value="-js" />
+			<arg value="src" />
+										
+		</java>
+	</target>
+</project>

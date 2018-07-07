@@ -1,0 +1,11 @@
+the big todo in the java api: 
+
+* change EventCallback to be generic and call back from jsni using * like in SubstituteCallback
+
+* separate GWT modules for each YUI module, so the user can include ONLY a yui module java API (less size ?)
+
+
+(DOING IT) * yui events - an idea: EventFacade and then , for each type of a class event, inherith EventFacade (overlay like config...)
+
+(DOING IT) * constants attributes of classes - are accesed from YuiContext....
+

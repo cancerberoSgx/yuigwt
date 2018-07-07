@@ -1,0 +1,22 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including 
+	a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. 
+	@author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	
+	<g:HTMLPanel>
+		<p>These are 2 autocomplete Widgets: </p>
+		
+		<input ui:field="acEl1"
+			data-yui="yuiWidget: 'AutoComplete',resultHighlighter: 'phraseMatch', resultFilters: 'phraseMatch'"
+			type="text"></input>+
+			
+		<input ui:field="acEl2"
+			data-yui="yuiWidget: 'AutoComplete', source: ['ab','abc']"
+			type="text"></input>				
+		
+	</g:HTMLPanel>
+	
+</ui:UiBinder>
+<!--  source: 'abc, bcd, pasdojkf , fghjky, tyiw, asdf' -->

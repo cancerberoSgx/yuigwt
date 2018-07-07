@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
+
+<!-- 
+module that includes full YUI 3 AND Many YUI 3 gallery modules
+inherith yuigwt and includes yui gallery's JAVA api (package org.sgx.yuigwt.yuigallery). 
+
+It also contain builtin java / GWT related utilities like juio, editors, uibinder, etc
+-->
+<module>	
+	<inherits name="org.sgx.yuigwt.YuiGwt" />
+	
+	
+	
+<!--     <generate-with class="org.sgx.yuigwt.gen.JsClassGenerator" > -->
+<!--         <when-type-assignable class="org.sgx.yuigwt.yui.util.jsclass.JsClass" /> -->
+<!--     </generate-with> -->
+
+<!--     <generate-with class="org.sgx.yuigwt.gen.EditorsPHGenerator" > -->
+<!--         <when-type-assignable class="org.sgx.yuigwt.editors.bean.EditableBean" /> -->
+<!--     </generate-with> -->
+    
+<!--      <generate-with class="org.sgx.yuigwt.gen.BeanToJSOGenerator" > -->
+<!--         <when-type-assignable class="org.sgx.yuigwt.yui.util.BeanToJSO" /> -->
+<!--     </generate-with> -->
+    
+     
+     
+	<!-- indicate where your sources are, tipically "src" but not this time -->
+	<source path="yuigallery" />
+	
+	
+    <source path="editors" />
+
+    <source path="jyui" />
+    <source path="ui" />
+<!--     <source path="editors" /> -->
+</module>

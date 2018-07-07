@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.6.0/build/yui/yui-min.js"></script>
+  </head>
+  <body class="yui3-skin-sam">
+  <style>
+  .robot {position: absolute; border: 1px solid #ededed; display: block}
+  </style>
+  <div class="robot" id="foo">A</div>
+<!--   <div class="robot" id="bar">B</div> -->
+  
+<script type="text/javascript">
+//Use this in place of the current Event Utility 'arrow' example code
+YUI({
+    //Last Gallery Build of this module
+    gallery: 'gallery-2011.01.18-21-05'
+}).use('gallery-event-arrow', "node", function(Y) {
+ 
+    var robotA = Y.one('#foo');
+    robotA.focus(); 
+    robotA.on("arrow", function(e){alert("a"); return true; }); 
+    alert(robotA+" - end. "); 
+//  var       robotB = Y.one('#bar');
+ 
+//     robotA.setData('x', parseInt(robotA.getStyle('left'), 10));
+//     robotA.setData('y', parseInt(robotA.getStyle('top'), 10));
+//     robotB.setData('x', parseInt(robotB.getStyle('left'), 10));
+//     robotB.setData('y', parseInt(robotB.getStyle('top'), 10));
+
+
+//     robotA.setData('x', parseInt(robotA.get('offsetLeft'), 10));
+//     robotA.setData('y', parseInt(robotA.get('offsetTop'), 10));
+//     robotB.setData('x', parseInt(robotB.get('offsetLeft'), 10));
+//     robotB.setData('y', parseInt(robotB.get('offsetTop'), 10));
+ 
+//     function move(e) {
+//         // to prevent page scrolling
+// //         e.preventDefault();
+ 
+//         var xy = e.target.getXY(); //this.getData();
+ 
+//         alert(xy[0]+" - "+xy[1]); 
+        
+//         switch (e.direction) {
+//             case 'n':  xy.y -= 10; break;
+//             case 's':  xy.y += 10; break;
+//             case 'w': xy.x -= 10; break;
+//             case 'e':  xy.x += 10; break;
+//             case 'nw': xy.y -= 10; xy.x -= 10; break;
+//             case 'ne': xy.y -= 10; xy.x += 10; break;
+//             case 'sw': xy.y += 10; xy.x -= 10; break;
+//             case 'se': xy.y += 10; xy.x += 10; break;
+//         }
+ 
+//         this.transition({
+//             top : (xy.y + 'px'),
+//             left: (xy.x + 'px'),
+//             duration: .2
+//         });
+//     }
+ 
+//     robotA.on("arrow", move);
+//     robotB.on("arrow", move);
+ 
+    // Or via delegation
+//     Y.one('#demo').delegate('arrow', move, '.robot');
+ 
+});
+
+</script>
+
+  </body>
+</html>

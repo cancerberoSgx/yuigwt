@@ -1,0 +1,59 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mn="urn:import:org.sgx.madrenecesidad.client.ui.main"
+	xmlns:gmaps="urn:import:com.google.gwt.maps.client">
+
+	<ui:style>
+		
+	</ui:style>
+
+
+
+
+	<g:HTMLPanel>
+
+		<span ui:field="controlsContainer">
+
+		</span>
+		<table>
+			<tr>
+				<td>
+					<span ui:field="mapContainer" >
+						<gmaps:MapWidget ui:field="mapWidget"></gmaps:MapWidget>
+					</span>
+				</td>
+				<td valign="top">
+				
+				<p>
+			<label for="name">Name</label>
+			<br />
+			<input ui:field="nameInputEl" type="text" value="" name="name" />
+		</p>
+		<p>
+			<label for="name">Description</label>
+			<br />
+			<input ui:field="descriptionInputEl" type="text" value="" name="description" />
+		</p>
+
+<!-- 		<p> -->
+		
+		<table>
+		<tr><td><label for="lat">Latitude</label><br/>
+				<input ui:field="latInputEl" style="width:80px" type="text" value="" name="lat" /></td>
+				
+		<td>
+		<label for="long">Longitude</label><br/>
+				<input ui:field="longInputEl" style="width:80px" type="text" value="" name="long" />
+		</td></tr>
+		</table>
+		
+					<p>
+			<label for="private">Is private ? </label>
+			<input ui:field="privateInputEl" type="checkbox" value="" name="private" />
+		</p>
+				</td>
+			</tr>
+		</table>
+	</g:HTMLPanel>
+
+</ui:UiBinder>

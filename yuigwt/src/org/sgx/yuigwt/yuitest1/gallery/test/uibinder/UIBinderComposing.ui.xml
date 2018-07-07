@@ -1,0 +1,33 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+xmlns:g="urn:import:com.google.gwt.user.client.ui"
+xmlns:mywidgets="urn:import:org.sgx.yuigwt.yuitest1.gallery.test.uibinder.userguide">
+
+	<g:HTMLPanel>
+		<!-- yui cssgrids -->
+		<div class="yui3-g">
+			<div class="yui3-u-2-5">
+	
+			<!-- We include the main menu here, notice how se use the defined XML namespace "mywidgets"-->
+			<mywidgets:MainMenu ui:field="mainMenu"></mywidgets:MainMenu>
+
+			</div>
+			<div class="yui3-u-3-5">
+
+				<p>Aenean a dolor risus, ac pharetra turpis. Suspendisse hendrerit semper dui at vestibulum. Phasellus pulvinar convallis sem et accumsan. Nunc pretium, augue non
+					tempus lobortis, ligula nibh feugiat magna, vitae iaculis risus libero non sem. Vivamus in nunc elit, vulputate tempor nisl. Suspendisse accumsan tristique placerat.
+					Nullam malesuada mauris eget dolor pretium placerat. Sed vel pretium erat. Donec rhoncus auctor luctus. Nam tempor, nibh sed porttitor consequat, enim velit consequat
+					massa, vitae cursus mi elit eu erat. Duis id massa odio, ut pulvinar tortor. Maecenas lobortis commodo suscipit. Suspendisse potenti.</p>
+
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut at ipsum eu est pulvinar hendrerit. Ut at nunc et tortor mollis
+					venenatis. Donec sodales, nisi eu aliquet sagittis, tortor est adipiscing lectus, eu feugiat felis ante et neque. Donec ultricies venenatis sem, ac varius augue
+					egestas vitae. Nam vitae ligula est, non commodo lectus. Quisque fermentum, libero vel mattis aliquet, mauris purus placerat urna, id porttitor nunc orci non est. Ut
+					ut dolor leo, quis iaculis lectus. Aenean non gravida velit. Sed condimentum imperdiet venenatis.</p>
+			</div>
+
+		</div>
+
+	</g:HTMLPanel>
+
+</ui:UiBinder>

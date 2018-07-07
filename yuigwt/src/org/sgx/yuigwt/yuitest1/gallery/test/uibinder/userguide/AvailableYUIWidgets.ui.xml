@@ -1,0 +1,66 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+xmlns:g="urn:import:com.google.gwt.user.client.ui"
+xmlns:uibinderuserguide="urn:import:org.sgx.yuigwt.yuitest1.gallery.test.uibinder.userguide">
+
+	<ui:style src="main.css" />
+	
+	<g:HTMLPanel>
+
+	<h1 id="sec-yuiwidgets">Available YUI Widgets</h1>
+	
+	
+	
+	<h2 id="sec-yuiwidgets-button">Button</h2>
+	
+	<p>ui.xml markup example: </p>
+	
+	<pre class="{style.code} prettyprint">
+&lt;button      
+  ui:field="yuiButtonEl1" 
+  data-yui="yuiWidget: 'Button', disabled: true">
+the first YUI Button
+&lt;/button>
+	</pre>
+	
+	<p>As you can see we are using a &lt;button> HTML element as the YUI Button's source node. We could also use other elements like &lt;input>, &lt;a> or even &lt;div> and &lt;span>. The button's label can be defined both with the HTML elements text and with the "label" attribute. </p>
+	
+	<p>For more Button information you can read <a href="http://yuilibrary.com/yui/docs/button/">Button User Guide</a> and
+	<a href="http://yuilibrary.com/yui/docs/api/classes/Button.html">Button API Docs</a>. </p>
+	
+	<p>The following example shows 2 YUI buttons, one Button and one ToggleButton. </p>
+	
+	<uibinderuserguide:SourceCodeViewer testName="UIBinderAloneButtonTest1" />
+	
+	
+	
+	
+	
+	<h2 id="sec-yuiwidgets-autocomplete">Autocomplete</h2>
+	
+	<p>YUI Autocomplete source node needs to be a HTML &lt;input> element. Also, for testing 
+	purposes, the user can pass autocompletion data as a comma separated string </p>
+	
+	<uibinderuserguide:SourceCodeViewer testName="UIBinderAloneAutocompleteTest1" />
+	
+	
+	
+	<h2 id="sec-yuiwidgets-panel">Panel</h2>
+	<p>TODO</p>
+	
+	
+	<h2 id="sec-yuiwidgets-tabview">TabView</h2>
+	<p>TODO</p>
+	
+	
+	<h2>Overlay</h2>
+	<p>TODO</p>
+	
+	
+	
+	
+	</g:HTMLPanel>
+
+</ui:UiBinder>
+

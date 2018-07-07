@@ -1,0 +1,432 @@
+#summary explain about how to use the YUI java API that yuigwt introduce. @author sgurin
+#labels yui,gwt,java,javascript
+
+= YUIGWT: YUI3 java API = 
+
+==About this document==
+
+yuigwt is a very very new project - these are my notes and thoughts about accessing natively the YUI JavaScript API from Java language, notes about decision made and some documentation on the java syntax. 
+
+= Introduction =
+
+This document will explain how to use the YUI java API introduced by yuigwt. It is very much recommended to know YUI for understand this. YUI is a big library and it is not the mission of this document to be a YUI user guide. TODO: yui links
+
+yuigwt brings a Java API for YUI that is very straight forward. So, if you know JavaScript YUI3 and know the Java language, then learning a few mechanisms explained in this document, you can start coding your YUI application sin Java using yuigwt without much learning. 
+
+While the names Java and Javascript are similar, these are two totally different programming languages and so there are some things that are done different. Learning some rules about how to create the JavaScript equivalents in Java code, will allow you to take full control of the YUI API in Java. 
+
+Most of all, this document type to explain this key factors about how the YUI JavaScript API is accessed from Java. 
+
+
+= About the author = 
+Me, Sebastián Gurin, have already experience integrating YUI2 and YUI 3 for Java, for another project much similar to GWT: Java2Script: a java to javascript compiler. My efforts lead into the following "reasearch project" : [https://sourceforge.net/projects/yui4java/]. While yui4java serves me for understanding good ways of doign YUI in Java, the code of yuigwt is totally independent from it. 
+
+= YUIGWT =
+
+YUIGWT is a GWT library that uses [http://code.google.com/p/google-web-toolkit/wiki/OverlayTypes GWT Overlay Types] for defining a zero overhead Java API over YUI JavaScript API. 
+
+GWT Overlay Types allows to comunicate with javascript native YUI objects directly from our Java code, without a wrapping or delegation at all. The GWT compiler does a great job and our Java code will result in a translated javascript the equivalent as native YUI javascript code. This means 0 overhead. 
+
+TODO: links about GWT overlays - GWT compiler and resulting javascript when working with overlays.. 
+
+But as we will se this comes with a price, and this is yuigwt _is adapted to YUI_ : overlay types are not common java objects and they are not instantiated with java code. Since we will working with overlay types all the time in yuigwt, we need to understand some stuff. 
+
+And also, of course, the bigger problem of all:
+
+* java vs javascript * 
+
+So in yuigwt we will be accessing natively the YUI JavaScript library form Java code. How do we define a JavaScript object literally in java ? How do we express a JavaScript function callback ? how do we access a JavaScript Object property from Java ? 
+
+yuigwt define common rules for each of these activities, trying that the resulting java code looks like and be the same as powerfull as the native javascript code equivalent. For example, yuigwt will let you define a YUI object configuration in one Java sentence, just like it is done in JavaScript. 
+
+But be warned Java programmers, since the yuigwt Java API is designed to feet JavaScript's YUI, you will be doing uncommon things for the Java world, like object inline definition, working with string literals instead constants, just like the Javascript native YUI coder does. ;)
+
+==YUIGWT Mission == 
+
+To bring Java overlay types over the usable and concrete parts of YUI 3. 
+
+The main objectives for this first library development iteration are: 
+
+  * bring the attribute and event yui API to java
+
+  * do not focus on YUI extensions (custom extensions, custom events and custom attributes) or in YUI javascript helpes (Y.augment). Not just yet. For now only port existing javascript yui extensions, and not support extension definition from java yet. 
+
+  * do focus on bring good, 0 overhead (w overlays) java api for yui Node and main widgets
+
+  * bring yui3 usefull utilities like image loader, store, css, graphics, and other modules  
+
+  * bring best yui3 gallery components
+
+  * for now work always with global yui-min.js..
+
+  * completely independent from gwt widgets or gwt xml / html dom. gwt xml dom Element class is ONLY referenced
+for being possible to work with gwt xml/html dom impl, not based/dependant on it.
+
+  * do not focus on a heavy compatibility with gwt widgets, yet. Unite yui widgets and gwt widgets using common gwt xml/html dom api or strings.   
+
+*In summary*, yui3 offer a lot of good apis for extending and very good javascript language helpers. 
+
+But this library is for java programmers, and also bring the api to this extensible utilitiesis very hard. So we will only bring a java API for the "concrete parts" of yui. 
+
+The reasons are: 
+  * it is hard 
+  * we don't need javascript stuff like Y.augment in java or it iwll be veryu confuse for java programmers (in java we have java classes and java inheritance) 3) yui4gwt uses overlay types to overlay javascript native things so it does little sense to develop extensions using java code (what we wil be overlaying to?)  4) gwt offers equivalent sollutions for things like YUI's View and Model classes. Yui's ask us to override and extends View and Model and this s also hard to overlay...
+
+* nevertheless, nothing forbid us to include these YUI extension features in yuigwt in the future... for now only focus on concrete
+
+Node: If you want to extend yui4java with new yui3 modules, then first develop the yui3 module in javascript, like yui3 gallery modules, and then write the gwt overlays for that module.
+
+
+
+
+
+= YUI Java and JavaScript equivalent examples explined= 
+
+Since the java code is very similar to the equivalent JavScript YUI code, comparing equivalent code is a good approach. 
+
+JavaScript YUI 
+{{{
+YUI().use('button', function (Y) {
+	var button1 = new Y.Button({
+	  label: 'a simple button'
+	}).render(parent);
+	button1.on("click", function(e){
+		alert("clicked at x = "+e.clientX); 
+	})
+});
+}}}
+
+Java YUI Equivalent
+{{{
+
+YUI.Use(new String[]{"button"}, new YUICallback() {
+	@Override
+	public void ready(YuiContext Y) {
+		Widget button1 = Y.newButton(
+			ButtonConfig.create().label("a simple button")
+		).render(parent);	
+		button1.on("click", new NodeEventCallback() {			
+			@Override
+			public void call(YuiEvent e) {
+				Window.alert("button pressed at x  ="+e.clientX()); 
+			}
+		}); 
+		
+	}
+}); 
+
+}}}
+
+
+Some notes: 
+
+  * YuiContext instances Y is the YUI global object
+
+  * YUI objects are created using `new*()` YuiContext methods like Y.newButton(), instead using the keyword "new" as in javascript:  ` new Y.Button( `. As we said, overlay types (the button) are created in javascript YUI, so we cannot call the java `new`. Instead creator methods like `newButton()` are available at YuiContext class for supported YUI components. 
+
+  * The Button configuration `{label: "button label"}` is created in Java using the syntax `ButtonConfig.create().label("button label")`. As we will see, there is a java overlay class for any YUI configuration object so you can define an object in one sentence, like Y.newSlider(Slider.config().axis("y").min(1).max(5).value(3).length(200)).render(n2)`. In an IDE like eclipse this has the advantadge that you can use method autocompletion tools for auto inspecting the API in your java editor easily. 
+
+ * We use a Java anon class `new NodeEventCallback() {...` for listen the button's click instead a javascript anon `function(e){...`. This syntax is the most common used in java for listening events. 
+
+ * There are no public fields in yuigwt, like the javascript `e.clientX`. Instead WE ALWAYS access objects using methods in java `e.clientX()`
+
+
+
+
+
+
+= The YUI Java API Architecture = 
+
+== The YUI global object and the Y object == 
+
+`org.sgx.yuigwt.yui.YUI` it is the overlay type for window.YUI javascript objec that is used as the glbal YUI "factory" object, with which we create our Y object instances with which we work.
+
+`org.sgx.yuigwt.yui.YuiContext`, this i sthe overlay for the "Y" objects returned by YUI.use() with which we work. This class has some important extra responsabilities:
+  * in this java API it has the respojnsability of instantiate YUI classes. This class is big and it is separated in two main responsabilities
+  * Y object utilities like Y.on, Y.one, Y.log, etc.
+  * Y constants - like module's static constants and classes like Y.Plugin, Y.Escape, Y.DD, etc
+  * component creators - methods started with new* - since we cannot use java `new` keyword for creating YUI native objects, the Y object carries with a new* method for each class in Y. For example, for instantiating a new Button we use Y.newButton(). 
+
+== YUI Modules == 
+
+For each YUI module there is a yui.moduleName java package containing the module classes. In the case of widgets, like Button, the packages are yui.widget.button. 
+
+== YUI classes == 
+
+YUI classes are separated in several parts: 
+
+  * the (dynamic) class, for example `yui.widget.button.Button`, overlaying the classes instance objects 
+  * the static class, for example yui.widget.button.ButtonClass, overlaying the static constants, like Y.Button.ATTRS
+  * the configuration object, for example yui.widget.button.ButtonConfig, overlaying the configuration object passed to the button constructor. These config objects are defined so you can easyly create the native objects literally, for example Y.newButton(ButtonConfig.create.label("Accept"))
+
+
+== "YUI contexts" and GWT modules =
+
+*Note*: The YuiContext class defines a YUI context. YUI is big library and I decided to split it logically in 
+
+  * YUI (all yui utilities and YUI widgets), 
+  * YUIGallery : YUI plus some popular / usefull YUI Gallery modules I will be implementing the Java API of. 
+  * ALLOYUI : YUI plus ALLOYUI
+
+Not that each of these "contexts" are separated logically in java packages, and in its own GWT module. Also, each one provides its own "YuiContext", for example, the YUIGallery GWT module provides the class `org.sgx.yuigwt.yuigallery.YuiGalleryContext`, that extends `YuiContext` and adds specific new methods for the Gallery modules Java API, like YuiGalleryContext::newAccordion() for creating a new Gallery Accordion widget. There is no to say that GWT module YUIGallery inheriths GWT module Yui, YuiGalleryContext inheriths YuiContext, Accordion extends Widget, and AccordionConfig extends WidgetConfig...
+
+*Developer Note*: YUI and YuiContext classes can/should be joined into a single one  YUI+YUIContext == YUI...
+
+
+== The YUI Java class hierarchy == 
+
+Fortunately, YUI is very object oriented. The only bad thing of YUI when porting it to Java was that it uses some kind of multi inheritance, for example, see the JavaScript API of the [Panel class http://yuilibrary.com/yui/docs/api/classes/Panel.html] it inherith Widget and "uses" some other more classes like WidgetAutohide, WidgetButtons, WidgetModality, WidgetPosition, WidgetPositionAlign, WidgetPositionConstrain, WidgetStack and WidgetStdMod. This is the most important and only the only one case where this happens. In this case we write an special class WidgetExt, that extends Widget and add the properties of all the other mentioned classes (WidgetAutohide, WidgetButtons, etc). Doing this we can work with Java single inheritance making Panel to inmherith from WidgetExt.
+
+For each YUI class, there is a Java hierarchy on all levels, this is, there is a Java Hierarchy of Config classes, of Event Classes, of YUI classes, etc. 
+
+
+== Events and function callbacks == 
+
+YUI/JavaScript function callbacks are represented in Java with an interface with one of its methods to be the callback. In yuigwt / Java we do not have the concept of function and "context object" (in Java we always know what is "this"), so we ignore the "object context" parameters of the Javascript YUI API. This is the Java common way of register for an event. 
+
+There is a base event class `org.sgx.yuigwt.yui.event.EventFacade` (bad name perhaps) and YUI classes extend it for adding its custom event properties. For example `org.sgx.yuigwt.yui.console.ConsoleEvent` that extends `org.sgx.yuigwt.yui.widget.WidgetEvent` is the class that adds the console event properties. 
+
+In the following is a common example, in this case adding a event listener for a pjax. Note how we instantiate using the `EventCallback<PjaxEvent>` for using the concrete event class directly without casting: 
+
+{{{
+//note for not casting EventFacade to subclass PjaxEvent 
+pj1.on("error", new EventCallback<PjaxEvent>() {			
+	@Override
+	public void call(PjaxEvent e) {
+		Window.alert("PJAX ERROR: node: "+e.content().node()); 
+	}
+}); 
+}}}
+
+A note about YUI events and YUI Event Facade. YUIGWT only support event emitting using YUI EventFacade. For example,. many YUI modules support two different method apis, For example, the [IO util http://yuilibrary.com/yui/docs/io/#instantiating-io]. By default (emitFacade: false), the function callbacks will receive an arbitrary number of arguments, but if emitFacade=true, then all callbacks will accept a single object ith event related properties with the same API baser with other events type.  GWT will only support emitFacade: true and in those cases required (more than one param, like in IO), YUIGWT will force to emitFacade=true and work with a single EventFacade event object as callback parameter. 
+
+
+
+== Attributes == 
+
+Each YUI Java Class, like Button, has method for accessing its attributes values. For example, using methods `collapsed()`and `collapsed(boolean)` we can get or set the "collapsed" attribute of class org.sgx.yuigwt.yui.console.Console. Also since most Classes attributes can be passed in its config object, Java Config classes support setting attributes like in 
+`Y.newConsole(ConsoleConfig.create().collapsed(true));`. 
+
+
+== Config objects ==
+
+All YUI classes constructors accepts an object with configuration for instantiating new instances. These config objects are simple javascript objects (name -> value). 
+
+In YUIGWT, for each yui class config object, there is a Java class for easy working with these natively. These java classes are created for overlaying each YUI object with data, not only config objects and all contain the same API for doing common stuff like creating and accessing javascript objects. 
+
+We will describe this API with an example. For overlaying a javascript object Person with properties name and age, for example {name: "John", age: 22}, YUIGWT will provide with a class Person with which we can work for defining the same object in java like this: 
+
+{{{
+Person p = Person.create().name("John").age(22); 
+
+//work with the age property
+int age = p.age(); 
+p.age(age+1); 
+}}}
+
+The equivalent Javascript code would be: 
+
+{{{
+var p = {name: "John", age: 22}; 
+
+//work with the age property
+var age = p.age; 
+p.age = age+1; 
+}}}
+
+As you can see we: 
+
+  * instantiate a new empty object using Person.create()
+  * define set several object properties in the same statement, using setter methods with the same name as the property. 
+
+The following are some notes about how complex types like arrays, objects and others are managed by YUIGWT:
+
+  * For properties which values can be other objects, YUIGWT probably has a Java Class for overlaying that object. For exmaple there is util.Point and util.Region for working YUI points and YUI regions. See Column below, an object overlaying  DataTable.Column. 
+
+  * in the case the property value is an array, at least two setters are provided, one with the native array type and other with a java array type that will be converted to javascript native type. Note: at this moment this conversion cost some overhead, so if it is important use the native array types. 
+
+The following example shows the java methods corresponding to the `columns` attribute of DataTable (http://yuilibrary.com/yui/docs/api/classes/DataTable.html#attr_columns). It can accepts an array of strings, or an array of objects for configuring each column. How we did represent this on Java YUIGWT. First create a class for representing the Column config object (TODO link to Column.java), second add the methods for setting the attribute in the DataTable config object, four in total both accepting Java and native arrays: 
+
+{{{
+
+
+/**
+ * native array of Column objects
+ * @return this - for setter chaining
+ */
+public native final DataTableConfig columns(JsArray<Column> val) /*-{
+this.columns = val; 
+return this; 
+}-*/;
+/**
+ * java array of Column objects
+ * @return this - for setter chaining
+ */
+public native final DataTableConfig columns(Column[] val) /*-{
+this.columns = @org.sgx.yuigwt.yui.util.JsUtil::toJsArray([Lcom/google/gwt/core/client/JavaScriptObject;)(val); 
+return this; 
+}-*/;
+/**
+ * java array of string
+ * @return this - for setter chaining
+ */
+public native final DataTableConfig columns(String[] val) /*-{
+this.columns = @org.sgx.yuigwt.yui.util.JsUtil::toJsArray([Ljava/lang/String;)(val); 
+return this; 
+}-*/;
+/**
+ * javascript array of string
+ * @return this - for setter chaining
+ */
+public native final DataTableConfig columns(JsArrayString val) /*-{
+this.columns = val; 
+return this; 
+}-*/;
+
+}}}
+
+
+Remember in YUIGTW all are GWT overlay types, the config objects and the columns objects are in fact native javascript objects you will be dealing with from Java. 
+
+
+  * There can be syntax propblems when calling various setters in a single statements like `SliderConfig.create().axis("y").min(1).max(5).value(3).length(200).render(parent)`. Config objects has a rich class hierarchy, for example  -> SliderConfig extends WidgetConfig extends  extends BaseConfig extends ... and so you can be on trouble when chaining setters like above (calling one parent setter will return the parent class that may not have the next setter method), for example, putting render(parent) before the other setter will give this syntax error. If that is so, you can always use more than one statement, for example, 
+
+{{{
+SliderConfig config = SliderConfig.create(); 
+config.axis("y"); 
+config.min(1); config.max(5); 
+config.value(3); 
+config.length(200)
+config.render(parent); 
+}}}
+
+== Class Static properties == 
+
+In YUI the Y object will contain references to the YUI classes so we can expand our objects using them, like Y.expand(.., Y.Base), or represent modules like Y.DD.Drag, or access YUI plugins, or use their static utilities like `Y.Escape.html()`. YUIGWT overlay these static types in a second Java class postfixed with "Class" like ButtonClass.  Instances of these java classes will override These YUI static class information. 
+
+
+= Java - Javascript tools = 
+
+Because when programming using `yuigwt` we will be "dialogating" with a JavaScript framework from Java language, it is nice to know how JavaScript language elements like functions, objects, etc are reresented and managed in Java. yuigwt comes with some tools for working with javascript natives in activities like object and array definition / accessing, array translators, function inline definition, and others. A lot of these tools are found in package `org.sgx.yuigwt.yui.util`. 
+
+
+== Objects ==
+
+As we have seen when talking about YUI Config objects, for representing a plain JavaScript object we will use Java helper classes whith which we can define and manipulate JavaScript native objects with a similar syntax and zero overhead from Java language. We do not use Java Beans, but Java Helper classes that helps defining and accessing JavaScript Objects easily. 
+
+For each JavaScript object that YUI library defines (for example, all YUI config objects), yuigwt defines a Java helper Class. For example, for creating the following YUI config object: 
+
+{{{
+var yuiconfig = {
+	filter: "DEBUG", 
+	modules: {
+		"gallery-deferred": {
+			fullpath: "../../gallery-deferred.js", 
+			requires: ["event-custom"]
+		}
+	}
+}
+}}}
+
+In java we can do it like this: 
+
+{{{
+YuiConfig yuiconfig = YuiConfig.create().
+	filter("DEBUG").
+	module("gallery-deferred", Module.create()
+		.fullpath("../../gallery-deferred.js")
+		.requires(new String[]{"event-custom"})
+	)			
+}}}
+
+As you can see we have created the equivalent object using the same amount of Java statements and a similar syntax. Some notes: 
+
+  * we do not use `new YuiConfig()` for instantiating the object but `YuiConfig.create()`. 
+  * we use accessors methods which names are the same as the property we want to set/get. 
+  * setters methods, like filter("DEBUG") will return the same isntance (this object) so we can chain methods for setting multiple properties in the same Java statement (this is very common in YUI API). 
+ 
+
+== Functions ==
+
+As we have seen before, yuigwt defines Java callback classes for representing JavaScript functions. For example, compare the following JavaScript and Java equivalent codes: 
+
+{{{
+//JavaScript
+var handle = aButton.on("click", function(e){
+	alert("clicked"); 
+}); 
+}}}
+
+{{{
+//Java
+EventHandle handle1 = button1.on("click", new EventCallback<ButtonEvent>() {	
+	public void call(ButtonEvent e) {
+		Window.alert("clicked");
+	}
+});
+}}}
+
+There is also a more generic way of working with functions in Java code, and this is using `org.sgx.yuigwt.yui.util.Callback´ and `org.sgx.yuigwt.yui.util.JsUtil` like this:
+
+{{{
+button2.on("click", new Callback() {
+	public void call(JsArrayMixed args) {
+		ButtonEvent e = args.getObject(0).cast();
+		console.log("2 clicked at X="+e.domEvent().clientX()); 
+	}
+});
+}}}
+
+Or also, there is also an utility for creating native javascript functions directly using JSNI. Use this only where other sollutions do not work. In this case the function body will be defined in JavaScript language, compatible with GWT JSNI. The main difference here is that the `window` object is `$wnd`
+
+{{{
+JsFunction fn = new JsFunctionBuilder() {			
+	@Override
+	public native final JsFunction buildFunction()/*-{
+		return function(e) {
+			$wnd.alert("3 clicked at: "+e.domEvent.clientX); 
+		}
+	}-*/;
+}.buildFunction();
+button3.on("click", fn);
+}}}
+
+In yuigwt, we always try to define Java callbacks and use the last approach only when necesary. An example where this approach is neccesary, is with `Y.JSON.parse(string, reviver)` that accepts a reviver function for transforming json values. Because this reviver function can accept arguments of any type and it can return values of any types, we cannot represent it using a java callback class and the only way of deining this reviver function is using JsFunction just like we did in the last example: 
+
+{{{
+JsFunction reviver2 = new JsFunctionBuilder() {			
+	@Override
+	public native final JsFunction buildFunction()/*-{
+		return function(k, v) {
+			if(k == "miscellaneous" && v > 500)
+				return 999999; 
+			else
+				return v; 
+		}
+	}-*/;
+}.buildFunction();
+JsObject obj2 = Y.JSON().parse(jsonStr2, reviver2).cast();	
+}}}
+
+A nice example, exploring all of this approaches for reprsenting a js function in Java is available at [http://cancerbero.vacau.com/yuigwt/?test=functions1 functions1]. 
+
+== Exceptions ==
+
+For simplicity, yuigwt won't wrapp native YUI JavaScript exceptions into Java Exceptions. So if you want to catch a JavaScript exception in Java code, you should use `com.google.gwt.core.client.JavaScriptException`. For example, the method `Y.JSON.parse()` will throw a JavaScript exception if the given string is not valid JSON, so for catching it in Java code we must do something like: 
+
+{{{
+try {
+	JsObject obj3 = Y.JSON().parse("{blsbls: dhhdhd , , [. invalid json]}").cast();		
+} catch (JavaScriptException e) {
+	Window.alert("Error parsing json: "+e); 
+}
+}}}
+
+
+
+
+
+
+= In my defense =
+
+The code of the examples was written with the objective to be the most descriptive, and similar to the JavaScript counterpart as possible. It contains a lot of anonymous class definitions, final variables, and other language expressions that may look ugly or hard to read for a Java programmer. I consciously chose to use more inline Java expressions like anonymous Java classes, final variables. All of this can be avoided of course, for example using Fields instead final variables or making our Test classes to implement some interfaces instead declaring anon classes. 

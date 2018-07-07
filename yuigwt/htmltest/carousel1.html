@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+  </head>
+  <body class="yui3-skin-sam">
+   <style type="text/css">
+    .yui3-carousel-content li { width: 50px; }
+    </style>
+<div id="container" class="yui3-carousel-loading">
+            <ol>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+                <li>four</li>
+                <li>five</li>
+            </ol>
+        </div>
+<script type="text/javascript">
+YUI({
+    //Last Gallery Build of this module
+    gallery: 'gallery-2012.06.06-19-59'
+}).use("gallery-carousel", "substitute", function (Y) {
+        Y.on("contentready", function () {
+            var carousel = new Y.Carousel({
+                boundingBox: "#container",
+                contentBox: "#container > ol", 
+                width: "200px"
+            });
+            carousel.render();
+        }, "#container");
+    });
+</script>
+
+  </body>
+</html>

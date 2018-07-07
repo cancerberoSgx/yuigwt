@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
+<!--
+YUI4Gwt module - most flexible way of using YUI4GWT. for using this module you must: 
+1) include the desired yui-min.js script in your gwt app's war/*.html or in you gwt app's .gwt.xml module with <script>
+2) configure YUI for specifying desired YUI build folder for ex: 
+YUI.YUI(YuiConfig.create().base("desired/uri/yui/build")).use(.....
+
+@author: sgurin
+-->
+<module>
+
+    <inherits name="com.google.gwt.user.User" />
+
+    <source path="yui" />    
+
+</module>

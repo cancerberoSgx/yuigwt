@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+  </head>
+  <body class="yui3-skin-sam">
+  
+<script type="text/javascript">
+YUI().use('node', function(Y) {
+    var el1 = Y.one("body").appendChild("<b>SampleEl</b>");
+	YUI().use('node-event-simulate', function(Y) {
+	    el1.on("click", function(e){alert("clicked alt="+e.altKey); })
+	    el1.simulate("click", {altKey: true});
+	});
+});
+</script>
+
+  </body>
+</html>

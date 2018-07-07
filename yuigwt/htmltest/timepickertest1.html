@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+    	
+	<stylesheet src="http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset.css"/>
+	<stylesheet src="http://yui.yahooapis.com/3.5.1/build/cssfonts/cssfonts.css"/>
+	<stylesheet src="http://yui.yahooapis.com/3.5.1/build/cssgrids/grids-min.css"/>
+	
+	
+  </head>
+  <body class="yui3-skin-sam">
+ 
+<script type="text/javascript">
+YUI({
+    //Last Gallery Build of this module
+    gallery: 'gallery-2011.10.12-20-24'
+}).use('gallery-timepicker', function(Y) {
+ 
+ var picker = new Y.Saw.Timepicker({contentBox: '#cb'}); //assuming this exists
+                picker.render();
+ 
+                //hide
+                picker.hide();
+ 
+                //show
+                picker.show();
+ 
+                //set am or pm with class constants
+                picker.set('time.ampm', picker.AM);
+ 
+                //subscribe to events to do cool stuff:
+                picker.subscribe('timeset', function(data){
+                    //fires when the time changes
+ 
+                    //put the 12 hour string into the input. s24hour is also available
+                    Y.get('#time').set('value' ,data.s12hour); //#time should be a text input
+ 
+                    //the data object also has members for hour, minute, ampm. Ampm is
+                    //an int identified by picker.AM or picker.PM
+                });
+ 
+                picker.subscribe('cellclick', function(e){
+                    //fires when a cell is clicked.
+                   this.hide(); 
+                },picker);
+});
+</script>
+
+  </body>
+</html>

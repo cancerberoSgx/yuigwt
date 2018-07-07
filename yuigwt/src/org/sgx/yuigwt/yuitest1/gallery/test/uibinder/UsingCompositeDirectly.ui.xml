@@ -1,0 +1,72 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" >
+
+	<ui:style>
+		.funny {
+			background-color: #eded68;
+		}
+		
+		.dudu {
+			border: 3px solid pink;
+		}
+	</ui:style>
+
+	<g:HTMLPanel>
+		<!-- yui cssgrids -->
+		<div class="yui3-g">
+			<div class="yui3-u-5-24 {style.funny}">
+				<!-- yui button -->
+				<button ui:field="yuiButtonEl1" data-yui="yuiWidget: 'Button'">the first YUI Button</button>
+
+				<p class="{style.dudu}">lak sjdlkaj slkdj alk sdlkaj slkdj lak sk djla sd</p>
+				<p>lak sjdlkaj slkdj alk sdlkaj slkdj lak sk djla sd</p>
+
+			</div>
+			<div class="yui3-u-19-24">
+
+				<!-- YUI tabview -->
+				<div ui:field="tabViewEl1" data-yui="yuiWidget: 'TabView'"
+					class="yui-tabview">
+					<ul>
+						<li>
+							<a href="#foo">foo</a>
+						</li>
+						<li>
+							<a href="#bar">bar</a>
+						</li>
+						<li>
+							<a href="#baz">baz</a>
+						</li>
+					</ul>
+					<div>
+						<div id="foo">
+
+							Some content with two buttons - one yui's and other GWT's
+							<br />
+
+							<!-- a YUI Autocomplete -->
+							<input ui:field="ac1El"
+								data-yui="yuiWidget: 'AutoComplete',resultHighlighter: 'phraseMatch', resultFilters: 'phraseMatch'"
+								type="text"></input>
+
+							<!-- a YUI button -->
+							<button ui:field="yuiButtonEl2" data-yui="yuiWidget:'Button',disabled:true"
+								class="yui-button">a disabled yui button</button>
+
+						</div>
+						<div id="bar">
+							a single GWT button:
+							<g:HTMLPanel>
+								<g:Button text="GWT button1" ui:field="gwtButton1"></g:Button>
+							</g:HTMLPanel>
+						</div>
+						<div id="baz">baz content</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<g:Button ui:field="gwtButton2">..aGWTButton..</g:Button>
+	</g:HTMLPanel>
+</ui:UiBinder>

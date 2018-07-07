@@ -1,0 +1,42 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+xmlns:g="urn:import:com.google.gwt.user.client.ui" >
+
+	<g:HTMLPanel>
+
+		<div>
+			<p>Welcome <span class="userName123"></span> !</p>
+			
+			<!-- yui menunav markup -->
+			<div class="yui3-menu yui3-menu-horizontal" ui:field="menunav1" 
+				data-yui="yuiWidget: 'MenuNav', mouseOutHideDelay: 200">
+				<div class="yui3-menu-content">
+					<ul>
+						<li class="yui3-menuitem">
+							<a class="yui3-menuitem-content" href="http://www.yahoo.com">
+								Home
+							</a>
+						</li>
+						<li>
+							<a class="yui3-menu-label" href="#pim"><span class="mnreplacetext-useremail"></span></a>
+							<div id="pim" class="yui3-menu">
+								<div class="yui3-menu-content">
+									<ul>
+										<li class="yui3-menuitem">
+											<a class="yui3-menuitem-content" href="http://mail.yahoo.com">User Profile</a>
+										</li>
+										<li class="yui3-menuitem">
+											<a class="yui3-menuitem-content" href="http://addressbook.yahoo.com">My comunity</a>
+										</li>
+										<li class="yui3-menuitem">
+											<a class="yui3-menuitem-content mnreplacehref-logouturl" href="http://addressbook.yahoo.com">Log Out</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder>

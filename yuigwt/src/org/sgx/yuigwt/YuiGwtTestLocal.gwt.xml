@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
+
+
+<!-- 
+A common example of how to use module YuiGwt
+In yui all javascript code is loaded dynamically using YUI().use(mdules...). 
+you only need to include yui-min.,js from somewhere and all the other required 
+js will be loaded from the same yui build folder (unless you use "base" Yui configuration property)
+
+Here we want to work with a local copy of Yui so what we do is
+1) copy the build folder of a yui distribution. to yuitest1/yui-build and make this a public directory. 
+
+include script "yui/yui-min.js" and all other required javascript will be loaded from our local yui build. 
+
+Note: this is not the case for required yui CSS, like cssreset, cssfonts, cssgrids, etc, these
+must be loaded manually and we do it right here in the gwt module definition. .  
+So the war/index.html document is free of YUI references at all. 
+
+@author sg
+-->
+<module>
+
+	<!-- you want to use YuiGwt  -->
+	<inherits name="org.sgx.yuigwt.YuiGwtYuiGallery" />
+	
+	<!-- indicate where your sources are, tipically "src" but not this time -->
+	<source path="yuitest1" />	
+	
+	<!-- make our yui build copy a public folder of our webapp -->
+	<public path="yuitest1/yui-build"></public>
+	
+	<!-- some public file sneeded for the gallery test -->
+	<public path="yuitest1/gallery-public"></public>
+	
+	<!-- load yui-min.js from our local public folder -->
+	<script src='yui/yui-min.js' /> 
+
+	<!-- in yui3 .css files must be loaded manually - we do it here (we could use yui dyn loader)-->	
+<!-- 	<stylesheet src="cssreset/cssreset.css"/> -->
+<!-- 	<stylesheet src="cssfonts/cssfonts.css"/> -->
+<!-- 	<stylesheet src="cssgrids/grids-min.css"/> -->
+	
+	<entry-point class="org.sgx.yuigwt.yuitest1.Yui4GwtGalleryEntryPoint" />
+	
+</module>

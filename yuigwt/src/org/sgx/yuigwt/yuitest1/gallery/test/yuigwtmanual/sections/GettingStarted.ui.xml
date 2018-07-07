@@ -1,0 +1,21 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style src="../main.css" />
+	
+	<g:HTMLPanel>
+
+	<h1 id="sec-gettingstarted">Getting started</h1>
+	
+	<p>This section will show you how to quickly build a new YUIGWT application so you can start
+	playing with YUI in Java by yourself. </p>
+	
+	<p>We will use YUI files directly from <a href="yui.yahooapis.com">YUI CDN</a> because it is easier. In a later section 
+	we will show you also how to include the entire YUI build inside your own application
+	so you can serve all YUI files entirely from your server instead having to be connected to internet for you application to work. </p>
+	
+	
+	</g:HTMLPanel>
+
+</ui:UiBinder>

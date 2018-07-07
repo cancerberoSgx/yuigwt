@@ -1,0 +1,32 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including 
+	a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. 
+	@author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style>
+	.foot {
+		background-color: #eaeaff; 
+	}
+	</ui:style>
+	<!-- always work in an g:HTMLPanel -->
+	
+	<g:HTMLPanel>
+		<p>This simulates an UIBinder componenet with two YUI Buttons: </p>
+		
+		<button			
+			ui:field="yuiButtonEl1" 
+			data-yui="yuiWidget: 'Button', disabled: true">
+		the first YUI Button
+		</button>
+		
+		<button			
+			ui:field="yuiButtonEl2" 
+			data-yui="yuiWidget: 'ToggleButton', label: 'a toggle button'">		
+		</button>
+				
+		<p class="{style.foot}">inside. I repeat, this is a UIBinder component with two YUIButton inside. </p>
+	</g:HTMLPanel>
+	
+</ui:UiBinder>

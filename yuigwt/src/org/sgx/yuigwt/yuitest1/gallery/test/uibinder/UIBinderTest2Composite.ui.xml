@@ -1,0 +1,141 @@
+<!-- the GWT UIBinder markup file ui.xml. In this example we use some YUI widgets and utilities 
+like cssgrids, calendar, panel and a menu nav.  
+	@author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:myTest="urn:import:org.sgx.yuigwt.yuitest1.gallery.test.uibinder">
+
+	<ui:style>
+		.gridEntry {
+			margin: 10px;
+		}
+	</ui:style>
+
+	<g:HTMLPanel>
+
+		<!-- a yui cssgrids -->
+		<div class="yui3-g">
+			<div class="yui3-u-2-5 ">
+
+				<div class=" {style.gridEntry}">
+					<p>A sample vertical menunav: </p>
+					<!-- yui menunav markup -->
+					<div class="yui3-menu" ui:field="menunav1" 
+					data-yui="yuiWidget: 'MenuNav', mouseOutHideDelay: 500"><!-- Root menu 
+							bounding box -->
+						<div class="yui3-menu-content"><!-- Root menu content box -->
+							<ul>
+								<li class="yui3-menuitem"><!-- Menuitem bounding box -->
+									<a class="yui3-menuitem-content" href="http://www.yahoo.com"><!-- Menuitem content box -->
+										Yahoo!
+									</a>
+								</li>
+								<li>
+									<a class="yui3-menu-label" href="#pim">PIM</a><!-- Submenu label -->
+									<div id="pim" class="yui3-menu"><!-- Submenu bounding box -->
+										<div class="yui3-menu-content"><!-- Submenu content box -->
+											<ul>
+												<li class="yui3-menuitem">
+													<a class="yui3-menuitem-content" href="http://mail.yahoo.com">Yahoo! Mail</a>
+												</li>
+												<li class="yui3-menuitem">
+													<a class="yui3-menuitem-content" href="http://addressbook.yahoo.com">Yahoo! Address Book</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+
+								<li>
+									<a class="yui3-menu-label" href="#pim">PUM</a><!-- Submenu label -->
+									<div id="pim" class="yui3-menu"><!-- Submenu bounding box -->
+										<div class="yui3-menu-content"><!-- Submenu content box -->
+											<ul>
+												<li class="yui3-menuitem">
+													<a class="yui3-menuitem-content" href="http://calendar.yahoo.com">Yahoo! Calendar</a>
+												</li>
+												<li class="yui3-menuitem">
+													<a class="yui3-menuitem-content" href="http://notepad.yahoo.com">Yahoo! Notepad</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li>
+									<a class="yui3-menu-label" href="#pim">PAM</a><!-- Submenu label -->
+									<div id="pim" class="yui3-menu"><!-- Submenu bounding box -->
+										<div class="yui3-menu-content"><!-- Submenu content box -->
+											<ul>
+												<li class="yui3-menuitem">
+													<a class="yui3-menuitem-content" href="http://mail.yahoo.com">Yahoo! Mail</a>
+												</li>
+												<li class="yui3-menuitem">
+													<a class="yui3-menuitem-content" href="http://notepad.yahoo.com">Yahoo! Notepad</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="yui3-u-3-5">
+				<div class="{style.gridEntry}">
+
+					<div ui:field="panel1El" data-yui="yuiWidget: 'Panel'">
+
+						<!-- <div id="panelContent"> -->
+						<div class="yui3-widget-hd">Create new product
+						</div>
+						<div class="yui3-widget-bd">
+							<form>
+								<fieldset>
+									<p>
+										<label for="id">ID</label>
+										<br />
+										<input type="text" name="id" id="productId" placeholder="" />
+									</p>
+									<p>
+										<label for="name">Name</label>
+										<br />
+										<input type="text" name="name" id="name" value=""
+											placeholder="" />
+									</p>
+									<p>
+										<label for="password">Price</label>
+										<br />
+										<input type="text" name="price" id="price" value=""
+											placeholder="$" />
+									</p>
+								</fieldset>
+							</form>
+						</div>
+						<div class="yui3-widget-ft">
+							<button ui:field="yuiButtonEl1" data-yui="yuiWidget: 'Button'">Accept</button>
+						</div>
+					</div>
+
+					<!-- a yui calendar -->
+					
+					<p>Please choose a date: </p>
+					<div ui:field="calendar1" data-yui="yuiWidget: 'Calendar'">
+					</div>
+					
+					
+					<!-- now include another widget defined with UIBinder, in this case myTest:UIBinderAloneButton -->
+					
+					<p>bla bbla bla bla</p>
+					<hr/>
+					<myTest:UIBinderAloneButton/>
+					<hr/>
+					<p>blabla bla bla</p>
+
+				</div>
+			</div>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder>

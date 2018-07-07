@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+  </head>
+  <body class="yui3-skin-sam">
+<p id="p1">alksjdlkajsld</p>
+<script type="text/javascript">
+YUI().use('console', 'dd-plugin',  function(Y) {
+	var console1 = new Y.Console({collapsed: true}); 
+	console1.plug(Y.Plugin.Drag); 
+	console1.before("entry", function(e){
+		if(!confirm("Do you really want to add the msg: "+e.message.message+" ? ")) {
+			alert("preventing"); 
+			e.preventDefault(); 
+		}
+	});
+	console1.render(); 
+	console1.log("using Console.log()", "info", "myapp");
+});
+</script>
+
+  </body>
+</html>

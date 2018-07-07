@@ -1,0 +1,129 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style src="../main.css" />
+	
+	<g:HTMLPanel>
+
+	<h1 id="sec-yuijavaapi">YUI Java API</h1>
+	 <p>In this section we will describe how common YUI related task and concepts are 
+	 are managed in YUIGWT. </p>
+	 
+	 <h2>YUI Concepts</h2>
+	 
+	 <p>Let's first examine a YUI JavaScript small example:  </p>
+	 
+	 <pre class="{style.code} prettyprint">
+YUI().use('button', function (Y) {
+	var button1 = new Y.Button({
+		label: 'a simple button'
+	}).render(Y.one("body")));
+	button1.on("click", function(e){
+		alert("clicked at x = "+e.clientX); 
+	})
+});
+	 </pre>
+	 
+	 
+	 
+<p>Now a little comment for those not so familiar with YUI. In YUI applications, we first need to load the "yui modules" 
+our application requires. We do this cusing YUI().use(...). For our little example, we only need the module "button" so we 
+do "YUI().use("button", function(Y){...})", but we could need other modules like "tabview", "datatable", etc. 
+This way YUI interal loader is responsible of dynamic loading of only those modules your application requires.   
+</p>
+<p>When loading is completed, the user is notified back and it is given a Y object to work with. This Y object is called the 
+<a href="http://yuilibrary.com/yui/docs/api/classes/YUI.html">"The YUI Global Namespace Object"</a> and it contains all the neccesary API 
+for working with those modules. In our example, we create a new YUI Button with "new Y.Button(...)". Again, this Global Namespace YUI Object will only provide
+those APIs that you explicitly ask for in the use() call. This means that, if you try to instantiate a 
+Button but not loaded the "button" module, then a JavaScript error will be thrown. More on the Global Namespace YUI Object: 
+<a href="http://yuilibrary.com/yui/docs/yui/">User Guide</a> and <a href="http://yuilibrary.com/yui/docs/api/modules/yui.html">API</a>. </p>
+
+<p>In YUIGWT we call the Global Namespace YUI Object ws1"YUIContext". the YUI class is <a href=""></a>YUIContext  
+The YUI global namespace object"
+ and when this happens, you are being notified bac</p>
+ 
+ 
+ 
+ <pre class="{style.code} prettyprint">
+YUI.Use(new String[]{"button"}, new YUICallback() {
+	@Override
+	public void ready(YuiContext Y) {
+		Widget button1 = Y.newButton(
+			ButtonConfig.create().label("a simple button")
+		).render(parent);       
+		button1.on("click", new NodeEventCallback() {                   
+			@Override
+			public void call(YuiEvent e) {
+			        Window.alert("button pressed at x  ="+e.clientX()); 
+			}
+		}); 
+	}
+}); 
+</pre>
+
+	 
+	<h2 id="sec-yuijavaapi-yuicontext">YUIContext</h2>
+	<p>The first statement in any YUI </p>
+	
+	<h2>YUI Classes</h2>
+	
+	<p>
+		In this document we document <a href="http://code.google.com/p/yuigwt/wiki/Usage">YUIGWT</a>
+		a library for wrinting
+		<a href="http://yuilibrary.com/" rel="nofollow"><abbr title="Yahoo User Interface">YUI</abbr></a>
+		Applications in <a href="https://developers.google.com/web-toolkit/"><abbr title="Google Web Tookit">GWT</abbr></a>. 
+	</p>
+	
+	<p>YUIGWT try to cover all the usefull YUI modules so the GWT user can use them in its 
+	applications. Its main objective is to bring a complete Java API. Also the implementation of this API 
+	must have zero overhead in the Java to JavaScript translation. Keep reading to understand what exactly
+	means "usefull YUI modules" and "zero overhead". </p>
+	
+	
+	<p>
+		It is a GWT library mostly written using GWT overlay types for a zero-overhead Java API. Define common mechanism and Java utilities 
+		for "doing javascript " in java, like literal JavaScript
+		object definitions, function handlers, etc. Given those mechanism yuigwt implements a YUI java API based on the JavaScript
+		YUI API in a very straightforward way. This also allows users already familiar with JavaScript
+		YUI API to quickly get ready to use yuigwt Java API.
+	</p>
+	<p>
+		The YUI API is huge. This Java API focus first on YUI concrete components like DOM utilities, widgets, gallery modules and other useful JavaScript
+		tools.
+	</p>
+	<p>However, YUI modules and utilities oriented to enhance the Javascript language, like YUI extensions mechanisms, extending Base, Attribute, custom events, and in
+		general, any YUI module which function is already covered by the Java language or by GWT will take less priority in YUIGWT road map.  </p>
+	<p>
+		Most of the (concrete) YUI API is
+		<a href="http://code.google.com/p/yuigwt/source/browse/#svn%2Ftrunk%2Fyuigwt%2Fsrc%2Forg%2Fsgx%2Fyuigwt%2Fyui" rel="nofollow">supported</a>
+		including
+		<a href="http://code.google.com/p/yuigwt/source/browse/#svn%2Ftrunk%2Fyuigwt%2Fsrc%2Forg%2Fsgx%2Fyuigwt%2Fyui%2Fwidget" rel="nofollow">widgets</a>
+		. Also a growing list of YUI Gallery modules are
+		<a href="http://code.google.com/p/yuigwt/source/browse/#svn%2Ftrunk%2Fyuigwt%2Fsrc%2Forg%2Fsgx%2Fyuigwt%2Fyuigallery" rel="nofollow">supported</a>
+		in a separate GWT module
+		<tt>org.sgx.yuigwt.YuiGwtYuiGallery</tt>
+		.
+	</p>
+	<p>
+		Some integration with GWT tools and API like with DOM, Widget and UIBinder is supported. For example, see the
+		<a href="http://cancerbero.mbarreneche.com/yuigwt/gallery/?test=uibinderuserguide&amp;singleTest=1" rel="nofollow">YUI+UIBinder User Guide</a>
+		.
+	</p>
+	<p>
+		There is an
+		<a href="http://cancerbero.mbarreneche.com/yuigwt/gallery/" rel="nofollow">example gallery</a>
+		with specific examples with java source code available. The gallery will be showing current advances on the YUI Java API.
+		In fact this User Guide is one of the Gallery's example, and it is writing fully using YUIGWT.
+	</p>
+
+
+
+	
+	
+	
+	<h3></h3>
+
+	</g:HTMLPanel>
+
+</ui:UiBinder>

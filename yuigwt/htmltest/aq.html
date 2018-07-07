@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+  </head>
+  <body class="yui3-skin-sam">
+<p id="p1">alksjdlkajsld</p>
+<script type="text/javascript">
+YUI().use('async-queue', 'console',  function(Y) {
+	var console = new Y.Console(); 
+	console.render(); 
+	var aq = new Y.AsyncQueue(); 
+	aq.add(function(){
+		console.log("1", "", ""); 
+	}); 
+	aq.add(function(){
+		console.log("2", "", ""); 
+	}); 
+	aq.on(["complete", "shift"], function(e){
+		console.log("EVENT", "", ""); 
+	}); 
+	aq.run(); 
+});
+</script>
+
+  </body>
+</html>

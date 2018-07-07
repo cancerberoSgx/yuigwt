@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
+
+<!-- 
+	alloyui test gallery - javascript and css loaded from online alloyui build 
+	at https://cdnjs.cloudflare.com/ajax/libs/alloy-ui/1.0.1/aui-min.js	
+	@author: sgurin 
+-->
+<module>	
+	<inherits name="org.sgx.yuigwt.Alloyui" />
+	
+	<!-- indicate where your sources are, tipically "src" but not this time -->
+	<source path="alloyuitest1" />
+	
+	<!-- make our alloyui build copy a public folder of our webapp -->
+	<public path="alloyuitest1/alloyui-build"></public>
+	
+<!-- 	TODO: try with online distribution https://cdnjs.cloudflare.com/ajax/libs/alloy-ui/1.0.1/aui-min.js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/alloy-ui/1.0.1/aui-min.js' />	
+	
+	<!-- it seems that AUI skin css file need to be loaded explicitly. TODO: ask in alloyui forums. -->	
+	<entry-point class="org.sgx.yuigwt.alloyuitest1.AlloyuiGalleryTestEntryPoint" />
+	
+	<!-- it seems that AUI skin css file need to be loaded explicitly. TODO: ask in alloyui forums. -->	
+	<stylesheet src="https://cdnjs.cloudflare.com/ajax/libs/alloy-ui/1.0.1/aui-skin-classic/css/aui-skin-classic-all-min.css"/>
+	
+	<!-- note: this demo will load all Alloyui files from 
+	http://alloyui.com/deploy/build/ or from 
+	http://cdn.www.liferay.com/html/js/aui/base/base-min.js
+		
+	<stylesheet src="http://cdn.www.liferay.com/html/js/aui/aui-skins/core/css/main.css"/>
+	<stylesheet src="http://cdn.www.liferay.com/html/js/aui/aui-skins/classic/css/custom.css"/>
+	<stylesheet src="http://cdn.www.liferay.com/html/js/aui-skin-classic/css/aui-skin-classic-all-min.css"/>
+	
+	<script src='http://cdn.www.liferay.com/html/js/aui/yui/yui-min.js' />
+	<script src='http://cdn.www.liferay.com/html/js/aui/aui-base/aui-base-min.js' />-->
+ </module> 

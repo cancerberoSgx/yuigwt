@@ -1,0 +1,30 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including 
+	a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. 
+	@author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" >
+
+
+	<g:HTMLPanel>
+		<button ui:field="buttonEl" data-yui="yuiWidget: 'Button'">Run test!</button>
+		<div ui:field="tabviewEl"></div>
+
+
+		<div ui:field="panel1El" data-yui="yuiWidget: 'Panel', centered: true, visible: false">
+
+			<!-- <div id="panelContent"> -->
+			<div class="yui3-widget-hd">Test Run Output</div>
+			<div class="yui3-widget-bd">
+			</div>
+			<div class="yui3-widget-ft">
+				<button ui:field="acceptButtonEl" data-yui="yuiWidget: 'Button'">Accept</button>
+			</div>
+		</div>
+
+
+
+	</g:HTMLPanel>
+	
+	
+</ui:UiBinder>

@@ -1,0 +1,83 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+xmlns:MNMain="urn:import:org.sgx.madrenecesidad.client.ui.main"
+	xmlns:MNMaps="urn:import:org.sgx.madrenecesidad.client.ui.mymaps" 
+	xmlns:MNMisc="urn:import:org.sgx.madrenecesidad.client.ui.misc">
+
+
+	<ui:with field='res' type='org.sgx.madrenecesidad.client.ui.res.MNResources' />
+
+	<!-- <ui:style src="main.css"></ui:style> -->
+	<ui:style>
+		.map1 {
+			width: 100%;
+			height: 300px;
+		}
+		
+		.toolbar {
+			
+		}
+		
+		.toolbarEl {
+			display: inline;
+		}
+	</ui:style>
+
+
+
+
+
+	<g:HTMLPanel>
+
+		<!-- <g:Image resource='{res.saveIcon}'/> -->
+
+
+
+		<div class="{style.toolbar}">
+			<!-- <div> -->
+
+			<!-- <button > -->
+			<!-- <span class="{res.style.buttonIconSave}"></span> -->
+			<!-- bla</button> -->
+
+			<button class="{style.toolbarEl}" ui:field="saveMapButtonEl" 
+				data-yui="yuiWidget: 'Button'">
+				<span class="{res.style.buttonIconSave}"></span>
+				Save Map
+			</button>
+			
+			<button class="{style.toolbarEl}" ui:field="deleteMapButtonEl" 
+				data-yui="yuiWidget: 'Button'">
+				<span class="{res.style.buttonIconDelete}"></span>
+				Delete Map
+			</button>
+			
+			
+			<!-- </div> -->
+
+			<div class="{style.toolbarEl}" ui:field="myMapViewsSelectEl">
+				Select Map</div>
+
+<!-- 			<div class="{style.toolbarEl}" ui:field="list2El"> -->
+<!-- 				list2</div> -->
+				
+			<input type="text" ui:field="mapsACEl" class="{style.toolbarEl}" data-yui="yuiWidget: 'Autocomplete'"></input>
+
+		</div>
+
+
+
+<!-- 		<div ui:field="mapContainerEl" class="{style.map1}"></div> -->
+		
+		<MNMaps:MapEditorVisual></MNMaps:MapEditorVisual>
+
+
+		<MNMisc:AcceptCancelPanel ui:field="saveMapViewPanel">
+			<MNMaps:MapEditorForm ui:field="mapEditor"></MNMaps:MapEditorForm>
+		</MNMisc:AcceptCancelPanel>
+
+	</g:HTMLPanel>
+
+</ui:UiBinder>

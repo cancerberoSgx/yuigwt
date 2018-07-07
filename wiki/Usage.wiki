@@ -1,0 +1,265 @@
+#summary show how to use yuigwt library in your GWT application.
+#labels yuigwt,yui,gwt,yuigwttutorial
+
+= Introduction =
+
+This document try to explain how to use yuigwt library in you GWT applications. 
+
+yuigwt don't and won't include any YUI or alloyui javascript or css files internally. The user must tell which YUI distribution to use, in general this is done including the desired yui-min.js source file in the GWT module definition. 
+
+This way the user is free to use the YUI or alloyui distribution files most appropriate for the situation. For example, for an online small application, YUI distribution from yui.yahooapis.com can be appropriate. On the other hand, for example when integrating our YUI app with a bigger environment like a web portal (the common case of YUI/liferay) the user may need to use an existing YUI/alloyui distribution. 
+
+In this document we show how to get started with yuigwt in these two and other scenarios. 
+
+= Using yui.yahooapis.com = 
+
+YUI is available online at yui.yahooapis.com so your webapps can use all the required YUI files from there. In this example, we will create a yuigwt application that uses those files. 
+
+All we have to do is to create a GWT module like the following: 
+
+{{{
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
+
+<module>	
+	<inherits name="org.sgx.yuigwt.YuiGwt" />	
+	
+	<!-- load yui.js from yahooapis -->
+	<script src='http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js' />
+	
+	<source path="yuitest1" />
+	<entry-point class="org.sgx.yuigwt.yuitest1.YuiTestEntryPoint" />
+	
+</module>
+}}}
+
+So basically all we have to do is to inherith our GWT application from *org.sgx.yuigwt.YuiGwt* and include yui-min.js from yahooapis.com and voilá, the YUI Java API is ready to be used. 
+
+If you want to avoid using `<script>` tag in your gwt.xml files then it is recommended that you add the following line in your HTML web page's head element, just as it is suggested in [http://yuilibrary.com/yui/quick-start/ yui library site]: 
+
+{{{
+<script src="http://yui.yahooapis.com/3.8.1/build/yui/yui-min.js"></script>
+}}}
+
+Another option that can give you more flexibility is loading yui-min.js programatically, for a quick startup. The class YuiLoader is just for that and using it like the following example, you don't have to worry about including anithing in gwt.xml or your html web pages:
+
+{{{
+
+import org.sgx.yuigwt.yui.YUICallback;
+import org.sgx.yuigwt.yui.YuiContext;
+import org.sgx.yuigwt.yui.YuiLoader;
+import org.sgx.yuigwt.yui.event.EventCallback;
+import org.sgx.yuigwt.yui.event.EventFacade;
+import org.sgx.yuigwt.yui.node.Node;
+import org.sgx.yuigwt.yui.widget.button.Button;
+import org.sgx.yuigwt.yui.widget.button.ButtonConfig;
+import org.sgx.yuigwt.yui.widget.slider.Slider;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/**
+ * a sample gwt entry point that uses YUIGWT and in particular programatically loading yui-min javascript using YuiLoader utility
+ * 
+ * @author sg
+ *
+ */
+public class Yuigwtex implements EntryPoint, YUICallback {
+	
+	public void onModuleLoad() {
+		//The url for yui-min.js from a cdn
+		String yuiUrl = "http://yui.yahooapis.com/3.8.1/build/yui/yui-min.js";
+		
+		//Initial yui modules to work with 
+		String[] modules = {"button", "slider"};
+		
+		YuiLoader.load(yuiUrl, modules, this);
+	}
+	@Override
+	public void ready(YuiContext Y) {
+		Node parentNode = Y.one(RootPanel.get());
+                //ready to use YUI button and node modules ...
+	}
+}
+
+}}}
+
+= Using your local YUI copy = 
+
+In this case we want to have all the YUI files in our local server so our yuigwt application will load all the required files from there (so we don't have to rely on yahooapis.com. 
+
+You can download a fresh copy of YUI 3 from the [http://yuilibrary.com/download/yui3/ main yui3 download page] or the [latest sources snapshot from yui3 github project site https://github.com/yui/yui3]. 
+
+In short, what we will do here is - 1) download and copy the YUI *build* folder inside a public folder of our GWT application. 2) Include yui-min.js file from that public folder: 
+
+The resulting module is: 
+
+{{{
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.4.0//EN" "http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
+
+<module>	
+	<inherits name="org.sgx.yuigwt.YuiGwt" />	
+	
+	<!-- declare a public folder in which we copied the YUI build folder -->
+	<public path="yuitest1/yui-build"></public>
+
+	<!-- load yui-min.js from our local public folder, we assume the folder layout yuitest1/yui-build/build/yui/yui-min.js -->
+	<script src='build/yui/yui-min.js' /> 
+
+	<source path="yuitest1" />
+	<entry-point class="org.sgx.yuigwt.yuitest1.YuiTestEntryPoint" />
+	
+</module>
+}}}
+
+= Sample Entry Point class = 
+
+The following is a sample GWT Entry Point class that create some YUI widgets. 
+
+The java statements are very equivalent to javascript statements, and so the code can look strange for java programmers. YUIGWT is a pure overlay over YUI3 and so, you must perform some "JavaScript stuff" in java, like Objects literal definition. For a detailed documentation about this please refer to [YUI3 Java API http://code.google.com/p/yuigwt/wiki/YUIJavaApi]. 
+
+
+{{{
+package org.sgx.yuigwtex.client;
+
+import org.sgx.yuigwt.yui.YUI;
+import org.sgx.yuigwt.yui.YUICallback;
+import org.sgx.yuigwt.yui.YuiContext;
+import org.sgx.yuigwt.yui.event.EventCallback;
+import org.sgx.yuigwt.yui.event.EventFacade;
+import org.sgx.yuigwt.yui.node.Node;
+import org.sgx.yuigwt.yui.widget.Widget;
+import org.sgx.yuigwt.yui.widget.button.Button;
+import org.sgx.yuigwt.yui.widget.button.ButtonConfig;
+import org.sgx.yuigwt.yui.widget.slider.Slider;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.RootPanel;
+
+/**
+ * a sample gwt entry point that uses YUI
+ * @author sg
+ *
+ */
+public class Yuigwtex implements EntryPoint, YUICallback {
+	public void onModuleLoad() {
+		YUI.YUI().use(new String[]{"button", "slider", "node"}, this);  
+	}
+	@Override
+	public void ready(YuiContext Y) {
+		Node parentNode = Y.one(RootPanel.get().getElement());
+		
+		//remember to add yui3 skin class name to your root node 			
+		parentNode.addClass("yui3-skin-sam"); 
+		
+		Button button1 = (Button) Y.newButton(
+			ButtonConfig.create().label("a YUI3 button widget")
+		).render(parentNode);	
+		button1.on("click", new EventCallback() {			
+			@Override
+			public void call(EventFacade e) {
+				Window.alert(e.domEvent().getClientX()+""); 
+			}
+		}); 
+		
+		parentNode.append("<p>First a horizontal default slider...");
+		Node n1 = parentNode.appendChild("<span></span>").cast();
+		Widget slider1 = Y.newSlider().render(n1); 
+		
+		parentNode.append("<p>Now a vertical, custom slider...");
+		Node n2 = parentNode.appendChild("<span>unknownsoldierflag123</span>").cast();
+		Widget slider2 = Y.newSlider(Slider.config().axis("y").min(1).
+			max(5).value(3).length(200)).render(n2);		
+	}
+}
+}}}
+
+= Complete Example = 
+
+There is a complete working small GWT [http://yuigwt.googlecode.com/svn/trunk/yuigwtex application example ] that uses YUIGWT available. 
+You can [http://code.google.com/p/yuigwt/source/browse/#svn%2Ftrunk%2Fyuigwtex browse its code] online or you can do the following from your **nix command line to get the sample, compile it and view the application: 
+
+{{{
+svn checkout http://yuigwt.googlecode.com/svn/trunk/yuigwtex yuigwtExample
+
+cd yuigwtExample
+
+#edit gwt.sdk property in build.properties according to your system (points to GWT SDK folder)
+cat > build.properties
+gwt.sdk=/home/sebastian/programas/gwt-2.4.0
+Ctrl-D
+
+#compile the project
+ant
+
+#open the app
+firefox war/Yuigwtex.html
+}}}
+
+= YUIGWT Modules =
+
+yuigwt will support YUI modules, YUI Gallery modules and alloyui modules and so there are separated GWT modules for each. There are now three separated modules. Nevertheless, at this development stage we are focusing only in YuiGwt: 
+
+*org.sgx.yuigwt.YuiGwt* a module for using all YUI 3 features *excluding* components in the [YUI 3 Gallery http://yuilibrary.com/gallery/]. Package for main YUI Java API is org.sgx.yuigwt.yui
+
+*org.sgx.yuigwt.YuiGwtYuiGallery* a mocule for using all YUI 3 features *including* components in the [YUI 3 Gallery http://yuilibrary.com/gallery/]. Java package for yui gallery Java API is *org.sgx.yuigwt.yuigallery*
+
+*org.sgx.yuigwt.Alloyui* a module with all YUI 3 features, excluding YUI 3 gallery and including the entire Alloyui Java API. Java Alloyui API base package is org.sgx.yuigwt.alloyui. 
+
+
+= Maven support =
+This project supports maven. Just download its sources and call mvn package for generating the .jar like this: 
+{{{
+svn checkout http://yuigwt.googlecode.com/svn/trunk/yuigwt yuigwt
+
+cd yuigwt
+mvn package
+}}}
+
+
+
+= building the yuigwt.jar with ant = 
+
+You can build the yuigwt.jar file from lates SVN sources following the steps: 
+
+
+{{{
+svn checkout http://yuigwt.googlecode.com/svn/trunk/yuigwt yuigwt
+
+cd yuigwt
+
+#edit gwt.sdk property in build.properties according to your system (points to GWT SDK folder)
+cat > build.properties
+gwt.sdk=/home/sebastian/programas/gwt-2.4.0
+Ctrl-D
+
+#compile all modules
+ant jar
+
+#the jar file will be located at dist/yuigwt-x.y.jar
+}}}
+
+
+= Compiling and running the Example Gellery = 
+
+
+{{{
+svn checkout http://yuigwt.googlecode.com/svn/trunk/yuigwt yuigwt
+
+cd yuigwt
+
+#edit gwt.sdk property in build.properties according to your system (points to GWT SDK folder)
+cat > build.properties
+gwt.sdk=/home/sebastian/programas/gwt-2.4.0
+Ctrl-D
+
+#compile all modules
+ant compile
+
+#open the app
+firefox war/indexOnline.html
+}}}

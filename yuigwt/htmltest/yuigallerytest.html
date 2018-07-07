@@ -1,0 +1,119 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+   </head>
+  <body class="yui3-skin-sam">
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssfonts/fonts-min.css&gallery-2011.03.23-22-20/build/gallery-accordion/assets/skins/sam/gallery-accordion.css">
+ <script type="text/javascript">
+YUI({
+    //Last Gallery Build of this module
+    gallery: 'gallery-2011.03.23-22-20'
+}).use('gallery-accordion', function(Y) {
+    var item1, item2, item3, accordion;
+ 
+    accordion = new Y.Accordion({
+        srcNode: "#acc1",
+        useAnimation: true,
+        collapseOthersOnExpand: true
+    });
+ 
+    accordion.render();
+ 
+    item1 = new Y.AccordionItem( {
+        label: "Item1, added from script",
+        expanded: true,
+        id: "dynamicItem1",
+        contentHeight: {
+            method: "fixed",
+            height: 80
+        },
+        closable: true
+    } );
+ 
+    item1.set( "bodyContent", "This is the body of the item, added dynamically to accordion.<br>Content height has been set as \"fixed, 80px\"." );
+ 
+    accordion.addItem( item1 );
+ 
+    item2 = new Y.AccordionItem( {
+        label: "Item2, added from script",
+        expanded: true,
+        id: "dynamicItem2",
+        contentHeight: {
+            method: "stretch"
+        }
+    } );
+ 
+    item2.set( "bodyContent", "This is the body of the item, added dynamically to accordion, before item1.<br>Content height has been set as \"stretch\"." );
+ 
+    accordion.addItem( item2, item1 );
+ 
+    item3 = new Y.AccordionItem( {
+        label: "Item3, added from script",
+        expanded: true,
+        alwaysVisible: true,
+        id: "dynamicItem3",
+        contentHeight: {
+            method: "auto"
+        }
+    } );
+ 
+    item3.set( "bodyContent", "<div style='position:relative;'>This is the body of the item, added dynamically to accordion.<br>Content height has been set as \"auto\".</div>" );
+ 
+    accordion.addItem( item3 );
+ 
+});
+</script>
+
+
+
+
+
+
+<!-- tree view -->
+<!-- 
+ <link rel="stylesheet" href="http://goonieiam.com/treeview/treeview-classic.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.1.1/build/cssreset/reset-min.css">
+  
+<ul id="mytree"></ul>
+ <script type="text/javascript">
+YUI({
+    //Last Gallery Build of this module
+    gallery: 'gallery-2011.01.03-18-30'
+}).use('gallery-yui3treeview', function(Y) {
+ 
+var treeview = new Y.TreeView({  
+     srcNode: '#mytree',
+     contentBox: null,
+     type: "TreeView",
+     children: [
+                   {
+                      label: "level1-1",
+                      type: "TreeView",
+                      children: [
+                          {label: "level2-1"},
+                          {label: "level2-2"}
+                      ]
+                   },
+                   {
+                       type: "TreeView",
+                      label : "level1-2"
+                  }
+               ]
+});
+ 
+treeview.render();
+});
+ </script>
+ -->
+
+
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+    <script type="text/javascript" language="javascript" 
+    	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+  </head>
+  <body class="yui3-skin-sam">
+<p id="p1">alksjdlkajsld</p>
+<p>laksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjas</p>
+<img src="http://code.google.com/p/yuigwt/logo?cct=1343403417" id="img1"></img>
+<p>laksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjaslaksjd lkasj dlkaj sldk ajlskd jlak sdjlkjas</p>
+<script type="text/javascript">
+// YUI().use('async-queue', 'console',  function(Y) {
+// 	YUI({
+// 	    //Last Gallery Build of this module
+// 	    gallery: 'gallery-2012.05.09-20-27'
+// 	}).use('gallery-slidecheckbox',function(Y){
+// 		var slide = new Y.SlideCheckbox({srcNode:'#c1'}),
+// 		slide3 = new Y.SlideCheckbox({srcNode:'#c3',strings:{labelOn: 'Yes',labelOff:'No'}}),
+// 		slide.render();
+// 		slide3.render();
+// 	})
+// });
+
+YUI({
+    //Last Gallery Build of this module
+    gallery: 'gallery-2010.03.23-17-54'
+}).use('node', 'gallery-magnifier', function(Y) {
+ 
+	var image = Y.one('#img1');
+	image.plug(Y.Magnifier, {follow: true, zoom: 5});
+	image.plug(Y.Magnifier, {staticX: 700, staticY: 190, zoom: 2});
+	 
+//     Y.one('#magnify-follow').plug(Y.Magnifier, {
+//         follow: true,
+//         height: 75,
+//         width: 75,
+//         zoom: 3
+//     });
+ 
+//     Y.one('#magnify-static').plug(Y.Magnifier, {
+//         follow: false,
+//         staticX: 750,
+//         staticY: 240,
+//         height: 150,
+//         width: 150,
+//         zoom: 4
+//     });
+ 
+});
+</script>
+
+  </body>
+</html>

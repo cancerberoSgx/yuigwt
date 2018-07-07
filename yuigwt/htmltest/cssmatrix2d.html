@@ -1,0 +1,150 @@
+<!doctype html>
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name='gwt:property' content='locale=en'>
+
+<title>Yui4Gwt example gallery</title>
+
+
+   <script type="text/javascript" language="javascript" 
+   	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script>
+
+
+</head>
+
+<!-- <h1>2d Transforms Demo</h1> -->
+<!-- <p>Click to focus the Result frame.  Then use the W, A, S, and D keys to drive the space ship.  Use Z and X to zoom.</p> -->
+<!-- <div id="a"></div> -->
+
+<style>
+#a {
+    border-bottom: 34px ridge #770000;
+    border-left: 34px groove #3333FF;
+    border-radius: 34px;
+    border-right: 34px ridge #3333FF;
+    height: 34px;
+    margin: 3em;
+    width: 0;
+}
+
+#a.transitioning:before {
+    border-bottom: 34px double #FF0000;
+    border-left: 34px solid transparent;
+    border-radius: 34px;
+    border-right: 34px solid transparent;
+    content: "";
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    left: -34px;
+    width: 0px;
+}
+
+html {
+    height: 100%;
+}
+</style>
+
+<body class="yui-skin-sam">
+
+<h1>2d Transforms Demo</h1>
+<p>Click to focus the Result frame.  Then use the W, A, S, and D keys to drive the space ship.  Use Z and X to zoom.</p>
+<div id="a"></div>
+<!-- <p>alksjd</p> -->
+<!-- <p id="myNode">al ksdjlkasj dlka jlsdj lkajsd</p> -->
+<!-- <p>alksjd</p> -->
+
+
+<script type="text/javascript">
+YUI({
+    gallery: 'gallery-2012.05.02-20-10'
+}).use('cssbase', 'cssfonts', 'cssreset', 'event-key', 'gallery-node-transform2d', 'transition', 'yui-throttle', function (Y) {
+    var aNode = Y.one('#a'),
+        bodyNode = Y.one('body').setStyles({
+            backgroundColor: '#222222',
+            color: '#EEEEAA',
+            height: '100%',
+            padding: '1em 3em'
+        }),
+        transitioning = false;
+    
+    bodyNode.on('key', function () {
+        if (!transitioning) {
+            transitioning = true;
+            aNode.addClass('transitioning').translate(0, -21, {
+                duration: .5,
+                easing: 'linear'
+            }, function () {
+                aNode.removeClass('transitioning');
+                transitioning = false;
+            });
+        }
+    }, 'w');
+    
+    bodyNode.on('key', function () {
+        if (!transitioning) {
+            transitioning = true;
+            aNode.addClass('transitioning').rotate(-21, {
+                duration: .5,
+                easing: 'linear'
+            }, function () {
+                aNode.removeClass('transitioning');
+                transitioning = false;
+            });
+        }
+    }, 'a');
+    
+    bodyNode.on('key', function () {
+        if (!transitioning) {
+            transitioning = true;
+            aNode.addClass('transitioning').translate(0, 21, {
+                duration: .5,
+                easing: 'linear'
+            }, function () {
+                aNode.removeClass('transitioning');
+                transitioning = false;
+            });
+        }
+    }, 's');
+    
+    bodyNode.on('key', function () {
+        if (!transitioning) {
+            transitioning = true;
+            aNode.addClass('transitioning').rotate(21, {
+                duration: .5,
+                easing: 'linear'
+            }, function () {
+                aNode.removeClass('transitioning');
+                transitioning = false;
+            });
+        }
+    }, 'd');
+    
+    bodyNode.on('key', function () {
+        if (!transitioning) {
+            aNode.scale(1.25, {
+                duration: .5,
+                easing: 'linear'
+            }, function () {
+                transitioning = false;
+            });
+        }
+    }, 'z');
+    
+    bodyNode.on('key', function () {
+        if (!transitioning) {
+            transitioning = true;
+            aNode.scale(.75, {
+                duration: .5,
+                easing: 'linear'
+            }, function () {
+                transitioning = false;
+            });
+        }
+    }, 'x');
+});
+</script>
+</body>
+</html>

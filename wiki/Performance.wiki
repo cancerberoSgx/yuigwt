@@ -1,0 +1,19 @@
+#labels yuigwt
+= Introduction =
+
+This document describes how using yuigwt will affect your GWT application in loaded code size. Also some notes about generated code performance.
+
+= Size increment =
+
+yuigwt is designed to minimally increment the result javascript code size of your GWT application. Suppose your project loads YUIGWT using YuiLoader as explained in [http://code.google.com/p/yuigwt/wiki/Usage getting started guide]. 
+
+This methodology allow you not to load yui javascript until you really need it. 
+The only thin you will be "extra" loading are 5.5kb of javascript code corresponding to YUIGWT library code. 
+
+Also, because YUI itself let you load modules individually and so YUIGWT, you can also strictly define when and where to load the necesary YUI modules in your GWT app. 
+
+= Performance = 
+
+99% of YUIGWT Java code is based on GWT Overlay types. This means that the Java programmer that uses YUIGWT will be in fact "tauching" real javascript objects. That's the reason why YUIGWT code is somewhat strange when performing special thinkg, in particular, instantiate object (ButtonConfig.create() instead new ButtonConfig()).
+
+The java to javascript code translation of GWT Overlay types based code will be in practice, equivalent to pure Javascript YUI code.

@@ -1,0 +1,31 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:mn="urn:import:org.sgx.madrenecesidad.client.ui.main">
+
+	<ui:style>
+	</ui:style>
+
+
+	<g:HTMLPanel>
+		<div ui:field="panel1El" data-yui="yuiWidget: 'Panel', 'visible': false, 'centered': true">
+
+			<!-- <div id="panelContent"> -->
+			<div class="yui3-widget-hd">Shave this Map View
+			</div>
+			<div class="yui3-widget-bd" ui:field="panelBodyEl">			
+					
+			</div>
+			<div class="yui3-widget-ft">			
+				<button ui:field="cancelButtonEl"
+				data-yui="yuiWidget: 'Button'">
+				Cancel</button>
+			
+			<button ui:field="acceptButtonEl"
+				data-yui="yuiWidget: 'Button'">
+				Accept</button>
+			</div>	
+		</div>
+
+	</g:HTMLPanel>
+
+</ui:UiBinder>

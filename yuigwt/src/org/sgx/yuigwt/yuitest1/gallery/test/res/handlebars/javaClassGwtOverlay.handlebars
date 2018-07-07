@@ -1,0 +1,40 @@
+## variables: 
+## 'class' is a JavaClassInfo instance
+## 'val' is a JsValue 
+## 'typesUtil' an instance of JsTypes for type conversion
+
+package $class.getPackageName();
+
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayMixed; 
+
+public class $class.getClassName() extends $class.getExtendsClassName() {
+	protected $class.getClassName()(){}
+	
+	public static native final $class.getClassName() create()/*-{
+		return {}; 
+	}-*/;
+
+$val.getProperties().keySet().size()
+
+#foreach( $propName in $val.getProperties().keySet() )
+	#set( $prop = $val.getProperties().get($propName)) ##a JsValue
+	#set( $propJavaTypeName = $typesUtil.toJavaType($prop.getType()))
+    ##<li>$prop.getType() - java type name : $propJavaTypeName</li>
+    /**
+     * @return property '$propName'
+     */
+    public static final native $propJavaTypeName $propName () /*-{
+    	return this.$propName; 
+    }-*/;
+    
+    /**
+     * @return property '$propName'
+     */
+    public static final native $class.getClassName() $propName($propJavaTypeName val) /*-{
+    	this.$propName = val;
+    	return this;  
+    }-*/;
+#end
+
+}

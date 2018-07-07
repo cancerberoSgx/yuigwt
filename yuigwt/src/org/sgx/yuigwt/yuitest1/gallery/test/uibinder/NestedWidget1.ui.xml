@@ -1,0 +1,114 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including 
+	a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. 
+	@author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<g:HTMLPanel>
+		<!-- yui cssgrids -->
+		<div class="yui3-g">
+			<div class="yui3-u-5-24">
+				
+				<p>lak sjdlkaj slkdj alk sdlkaj slkdj lak sk djla sd</p>
+				<p>lak sjdlkaj slkdj alk sdlkaj slkdj lak sk djla sd</p>
+
+			</div>
+			<div class="yui3-u-19-24" id="panelParent123">	
+							
+				<div ui:field="tabViewEl1" data-yui="yuiWidget: 'TabView'"
+					class="yui-tabview">
+					<ul>
+						<li>
+							<a href="#foo">foo</a>
+						</li>
+						<li>
+							<a href="#bar">bar</a>
+						</li>
+						<li>
+							<a href="#baz">baz</a>
+						</li>
+					</ul>
+					<div>
+						<div id="foo">
+						
+						
+						<!-- another YUI tabview -->
+						<div ui:field="tabViewEl2" data-yui="yuiWidget: 'TabView'"
+							class="yui-tabview">
+							<ul>
+								<li>
+									<a href="#foo2">foo2</a>
+								</li>
+								<li>
+									<a href="#bar2">bar2</a>
+								</li>
+								<li>
+									<a href="#baz2">baz2</a>
+								</li>
+							</ul>
+							<div>
+								<div id="foo2">
+								
+								<!-- yui button -->
+								<button ui:field="yuiButtonEl1" data-yui="yuiWidget: 'Button'">second button</button>
+								
+								<!-- and yet another more -->
+								
+								<div ui:field="tabViewEl3" data-yui="yuiWidget: 'TabView'"
+									class="yui-tabview">
+									<ul>
+										<li>
+											<a href="#foo2">foo3</a>
+										</li>
+										<li>
+											<a href="#bar2">bar3</a>
+										</li>
+										<li>
+											<a href="#baz2">baz3</a>
+										</li>
+									</ul>
+									<div>
+										<div id="foo2">
+										
+										<!-- yui button -->
+										<button ui:field="yuiButtonEl3" data-yui="yuiWidget: 'Button'">third buttonn</button>
+										
+										
+										
+										
+										</div>
+										<div id="bar3">
+										 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac augue vitae tellus tristique eleifend at eu diam. Etiam id elit augue. Ut a quam ante. Suspendisse ac convallis eros. Quisque eu porttitor odio. Sed scelerisque, velit ut convallis placerat, mi risus porta lectus, non rutrum nunc dolor quis elit. Maecenas nec turpis et enim placerat ornare. Vestibulum tortor mi, tempus ut consectetur feugiat, ornare non tellus. Fusce tempor mi ut velit varius nec luctus dolor tincidunt. Quisque feugiat semper augue, a interdum quam faucibus in. Maecenas elementum, lacus a molestie lacinia, purus justo imperdiet magna, et tempor dui elit non lectus. 
+										</div>
+										<div id="baz3">baz content</div>
+									</div>
+								</div>
+						
+						
+								
+								
+								</div>
+								<div id="bar2">
+								 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac augue vitae tellus tristique eleifend at eu diam. Etiam id elit augue. Ut a quam ante. Suspendisse ac convallis eros. Quisque eu porttitor odio. Sed scelerisque, velit ut convallis placerat, mi risus porta lectus, non rutrum nunc dolor quis elit. Maecenas nec turpis et enim placerat ornare. Vestibulum tortor mi, tempus ut consectetur feugiat, ornare non tellus. Fusce tempor mi ut velit varius nec luctus dolor tincidunt. Quisque feugiat semper augue, a interdum quam faucibus in. Maecenas elementum, lacus a molestie lacinia, purus justo imperdiet magna, et tempor dui elit non lectus. 
+								</div>
+								<div id="baz2">baz content</div>
+							</div>
+						</div>	
+				
+						</div>
+						<div id="bar">
+						</div>
+						<div id="baz">baz content</div>
+					</div>
+				</div>
+				
+				</div>
+<!-- 				<div class="yui3-widget-ft"> -->
+<!-- 					<button ui:field="yuiButtonEl2" data-yui="yuiWidget: 'Button'">Accept</button> -->
+<!-- 				</div> -->
+			</div>
+			
+	</g:HTMLPanel>
+	
+</ui:UiBinder>

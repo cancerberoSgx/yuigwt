@@ -1,0 +1,1 @@
+these are mainly java utilities for generating GWT overlay types from java pojos.

@@ -1,0 +1,98 @@
+#summary javascript and java equivalent code compared
+#labels gwt,java,javascript,yui
+= Introduction =
+
+This document will show equivalent javascript YUI and Java YUIGWT code examples. Hope quick code readers can take advantadges of these for learning YUIGWT. 
+
+The code of the examples was written with the objective to be the most descriptive, and similar to the JavaScript? counterpart as possible. It contains a lot of anonymous class definitions, final variables, and other language expressions that may look ugly or hard to read for a Java programmer. I consciously chose to use more inline Java expressions like anonymous Java classes, final variables. All of this can be avoided of course, for example using Fields instead final variables or making our Test classes to implement some interfaces instead declaring anon classes. 
+
+
+= button click = 
+
+The JavaScript code is: 
+
+{{{
+YUI().use('button', function (Y) {
+        var button1 = new Y.Button({
+          label: 'a simple button'
+        }).render(parent);
+        button1.on("click", function(e){
+                alert("clicked at x = "+e.clientX); 
+        })
+});
+
+}}} 
+
+
+and the Java YUIGWT equivalent code is: 
+
+{{{
+
+YUI.Use(new String[]{"button"}, new YUICallback() {
+        @Override
+        public void ready(YuiContext Y) {
+                Widget button1 = Y.newButton(
+                        ButtonConfig.create().label("a simple button")
+                ).render(parent);       
+                button1.on("click", new NodeEventCallback() {                   
+                        @Override
+                        public void call(YuiEvent e) {
+                                Window.alert("button pressed at x  ="+e.clientX()); 
+                        }
+                }); 
+                
+        }
+}); 
+}}}
+
+
+= console and event cancelation = 
+
+in the following example, we instantiate a console, listen before an "entry" event arrives, and ask the user if it really wan to keep the log entry (canceling the event if neccesary). The javascript YUI code is 
+
+{{{
+YUI().use('console', 'dd-plugin',  function(Y) {
+	//create a draggable console
+	var console1 = new Y.Console({collapsed: true}); 
+	console1.plug(Y.Plugin.Drag); 
+
+	//be a nasty console catching each log entry and asking for confirmation. 
+	console1.before("entry", function(e){
+		if(!confirm("Do you really want to add the msg: "+e.message.message+" ? ")) {
+			alert("preventing"); 
+			e.preventDefault(); 
+		}
+	});
+	//render and log something.
+	console1.render(); 
+	console1.log("using Console.log()", "info", "myapp");
+});
+}}}
+The Java equivalent code is 
+
+{{{
+YUI.Use(new String[]{"console", "dd-plugin"}, new YUICallback() {
+	@Override
+	public void ready(final YuiContext Y) {		
+		//create a draggable console
+		final Console console1 = Y.newConsole(ConsoleConfig.create().collapsed(true));
+		console1.plug(Y.Plugin().Drag()); 
+		
+		//be a nasty console catching each log entry and asking for confirmation. 
+		console1.before(Console.EVENT_ENTRY, new EventCallback() {			
+			@Override
+			public void call(EventFacade e) {
+				if(!Window.confirm("Do you really want to add the msg: "+((ConsoleEvent)e).message().message()+" ? "))  {
+					Window.alert("preventing"); 
+					e.preventDefault(); 
+				}
+			}
+		}); 
+		//render and log something. 
+		console1.render(); 
+		console1.log("using Console.log()", "info", "myapp"); 	
+		
+	}
+	
+}); 
+}}}

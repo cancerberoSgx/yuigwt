@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='yuigwtex'>
+
+	<inherits name='org.sgx.yuigwt.YuiGwt' />
+
+	<inherits name='com.google.gwt.user.theme.clean.Clean' />
+
+	<entry-point class='org.sgx.yuigwtex.client.Yuigwtex' />
+
+	<!-- load yui.js from yahooapis -->
+<!-- 	<script src='http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js' /> -->
+
+	<source path='client' />
+
+</module>

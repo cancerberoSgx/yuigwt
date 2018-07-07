@@ -1,0 +1,146 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including 
+	a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. 
+	@author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" >
+
+
+	<g:HTMLPanel>
+		<p>Table of Contents: </p>
+		
+		<div ui:field="menuEl"  class="yui3-menu yui3-menu-vertical"
+		data-yui="yuiWidget: 'MenuNav', mouseOutHideDelay: 500"
+		>
+			
+			 <div class="yui3-menu-content">
+		        <ul>
+		            <!-- Menu items -->
+		            <li class="yui3-menuitem">
+					    <a class="yui3-menuitem-content" href="#sec-intro">Introduction</a>
+					</li>
+					
+					<li class="yui3-menuitem">
+					    <a class="yui3-menuitem-content" href="#sec-gettingstarted">Getting Started</a>
+					</li>
+					
+					<li>
+						<a class="yui3-menu-label" href="#sec-definingyuiuibinderwidgets">Defining Widgets</a>
+						
+						 <div id="submenu-1" class="yui3-menu">
+					        <div class="yui3-menu-content">
+					            <ul>
+					                 <li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-definingyuiuibinderwidgets_yuimarkup">YUI HTML Markup</a>
+									</li>
+					 				<li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-definingyuiuibinderwidgets_uixml">ui.xml Markup</a>
+									</li>
+									<li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-definingyuiuibinderwidgets_java">Composite Java class</a>
+									</li>
+					            </ul>
+					        </div>
+					    </div>
+					    
+					</li>
+					
+					
+<!-- 					<li class="yui3-menuitem"> -->
+<!-- 						<a class="yui3-menuitem-content" href="#sec-usingyuiuibinderwidgets">Using YUI + UIBinder widgets</a> -->
+<!-- 					</li> -->
+									
+					
+					<li>
+					    <a class="yui3-menu-label" href="#submenu-1">Using widgets</a><!-- Menu label -->
+					    <div id="submenu-1" class="yui3-menu">
+					        <div class="yui3-menu-content">
+					            <ul>
+					                <!-- Menu items -->
+					                
+					                 <li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-usingyuiuibinderwidgets-compositingyuiwidget">
+									    Widget Composite in plain YUI
+									    </a>
+									</li>
+					
+<!-- 									 <li class="yui3-menuitem"> -->
+<!-- 									    <a class="yui3-menuitem-content" href="#sec-usingyuiuibinderwidgets-notesabhoutyuicomposition"> -->
+<!-- 									    Some notes about Widget composition in YUI -->
+<!-- 									    </a> -->
+<!-- 									</li> -->
+									
+									 <li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-usingyuiuibinderwidgets-uibindercomposition">
+									    Widget Composite in YUI+UIBinder 
+									    </a>
+									</li>
+					            </ul>
+					        </div>
+					    </div>
+					</li>
+					
+					<li>
+						<a class="yui3-menu-label" href="#sec-relatednotes">Some Notes</a>
+						
+						 <div id="submenu-1" class="yui3-menu">
+					        <div class="yui3-menu-content">
+					            <ul>
+					                 <li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-relatednotes-mixing">Mixing YUI widgets with GWT Widgets</a>
+									</li>
+					 				<li class="yui3-menuitem">					 				
+									    <a class="yui3-menuitem-content" href="#sec-relatednotes-issues">Known Issues</a>
+									</li>	
+									
+									<li class="yui3-menuitem">					 				
+									    <a class="yui3-menuitem-content" href="#sec-relatednotes-usingCompositeDirectly">Using Composite directly</a>
+									</li>
+									
+									<li class="yui3-menuitem">					 				
+									    <a class="yui3-menuitem-content" href="#sec-relatednotes-applyDifferentTemplateToTheSameWidget">Apply different XML templates to the same widget</a>
+									</li>
+																	
+									<li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-relatednotes-impl">Implementation notes</a>
+									</li>									
+									<li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-relatednotes-yuidevels">For YUI developers...</a>
+									</li>
+					            </ul>
+					        </div>
+					    </div>
+					    
+					</li>
+					
+					
+					<li>
+						<a class="yui3-menu-label" href="#sec-yuiwidgets">Available YUI Widgets</a>
+						
+						 <div id="submenu-1" class="yui3-menu">
+					        <div class="yui3-menu-content">
+					            <ul>
+					                 <li class="yui3-menuitem">
+									    <a class="yui3-menuitem-content" href="#sec-yuiwidgets-button">Button</a>
+									</li>
+					 				<li class="yui3-menuitem">					 				
+									    <a class="yui3-menuitem-content" href="#sec-yuiwidgets-autocomplete">Autocomplete</a>
+									</li>										
+									<li class="yui3-menuitem">					 				
+									    <a class="yui3-menuitem-content" href="#sec-yuiwidgets-panel">Panel</a>
+									</li>									
+									<li class="yui3-menuitem">					 				
+									    <a class="yui3-menuitem-content" href="#sec-yuiwidgets-tabview">TabView</a>
+									</li>
+					            </ul>
+					        </div>
+					    </div>
+					    
+					</li>
+
+		        </ul>
+		    </div>
+    
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder>

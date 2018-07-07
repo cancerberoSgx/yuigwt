@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name='gwt:property' content='locale=en'>
+
+    <title>Yui4Gwt example gallery</title>
+<!--     <script type="text/javascript" language="javascript"  -->
+<!--     	src="http://yui.yahooapis.com/3.5.1/build/yui/yui-min.js"></script> -->
+    	
+    	 <script type="text/javascript" language="javascript" 
+    	src="../src/org/sgx/yuigwt/alloyuitest1/alloyui-build/aui/aui-min.js"></script>
+    	
+<!--     	<stylesheet src="https://cdnjs.cloudflare.com/ajax/libs/alloy-ui/1.0.1/aui-skin-classic/css/aui-skin-classic-all-min.css"/> -->
+    	<link rel="stylesheet" href="../src/org/sgx/yuigwt/alloyuitest1/alloyui-build/aui-skin-classic/css/aui-skin-classic-all-min.css">
+    	
+<!--     	/home/sebastian/workspace3.7/yuigwt/src/org/sgx/yuigwt/alloyuitest1/alloyui-build -->
+  </head>
+  <body class="yui3-skin-sam yui-skin-sam">
+
+<script type="text/javascript">
+// AUI().use("aui-color-picker", function(A){
+// 	new A.ColorPicker().render(); 
+// }); 
+YUI().use("console", "aui-color-picker", function(Y){
+  	new Y.Console().render(); 
+  	new Y.ColorPicker().render(); 
+}); 
+</script>
+
+  </body>
+</html>

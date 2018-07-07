@@ -1,0 +1,54 @@
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:style src="../main.css" />
+	
+	<g:HTMLPanel>
+
+	<h1>YUIGWT Features</h1>
+	
+	
+
+	<h3>Zero overhead Java API</h3>
+	
+	<p>YUIGWT is made 100% using GWT overlay types. An overlay type is a java class that 
+	the Java to Java2Script GWT compiler handle in an special way. In this section we try to explain what is the advantadge of
+	porting a JavaScript library to Java GWT using overlay types, for those users not familiar with it.</p> 
+	
+	<p>Let's see a little example. 
+	In YUIGWT the Attribute class, like all other YUIGWT classes, is an overlay type. The following is the Java method
+	Attribute::set() for setting a yui attribute's String value: </p>
+	
+	<pre class="{style.code} prettyprint">
+public final native Attribute set(String attrName, String val)/*-{
+	this.set(attrName, val); 
+	return this;
+}-*/;
+	</pre>
+	
+	<p>As you can see it is a Java native methods, which implementation is written on javascript in between /*-{ and }-*/;   Don't worry, you don't need to 
+	know this stuff for using YUIGWT. My point here is that, a Java code fragment like <span>button1.set("label", "Accept")</span> will be translated into 
+	javascript (uncompressed version) <span>button1.set("label", "Accept")</span>. The JavaScript method body is "inlined" in the translation so there 
+	is no overhead wrapping objects. </p>
+	
+	
+	
+	
+	<h3>Useful YUI modules</h3>
+	
+	<p>YUI is a big JavaScript library. It contains not only concrete usaful utilities, widgets, 
+	and stylesheets, but also tools for enhance the JavaScript language, like yuidocs, yeti (a testing framework)
+	and a lot of utilities for enhance the JavaScript language itself, like module definitions, object oriented code, plugins, 
+	extension mechanism, modeling tools, MVC like tools, collections, etc. 
+	</p>
+	
+	<p>This is nice for JavaScript users, but in Java we already have all of this. For example, we have java.util for 
+	collections, we don't need Object Oriented programming related stuff in java. Testing is mostly done using Java 
+	frameworks like JUnit. Etcétera. This kind of YUI utilities will take less priority in YUIGWT roadmap. Also there are 
+	some YUI features that are hard to port to Java or which ports are very hard to use / understand , those features 
+	also will take less priority in YUIGWT roadmap. </p>
+	
+	</g:HTMLPanel>
+
+</ui:UiBinder>

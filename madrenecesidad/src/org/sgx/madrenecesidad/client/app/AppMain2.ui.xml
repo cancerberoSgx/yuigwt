@@ -1,0 +1,105 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:b="urn:import:com.github.gwtbootstrap.client.ui">
+	<ui:style>	
+	</ui:style>
+		
+	<g:HTMLPanel>
+	    
+	    <style type="text/css">
+	.banner {
+		position: fixed;	
+		background-color: #ededed; 
+		}
+	
+		.body, .sidebar {			
+		padding-top: 40px;
+		}
+		.sidebar {
+		position: relative;
+		}
+		.sidebar .navbar {
+		position: fixed;
+		}
+		body {
+		padding: 0;
+		margin: 0;
+		}
+	</style>
+	
+	    
+	<div class="container-fluid">
+	
+		<div class="row-fluid banner">
+  			<div class="span12">
+  			
+<b:Button ui:field="b1">Some Button</b:Button>
+  <b:Icon type="PLANE" />
+  
+      <b:SplitDropdownButton text="Dropdown example" icon="GITHUB">
+    <b:NavLink>Test 1</b:NavLink>
+    <b:NavLink>Test 2</b:NavLink>
+    </b:SplitDropdownButton>v
+  
+				a ñslkdj flaksjd fhlkajsd hofkja hsdlkjf halksjd fhlkajsd hlfkjas hldkjf halksjd fhlkj
+
+			</div>
+
+		</div>
+
+		<div class="row-fluid">
+			<div class="span2 sidebar">
+						
+				<!--Sidebar content -->
+				<ul class="nav-list navbar">
+				 	<li class="nav-header">List header</li>				 
+				  	<li class="active"><a href="#home">Home</a></li>
+					<li><a href="#library">Library</a></li>
+
+
+					<li>laksj dlkajs ldkajlsd</li>
+					<li>laksj dlkajs ldkajlsd</li>
+					<li>laksj dlkajs ldkajlsd</li>
+					<li>laksj dlkajs ldkajlsd</li>
+					<li>laksj dlkajs ldkajlsd</li>
+					<li>laksj dlkajs ldkajlsd</li>
+				</ul>
+			</div>
+			<div class="span10 body">
+			
+			<h1 id="home">kasjd hflkajd hf</h1>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+
+
+
+			<h1 id="library">kasjd hflkajd hf</h1>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			<p>añl ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdfksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf ksdjfñlaks jdñfkla jñlskd jfñlaks jdñflka jsdñklfjañsldkfjñlasjdf</p>
+			
+			
+			</div>
+		</div>
+		
+	</div>
+	
+	</g:HTMLPanel>
+</ui:UiBinder> 

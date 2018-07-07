@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the GWT UIBinder markup file ui.xml these are some widgets, including a yui tabview, yui button and GWT buttons laying they out with yui cssgrids. @author sgurin -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:uibinderuserguide="urn:import:org.sgx.yuigwt.yuitest1.gallery.test.uibinder.userguide">
+	<ui:style src="main.css" />
+	
+	<g:HTMLPanel>
+	
+		<div class="yui3-g">
+			<div class="yui3-u-1-4">
+				<div class="{style.userguide-nav}">
+					<uibinderuserguide:MainMenu ui:field="mainMenu" />
+				</div>
+			</div>
+			
+			<div class="yui3-u-3-4 {style.main-body}">
+			
+			
+			 <div class="yui3-g">
+		        <div class="yui3-u-17-24">
+						<h1 class="{style.maintitle}">Using YUIGWT with UIBinder</h1>
+		        </div>
+		        <div class="yui3-u-7-24">
+					<p class="{style.author}">Author: <a href="http://code.google.com/p/yuigwt/">Sebastián Gurin</a></p>
+		        </div>
+		    </div>
+				
+				
+		<div class="{style.maincontent}">
+		<h1 id="sec-intro">Introduction</h1>
+		<p>
+			This document is a tutorial about how to use
+			<a href="http://yuilibrary.com">
+				<abbr title="Yahoo User Interface">YUI</abbr>
+			</a>
+			in a
+			<a href="http://code.google.com/p/yuigwt/">YUIGWT</a>
+			application with
+			<a href="https://developers.google.com/web-toolkit/doc/latest/DevGuideUiBinder">GWT UIBinder</a>
+			. 
+			This tutorial is itself building with the proposed technologies as a YUIGWT gallery's example.
+		</p>
+		<p>The use should be familiar with YUIGWT Java API and with GWT UIBinder.</p>
+		<p>In GWT applications it is common to use UIBinder to separate the markup and style (design) from Java code (behavior). 
+		UIBinder users can mix both GWT Widgets markup and plain HTML Markup in their UI. Also the user is able to bind some of 
+		these markup elements to actual Java Objects fields in its Java code where the behavior, controller and modeling of the application is written.</p>
+		<p>And most of high level YUI Widgets proposes the same thing. All YUI widgets can be created from a markup structure. This markup 
+		structure is defined by each YUI widget. Some simple widgets like Y.Button only requires you to give a &lt;button&gt; element, but other 
+		more complicated YUI widgets like tabview, treeview, etc need you to provide a more complex markup (example).  This is somehow 
+		related to yui philosophy's of "Progressive Enhancement" @see http://yuilibrary.com/yui/docs/tutorials/gbs/</p>
+		<p>The solution for using YUI widgets together with GWT UIBinder proposed here it is based just in that fact. We will use 
+		YUI Widgets HTML proposed markup in our UIBinder, bind those HTML elements using ui:field and @UIField 
+		and then use a small GWT helper class called YUIBinder to 
+		"do the YUI Binding", this is, instantiate and render the YUI Widgets from the markup. In 
+		UIBinder markup we will indicate what YUI widget we 
+		want to use and even pass some widget configuration using a data-yui HTML custom attribute.</p>
+		<!-- 				<p>I UIBinder we define a GWT Widget by .</p> -->
+		
+		
+		<p>YUIGWT supports a subset of YUI widgets and also some YUI Gallery's widgets for being use in UIBinder. Each of them will be discused 
+		individually in separate sections, but if you are familiar with YUI widget markup and learn the basics that's all you will need!</p>
+		
+		
+		
+		
+		
+		
+		
+		
+		<h1 id="sec-gettingstarted">Getting started</h1>
+<!-- 				<p>In this section we will explain how start using the proposed solution with a simple -->
+<!-- 				example. This example consists in 3 files:</p> -->
+
+<!-- 				<p>As you can see in the last example source code, we instantiate OurUIBinderBasedWidget, that is our Widget created with YUI and UIBinder, passing a Y YUIContext with all required YUI modules loaded. </p> -->
+<!-- 				<h1>Building a Widget with YUI and UIBinder</h1> -->
+			
+			<p>In this section we will explain how start using the proposed solution with a simple YUI &amp; UIBinder example. 
+			There is not to say that you need a YUIGWT project for testing all of this by yourself. </p>
+			
+			<p>In the following example, we define a very simple UIBinder widget 
+			that contains a YUI Button. The following contains both the ui.xml markup code and the Java class composite:</p>
+			
+			<uibinderuserguide:SourceCodeViewer testName="UIBinderAloneButtonTest1" />
+			
+			<p>Now a pause. Because this is our first example let me explain the basics. 
+			Like all other UIBinder related tests, this example is composed by three files, two java and ui.xml files defining 
+			the UIBinder Widget we are showing in the example and a java file class that tests and shows the Widget in some 'parent' Y.Node. 
+			For this example each of them explained below. Also notice the button "Run test!", if you click it it should run the test 
+			in side a Panel.</p>
+			
+			<p>In this particular example, the files that define our new Widget are UIBinderAloneButton.java and UIBinderAloneButton.ui.xml. 
+			These are a common UIBinder Widget definition, with some aditional information and work for also binding and rendering YUI 
+			Widgets from HTML markup. Following is a a little explanation about each file, also you may want to read the source 
+			code comments that are very explanatory.</p>
+			
+			<ul>
+			
+				<li>
+					<b class="{style.code}">UIBinderAloneButtonTest1.java</b>
+					- the main class that instantiate and shows our Widget. Only 
+			the test() method is relevant: 
+			<pre class="{style.code} prettyprint">
+Node parent....
+HTMLPanel gwtParent = parent.asHTMLPanel();
+UIBinderAloneButton comp1 = new UIBinderAloneButton(Y);
+gwtParent.add(comp1);
+				</pre>
+				<P>As you can see, because we want to add our custom widget inside a Y.Node, we first needt to wrap that node into a 
+				GWT Panel widget and for that we use
+						<span class="{style.code}">aNode.asHTMLPanel()</span>
+						.</P>
+					</li>
+					
+					
+					<li>
+						<b class="{style.code}">UIBinderAloneButton.ui.xml</b>
+						- the UIBinder ui.xml file defining our Widget markup. The most 
+				interesting part is how we define a YUI button in this markup:
+						<pre class="{style.code} prettyprint">&lt;button      
+  ui:field="yuiButtonEl1" 
+  data-yui="yuiWidget: 'Button', disabled: true"&gt;
+the first YUI Button
+&lt;/button&gt;</pre>
+						<p>
+							We use just a plain HTML &lt;button&gt; element. We tell UIbinder that 
+				we will bind this element in
+							<span class="{style.code}">UIBinderAloneButton.java</span>
+							using ui:field="buttonEl" attribute. And also, we
+				use the HTML Custom attribute
+							<span class="{style.code}">data-yui</span>
+							for telling YUIGWT that what we want to render there is a 
+				YUI Button and also pass some button configuration (
+							<span class="code">{disabled: true}</span>
+							).
+						</p>
+						<p>
+							All of this is discused in detail in
+							<a href="#sec-definingyuiuibinderwidgets_uixml">a later section</a>
+							.
+						</p>
+					</li>
+					
+					
+					<li>
+						<b class="{style.code}">UIBinderAloneButton.java</b>
+						- the Java class of our widget. It is a common UIBinder Java 
+				Composite with the following diffferences:
+						<ul>
+							<li>
+								<p>We extends from class YUIBinded. This is a helper Abstract class that extends Composite that contains
+								helpers for finding and rendering the YUI Widgets. Besides that it is a normal UIBinder Composite class. </p>
+							</li>
+							<li>Since we are using plain HTML markup for our YUI widgets, we bind Elements, not Widgets, using @UiField annotation. 
+							Then, in method <span class="{style.code}">Element[] getYUIBindedEls()</span>, we tell the framework 
+							which of these @UiFields correspond to YUI Widgets so it renders them. Also the callback method <span class="{style.code}">yuiBinded()</span>
+							can be overriten for being notified when all the YUI stuff is rendered and ready to be used. In that method
+							we can ask the toolkit for a YUI Widget corresponding to an @UiField Element and work with the YUI Widget class 
+							directly. In the example we just get the YUI Button and install a click handler. </li>
+						</ul>
+					</li>
+				</ul>
+				<!-- In this document we will discuss how to use YUI Widgets proposed markup together with GWT UIBinder for rendering YUI components using UIBinder in a YUIGWT application. -->
+				
+				
+				
+				
+				<h1 id="sec-definingyuiuibinderwidgets">Defining YUI + UIBinder widgets</h1>
+				
+				<p>Now let's start making our UIBinder Widget based on YUI. As we said before these
+				widgets are defined in two separate files, an ui.xml file containing markup and a Java class extending Composite. 
+				UIbinder will "bind" the markup with the java class so we can access the interesting markup elements and widgets easily from the Java sources.</p>
+<!-- 				<p>In the solution proposed here, we will reuse the HTML Markup proposed by YUI Widgets.</p> -->
+				
+				
+				
+				<h2 id="sec-definingyuiuibinderwidgets_yuimarkup">YUI HTML Markup.</h2>
+				
+					<p>As we said before, each YUI Widget defines its HTML Markup. For example, in a web application the server side could be 
+				responsible for sending the HTML markup for YUI widgets 
+				and load YUI and enhanced the markup rendering / installing YUI Widgets and utilities. 	</p>
+				
+				<p>
+				This same HTML markup proposed by YUI Widgets is what we will reuse in UIBinder ui.xml markup just as is, only adding 
+				some meta information for our YUIBinder framework can perform the job of render the YUI Widgets after the GWT UIBinder part has finished its work. 				
+				From the point of view of YUI Widgets, this often means that the UIBinder markup will provide the "srcNode" attribute. </p>
+				
+				<p>In this section we will take a closer look to this YUI Markup and how we can enhance it with YUI. </p>
+				
+				<p>Basically, if we want to build a YUI Button, we go to the <a href="http://stage.yuilibrary.com/yui/docs/button/#html">YUI Button User Guide</a>
+				and there we see that a button can be created from a plain HTML &lt;button> element: </p>
+				
+				<pre class="{style.code} prettyprint">&lt;button id="myButton">One&lt;/button>
+				</pre>
+				
+				<p>And the Javascript for render the YUI Button :</p> 
+				<pre class="{style.code} prettyprint">YUI().use('button', function(Y){
+    var button = new Y.Button({
+        srcNode: '#myButton'
+    });
+    button.render(); 
+});
+				</pre>
+				
+				<p>And the same for other YUI Widgets, even more complex ones like the TabView, 
+				reading <a href="">its User Guide</a> we see that a tab view defines a markup like the
+				following:  </p>
+				
+				<pre class="{style.code} prettyprint">
+&lt;div id="demo">
+    &lt;ul>
+        &lt;li>&lt;a href="#foo">foo&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#bar">bar&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#baz">baz&lt;/a>&lt;/li>
+    &lt;/ul>
+    &lt;div>
+        &lt;div id="foo">foo content&lt;/div>
+        &lt;div id="bar">bar content&lt;/div>
+        &lt;div id="baz">baz content&lt;/div>
+    &lt;/div>
+&lt;/div>
+</pre>
+				
+				<p>Like with the button, we can enhance that markup with a YUI TabView widget like this: </p>
+				
+				<pre class="{style.code} prettyprint">YUI().use('tabview', function(Y) {
+    var tabview = new Y.TabView({
+        srcNode: '#demo'
+    });
+    tabview.render();
+});
+</pre>
+
+
+				<h2 id="sec-definingyuiuibinderwidgets_uixml">ui.xml Markup.</h2>
+				
+				
+							
+				<p>In <a href="#sec-definingyuiuibinderwidgets_yuimarkup">last section</a>
+				we explained how YUI Widgets define an HTML markup. In this ssection we will learn
+				how to use this markup in GWT UIBinder's ui.xml markup files. 
+				Basically we will write this same YUI markup adding some meta information for 
+				telling the framework what YUI Widget is that we want to render in a certain 
+				HTML element and pass some Widget configuration is needed. </p>
+											
+				<p>In our example, we are using a YUI Button. In the <a href="http://stage.yuilibrary.com/yui/docs/button/#html">YUI Button User Guide</a>
+				we can read that a YUI button can be created just using a plain HTML &lt;button> tag, 
+				and that is just what we are using in our UIBinder markup. </p>
+				
+				<p>As we said before, the most 
+				interesting part of the ui.xml file is how we define a YUI button in this markup:
+						</p>
+						
+						<pre class="{style.code} prettyprint">&lt;button      
+  ui:field="yuiButtonEl1" 
+  data-yui="yuiWidget: 'Button', disabled: true"&gt;
+the first YUI Button
+&lt;/button&gt;</pre>
+
+				<p>It is the same markup proposed by YUI button, with two extra XML attributes: </p>
+				
+				<ul>
+					<LI>
+						<b class="{style.code}">UI:field</b>
+						: UIBinder XML attribute for binding the element to a java attribute in
+						the Widget Java part annotated with @UIField.
+					</LI>
+				
+					<li>
+						<b class="{style.code}">yui-data</b>
+						: a string containing a valid JSON object (excluding the brackets). The 'yuiWidget'	property is 
+						mandatory and indicates what YUI Widget we want to render in that node. It is case insensitive and generally it has
+						the same name as the YUI Widget class. Other properties will be passed as the Widget 
+						configuration. For example, in <span class="{style.code}">data-yui="yuiWidget: 'Button', disabled: true"</span>
+						we are passing disabled: true so the YUI Button will be rendered with that configuration (disabled).
+					</li>
+					
+				</ul>
+				
+				<p>And that's basically all we need to know for composing our UIBinder ui.xml markup with YUI. </p>
+				
+
+		<blockquote>
+		
+			<h3>Some of them are widgets, some of them are worthwhile to support. Others aren't.</h3>
+			
+			<p>YUI comes with a lot of utilities for composing our application's UI. Some of these utilities
+				are YUI Widgets, like Button, Autocomplete, TabView
+				but others are simple UI utilities like cssgrids that is simply a CSS stylesheet. In the case
+				of cssgrids for example, we don't need to use UIBinder @UiField or UI:field="" because 
+				these are not YUI Widgets, they only require to load the proper YUI module, in this case "cssgrids". </p>
+	
+			<p>In the other side, we have YUI Widgets that are not worthwhile or are somehow complicated
+				to introduce in UIBinder. For example, YUI DataTable do not propose any HTML markup for progressive enhancement like other widgets
+				and it cannot be rendered throw a plain &lt; table> element. In those cases, we always can
+				bind a simple HTML element with ui:field="foo" and then in the Java composite we can render whatever YUI content
+				complex we want inside using Java YUI API.</p>
+				
+		</blockquote>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<h2 id="sec-definingyuiuibinderwidgets_java">Composite Java class.</h2>
+		
+		<p>And now that we know how to write xml.ui markup for including YUI Widgets, let's go to the 
+		Composite Java class of our UIBinder widget. </p>
+		
+		<p>In the example we are examining, the class 
+		<b class="{style.code}">UIBinderAloneButton.java</b> is our Composite class.</p>
+		
+		<p>It extends from class YUIBinded. This is a helper Abstract class that extends Composite that contains
+		helpers for finding and rendering the YUI Widgets. Besides that it is a normal UIBinder Composite class. </p> 
+		
+		<blockquote>
+		The YUIBinded class will be used in all the examples here, but it is optional. It try to avoid boilerplate code related to YUI binding
+		but you can omit it and talk directly to the framework's utility classes for doing the binding manually and have 
+		freedom of inheriting your classes from what you wish. 
+		How to do this is explained in a separate section . TODO.  
+		</blockquote>
+		
+		
+		<p>Let's take a look at the relevant code, commenting each part: </p>
+		
+		<pre class="{style.code} prettyprint {style.codelarge}">/* As we said we extend YUIBinded, a class extending Composite and doing the boilerplate code 
+ * related to yui widget rendering and binding.
+ */ 
+  
+public class UIBinderAloneButton extends YUIBinded {
+
+  /* declare our GWT UIBinder interface and instantiate our UiBinder instance 
+   * just like we do in a common GWT UiBinder class. */
+   
+  interface MyUiBinder extends UiBinder&lt;Widget, UIBinderAloneButton> {
+  }
+  private static UiBinder&lt;YUIBinded, Widget> uiBinder = GWT.create(MyUiBinder.class);
+  
+  @Override
+  public UiBinder&lt;YUIBinded, Widget> getUIBinder() {
+    return uiBinder;
+  }  
+  
+  
+  /* bind our (only) YUI widget Element. */ 
+
+  @YUIField @UiField
+  Element yuiButtonEl1;  
+
+  /* the actual YUI Button, instantiated in method yuiBinded() */
+  private Button yuiButton1;
+  
+  /**
+   * tell the YUIBinder which are the fields corresponding to YUI widgets. If you don't declare the 
+   * UiFields Elements corresponding to YUI Widgets, they will be ignored by the framework. 
+   */
+  @Override
+  public Element[] getYUIBindedEls() {
+    return  new Element[] { yuiButtonEl1}; 
+  }
+  
+
+  /* our class 1-arg constructor, that must call super(y) for binding and rendering YUI stuff. The passed 
+   * YuiContext y object must have all required yui modules loaded, and this is responsability of the user. */ 
+  public UIBinderAloneButton(YuiContext y) {
+    super(y); 
+  }
+
+  /* you can think on yuiBinded as a continuation of the constructor. It is called AFTER all YUI Widgets 
+   * declared in getYUIBindedEls() return value are rendered. Also the YUI widgets are binded so the user 
+   * can obtain the actual YUI Widgets from the binded HTML Elements, in this case using 
+   * "yuiBinder.getWidget(yuiButtonEl1)". That will return a YUI Button instance we can work with in Java. */
+  @Override
+  public void yuiBinded() {
+    yuiButton1 = yuiBinder.getWidget(yuiButtonEl1).cast();
+
+    yuiButton1.on("click", new EventCallback&lt;ButtonEvent>() {
+      @Override
+      public void call(ButtonEvent e) {
+        Window.alert("yui button clicked!"); 
+      }
+    }); 
+  }
+}		</pre>
+		
+		<ul>
+			<li>
+				<p>We extends from class YUIBinded. This is a helper Abstract class that extends Composite that contains
+				helpers for finding and rendering the YUI Widgets. Besides that it is a normal UIBinder Composite class. </p>
+			</li>
+			<li>Since we are using plain HTML markup for our YUI widgets, we bind Elements, not Widgets, using @UiField annotation. 
+			Then, in method <span class="{style.code}">Element[] getYUIBindedEls()</span>, we tell the framework 
+			which of these @UiFields correspond to YUI Widgets so it renders them. Also the callback method <span class="{style.code}">yuiBinded()</span>
+			can be overriten for being notified when all the YUI stuff is rendered and ready to be used. In that method
+			we can ask the toolkit for a YUI Widget corresponding to an @UiField Element and work with the YUI Widget class 
+			directly. In the example we just get the YUI Button and install a click handler. </li>
+		</ul>
+		
+						
+		
+		<p>1) for YUI, we are binding plain HTML Elements, like @UiField Element
+		  tabViewEl1;</p>
+		  
+		<p>2) then in the constructor, after this GWT widget is initialized with
+		  initWidget(uiBinder.createAndBindUi(this));, we call YUIBinder.bindYUI
+		  passing this Element UIFields corresponding to YUI stuff and register myself
+		  as a listener to be notified when YUI binding is done to start working.</p>
+		  
+		<p>3) in yuiBinded() callback we ask for YUI Widgets and start working with
+		  them.</p>
+		  
+		<!-- 				<uibinderuserguide:SourceCodeViewer testName="button1"></uibinderuserguide:SourceCodeViewer> -->
+		
+		
+		
+		
+		
+		
+		<h1 id="sec-usingyuiuibinderwidgets">Using our YUI + UIBinder widgets</h1>
+		<p>
+			Ok so now that we have created our first YUI + UIBinder Widget lets use it!
+	That is what we do in method
+			<span class="code">test()</span>
+			of class
+			<span class="code">UIBinderAloneButtonTest1.java</span>
+		</p>
+		<p>
+			All widgets created following the solution proposed here, require to pass them a YUIContext Y object for them to work with. 
+		For using the solution proposed in this document, the user is responsible of providing
+	
+		a
+			<span class="{style.code}">YUIContext</span>
+			instance (the Y object) with all the YUI modules required by the UIBinder widget loaded.
+		</p>
+		<BLOCKQUOTE>It is on the roadmap of this library to create a more refined solution where the framework will load all required modules 
+	automatically, so the user do not need to concentrate on this and only on composing its UI. But for now, the user is responsible.</BLOCKQUOTE>
+		<p>Suppose we have written a GWT widget called OurUIBinderBasedWidget using UIBinder as this solution proposes. Supose that we want to render
+	 / add this widget to a YUI Node 'parent'. This is what we would do:</p>
+		<!-- 				 Also, because we are working with GWT Widgets, we must use <span class="code">Node::asHTMLPanel()</span> for getting a GWT  -->
+		<!-- 				Widget from a YUI node. These both things are demonstrated in the following example: -->
+		<!-- 				<br/> -->
+				<pre class="{style.code} prettyprint">/* show how a Widget created with the solution proposed here can be used in a YUIGWT application */
+YUI.Use(new String[] { 
+
+	/* we are responsible of loading all YUI modules required by our UIBinder based widget */	
+	"button", "tabview", "node-menunav"
+	
+	}, new YUICallback() {
+
+	@Override
+	public void ready(final YuiContext Y) {
+
+		/** we will add our widget into body Node */
+		final Node parent = Y.one("body"); 
+		
+		/* create a GWT Widget Panel that wrapps our parent Y.Node */
+		HTMLPanel gwtParent = parent.asHTMLPanel(); 
+		
+		/* instantiate OurUIBinderBasedWidget passing the Y YUIContext object 
+		 * with all required modules loaded. */	
+		OurUIBinderBasedWidget comp1 = new OurUIBinderBasedWidget(Y);
+		
+		gwtParent.add(comp1);		
+	}
+});</pre>
+
+
+
+
+
+
+<h2 id="sec-usingyuiuibinderwidgets-compositingyuiwidget">Widget Composite in plain YUI</h2> 
+
+
+<p>Some YUI Widgets like Panel and TabView may contain other widgets inside, creating a Parent - Children
+relationship. This would be the anallog to the GWT  Panel - Composite Widgets classes. In this section 
+we describe how YUI Widget composition is handled by YUIGWT.</p> 
+
+<p>In fact there is no a lot to say. Again we will only have to reuse YUI plain HTML markup. We just put 
+the widgets inside eachother in the markup, and bind the Elements, that's all. The framework will take 
+care of the rendering all correctly. </p> 
+
+<p>From the point of view f GWT this means that GWT Widget, Composite, HasChildren has nothing to do with 
+this sollution for YUI composition. This composition solution is totally independent from GWT WIdgets. </p> 
+
+<blockquote>When using TabView and Panel in plain JavaScript YUI we have to be careful of first rendering the 
+outter most widgets (childrens) and then the inner mose widgets (the parents), in order. If not some 
+child widgets may not be rendered at all!. Fortunately YUIGWT framework will do this for you 
+automatically so you don't have to worry about this. </blockquote> 
+
+
+<p>In the following example we render 3 levels of Tabviews:</p>
+
+ <uibinderuserguide:SourceCodeViewer testName="NesteWidget1Test" />
+
+
+
+<!-- <h2 id="sec-usingyuiuibinderwidgets-notesabhoutyuicomposition">Some notes about Widget composition in YUI</h2>  -->
+
+
+<!-- <p>In this little section we enumarate some facts about YUI Widget parent-childre composition support.  -->
+<!-- In the YUI Class hierarchy YUI Widgets are Composites when they extend YUI class WidgetParent /  -->
+<!-- WidgetChildren, WidgetStdMod, etc. TODO links.  </p> -->
+
+<!-- <p>In YUIGWT you will find all those APIS like WidgetParent, WidgetChild, etc in class WidgetEWxt, all  -->
+<!-- methods and attributes mixed together in that class.  </p> -->
+
+<!-- <blockquote> -->
+<!-- <p>From the Object Oriented programming point of view YUI uses multiinheritance. For example, Panel  -->
+<!-- extends Widgets and uses WidgetStdMod, etc  TODO: right class naming. This "uses" means Composition vs  -->
+<!-- inheritance. Nevertheless, in the real world, in the "uses" implementation in YUI means mixing the target object  -->
+<!-- method names with the host object 's. For example, using Y.mix() for implementing "uses".  </p> -->
+
+<!-- <p>In YUIGWT this is currently solved using java (single) inheritance only. All Widget extension classes like WidgetChildren, Widgetparent, WidgetStdMod, etc are -->
+<!-- all mixed together in WidgetExt* Java classes. This is kind of a bad desition and it is on the roadmap of YUIGWT to improve this, for example,  -->
+<!-- with something like : </p> -->
+
+<!-- <pre  class="{style.code} prettyprint">public class WidgetStdMod extends Widget {...} -->
+<!-- public class Panel extends Widget { -->
+<!-- public native final WidgetStdModgetWidgetStdMod() /*-{ -->
+<!-- 	 return this;  -->
+<!-- }-*/;</pre> -->
+
+
+<!-- Due to this it is an design desition in YUIGWT  arch desition was to work only with inheritance and in these cases put all the the  -->
+<!-- "Widget uses classes" inside WidgetExt.java. -->
+<!-- For example, Y.mix() is often used for implementing "uses".  -->
+<!-- The method delegation is done copying methods to the this object, sometimes . This can be called composition, but from the Java API modeling point of viw. TODO: redact better.  -->
+
+<!-- </blockquote> -->
+
+
+
+
+
+
+<h2 id="sec-usingyuiuibinderwidgets-uibindercomposition">Widget Composite in YUI+UIBinder</h2> 
+
+<p>A nice UIBinder feature is that it lets us include UIBinder widgets inside out own UIBinder widgets. In this section we will describe how to do this
+with widgets made with YUI+UIBinder</p>
+
+<p>In general it is the same work as with any UIBinder widget. We first have to declare our widget's XML namespace
+in the xml.ui file from with we want to use our widget, and then we can use it using that namespace, just like we use GWT Widgets 
+defining the "g"! namespace like this xmlns:g="urn:import:com.google.gwt.user.client.ui" </p>
+
+<pre class="{style.code} prettyprint">&lt;ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+	xmlns:mywidgets="urn:import:org.sgx.yuigwt.yuitest1.gallery.test.uibinder.userguide">
+
+		....
+	
+		&lt;!-- We include the main menu here, notice how se use the defined XML 
+			namespace "mywidgets"-->
+		&lt;mywidgets:MainMenu ui:field="mainMenu">&lt;/mywidgets:MainMenu>
+		
+		....
+
+&lt;/ui:UiBinder>
+</pre>
+
+<p>In this case the user only need to have extra careful when listing all the required YUI Modules, because
+the list must include he YUI modules required both for the main/root widget and also all its YUI+UIBinder widgets inside. </p>
+
+<p>In the following example we we composte a YUI+UIBinder widget that includes another YUI + UIBinder widget (a menu):  </p>
+
+<uibinderuserguide:SourceCodeViewer testName="UIBinderComposingTest" />
+
+<p>The interesting things here are: </p>
+
+<ul>
+<li><b>Import and include in ui.xml.</b> In this ui.xml file we see how first the widget's class package
+is imported like this: 
+<span class="{style.code}">xmlns:mywidgets="urn:import:org.sgx.yuigwt.yuitest1.gallery.test.uibinder.userguide"</span> in the XML header. And below the widget can be 
+included in any part of the markup using the same namespace "mywidgets" like this
+<span class="{style.code}">&lt;mywidgets:MainMenu ui:field="mainMenu">&lt;/mywidgets:MainMenu></span>
+</li>
+
+<li><b>In the Java Composite use @UiBinder like any common GWT Widget</b>, not like we were doing for YUI widgets @Uibinding Elements. 
+MainMenu is a GWT Widget now and there is no "yui binding" for it. </li>
+
+<li><b>In the Java Composite use a @UiFactory method</b>. Like all the YUI+UIBinder widget we created here, MainMenu Composite 
+class needs to instantiate passing a YuiContext (with all required yui modules loaded) as a parameter in the Constructor. Because UIBinder
+is responsible of this instantiation (while proccessing the ui.xml the markup) we need to tell UIBinder how to instantiate this MainMenu @UiField. 
+We do this using a method anotated with @UiFactory. The method name do not matter, only its return type. When UIBinder needs to instantiate an X type of Widget
+it will do it using the annotated @UiFactory method with X return type.  </li>
+
+<pre class="{style.code} prettyprint">@UiFactory MainMenu makeMainMenu() {
+  return new MainMenu(y);
+}</pre>
+<li></li>
+</ul>
+
+
+	<h1 id="sec-relatednotes">Some Notes</h1>
+
+		<h2 id="sec-relatednotes-mixing">Mixing YUI widgets with GWT Widgets.</h2>
+	
+		<p>UIBinder and GWT widgets are two very related technologies. It is very common that UIBinder 
+markup consists on GWT Widget's instead plain HTML. Here there are some considerations about mixing GWT Widgets inside YUI Widgets and viceversa.</p>
+
+<p>The solution proposed here it is focused more on how to reuse the YUI markup than on making a confortable GWTWidget based solution for using YUI. 
+It is on the roadmap of this solution to support more GTW Widget friendly interfaces, fully compatible with GWT widgets. I think neverteless that the later can be easily done 
+using current solution tools.</p>
+
+		<p>TODO</p>
+		
+		
+		
+		<h2 id="sec-relatednotes-usingCompositeDirectly">Using Composite directly</h2>
+		<p>In this section we explain how to inherith your GWT widgets directly from Composite, instead extending the class YUIBinded. This is useful in some cases where you need more flexibility, for example, 
+		when multiple XML templates apply to the same widget as explained in <a href="#sec-relatednotes-applyDifferentTemplateToTheSameWidget">the following section</a>. </p>
+		
+		<p>In the following example, ...</p>
+		
+		<uibinderuserguide:SourceCodeViewer testName="UsingCompositeDirectlyTest" />
+		
+		
+		
+		
+		<h2 id="sec-relatednotes-applyDifferentTemplateToTheSameWidget">Apply different XML templates to the same widget</h2>
+		<p>In this section we will show an example on how to 
+		<a href="https://developers.google.com/web-toolkit/doc/latest/DevGuideUiBinder#Apply_different_xml">"Apply different XML templates to the same widget"</a>.</p>
+		<p>In general, what we need to do is to extend Composite directly as explained in 
+		<a href="#sec-relatednotes-usingCompositeDirectly">the previous section</a>. </p>
+		
+		<uibinderuserguide:SourceCodeViewer testName="ApplyDifferentXMLTest" />
+		
+		
+		<h2 id="sec-relatednotes-issues">Known Issues</h2>
+		<p>TODO</p>
+		
+		<h2 id="sec-relatednotes-impl">Implementation notes.</h2>
+		<p>TODO</p>
+				
+				
+				
+				
+
+
+
+
+
+
+		<h2 id="sec-relatednotes-yuidevels">For YUI developers...</h2> 
+		
+		<p>This is an idea for a YUI module that do the same we are doing here but in plain Javascript YUI. The main idea is to be able to bind and render 
+		YUI Widgets from YUI HTML Markup using a custom HTML attribute "data-yui"f ro configuring the widget from markup. 
+		 </p>
+		
+		<p>What we are doing in the solution proposed here is binding plain HTML elements with certain YUI Widgets and let a framework do 
+		the job for us of binding and rendering those widgets. This allow us to write the squeleton in HTML, 
+		and let us write Java code only for the behaviour, data loading, etc (do the things that cannot be done on 
+		declarative markup). </p>
+		
+		<p>
+		<!-- A similar framework can be esily developed for plain old JavaScript YUI.  -->
+		Think on some "yuibinder" module capable of binding and rendering 
+		like it is showed in the following example: </p>
+		
+		<pre  class="{style.code} prettyprint">
+&lt;div id="parent">
+  &lt;button data-yui="yuiWidget: 'Button', disabled: true, label: 'click me'">&lt;/button>
+&lt;/div>
+&lt;script>
+YUI().use("button", "yuibinder", function(Y){
+Y.one("#parent").renderYUI(function(yuiBinder){
+  /* founded YUI Widgets rendered, now uses the binding for obtaining the 
+   * YUI Widget object from a Node for working (register event handler) : */
+  var yuiButton = yuiBinder.getWidget(Y.one("#parent>button")); 
+  yuiButton.on("click", function(){alert("clicked"); })
+}); 
+}); 
+&lt;/script>
+		</pre>
+		
+		<p>As you can see I "defined" the YUI Button in the markup, not in the js code. Once I have loaded all required YUI modules, 
+		first I ask the framework to render all the yui declared elements  (renderYUI()) For further behavior or data loading I then 
+		ask the framework to get the YUI Button object associated with a certain node (yuiBinder.getWidget()).  </p>
+		
+		<p>Also notice the Widget configuration can be defined in the markup too (disabled: true). I think even function callbacks can be passed..</p>
+		 
+		<p>Perhaps some YUI comunity member can develop something like this... maybe myself with more time... for those, i tell, 
+		in my YUIGWT solution the only problem I had to solve is that for composite widgets like Panel and 
+		TabView, first its childrens must be rendered and then theirselfs. If you have a parent-children 
+		hierarchy then you must first render() the outter childrens and then render the inner ones. I do this 
+		manually in my renderization method. automatic module loading is a TODO.</p>
+
+				
+				
+				
+				
+				
+				
+				</div>
+				
+				
+		
+	<uibinderuserguide:AvailableYUIWidgets/>
+	
+	
+			</div>
+		</div>
+		<!-- </div> -->
+	</g:HTMLPanel>
+</ui:UiBinder>
+
